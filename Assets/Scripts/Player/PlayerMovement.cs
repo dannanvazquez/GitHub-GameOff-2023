@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private Animator animator;
 
     private CharacterController characterController;
-
+private bool isJumping = false;
     [Header("Settings")]
     [Tooltip("How fast the player walks.")]
     public float walkingSpeed = 7.5f;
@@ -24,18 +24,21 @@ public class PlayerMovement : MonoBehaviour {
         characterController = GetComponent<CharacterController>();
     }
 
-    private void Update() {
-        // Retrieve player inputs
-        receivedInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+private void Update() {
+    // Retrieve player inputs
+    receivedInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
-        if (characterController.isGrounded) {
-            if (Input.GetButton("Jump") && canMove && Time.timeScale != 0) {
-                animator.SetTrigger("Jump");
-                moveDirection.y = jumpSpeed;
-            } else {
-                moveDirection.y = 0;
-            }
+    if (characterController.isGrounded) {
+        if (Input.GetButtonDown("Jump") && canMove && Time.timeScale != 0 && !isJumping) {
+            isJumping = true;
+            animator.SetTrigger("Jump");
+            moveDirection.y = jumpSpeed;
+        } else {
+            moveDirection.y = 0;
         }
+    } else {
+        isJumping = false; // Reset the jump flag when the player is not grounded
+    }
 
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);

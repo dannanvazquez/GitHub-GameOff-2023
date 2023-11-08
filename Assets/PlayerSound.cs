@@ -18,9 +18,16 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioClip[] player_hit_voice;
     [SerializeField] private AudioClip[] player_hit_sfx;
 
+    [Header("Footsteps")]       
+    [SerializeField] private AudioClip[] grassFS_sfx;
+    [SerializeField] private AudioClip[] concreteFS_sfx;  
+    [SerializeField] private AudioClip[] woodFS_sfx;  
+
     [Header("AudioSources")]    
     [SerializeField] private AudioSource AudioSource_Voice;
     [SerializeField] private AudioSource AudioSource_SFX;
+    [SerializeField] private AudioSource AudioSource_FS;
+
 
     // Prevent the same audioclip to be played twice in a row
     private AudioClip lastAttackVoiceClip;
@@ -32,7 +39,13 @@ public class PlayerSound : MonoBehaviour
     private AudioClip lastHitVoiceClip;
     private AudioClip lastHitSFXClip;
 
-
+enum FSMaterial
+{
+    Grass,
+    Concrete,
+    Wood,
+    Empty
+}
     private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
     {
         if (clips.Length > 0)
@@ -74,4 +87,34 @@ public class PlayerSound : MonoBehaviour
     }
 
 
+private FSMaterial SurfaceSelect()
+{
+    RaycastHit hit;
+    Ray ray = new Ray(transform.position + Vector3.up * 0.5f, -Vector3.up);
+    Material surfaceMaterial;
+
+    if (Physics.Raycast(ray, out hit, 1.0f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
+    {
+        Renderer surfaceRenderer = hit.collider.GetComponentInChildren<Renderer>();
+        if (surfaceRenderer)
+        {
+            surfaceMaterial = surfaceRenderer.sharedMaterial;
+            if (surfaceMaterial.name.Contains("Grass"))
+            {
+                return FSMaterial.Grass;
+            }
+            else if (surfaceMaterial.name.Contains("Concrete"))
+            {
+                return FSMaterial.Concrete;
+            }
+            else if (surfaceMaterial.name.Contains("Wood"))
+            {
+                return FSMaterial.Wood;
+            }
+        }
+    }
+
+    // Return a default material if none of the specified materials are found
+    return FSMaterial.Empty;
+}
 }

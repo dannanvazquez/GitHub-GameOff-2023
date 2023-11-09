@@ -31,7 +31,7 @@ public class CheckTargetInFOVRange : BT_Node {
                     }
                 }
             }
-            parent.parent.SetData("target", colliders[closestCollider].transform);
+            parent.parent.SetData("target", colliders[closestCollider].transform.root);
             //animator.SetBool("Walking", true);
 
             state = NodeState.SUCCESS;

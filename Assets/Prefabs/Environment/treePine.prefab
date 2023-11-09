@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 109269170333235448}
   - component: {fileID: 2755747105761878970}
   - component: {fileID: 4721634835791558637}
+  - component: {fileID: 4412397778512525548}
   m_Layer: 0
   m_Name: treePine
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -507940694221676938, guid: 66324c70c135f424e96d7f62b52ece96, type: 3}
+  - {fileID: 2100000, guid: 44f5c46f9bc6d4c4a9000eeac35bd472, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4412397778512525548
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5635514246268717273}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.013674196, y: 0.16077624, z: 0.012266641}
+  m_Center: {x: -0.0002469263, y: 0.080385864, z: -0.0004327018}

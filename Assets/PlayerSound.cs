@@ -18,10 +18,20 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioClip[] player_hit_voice;
     [SerializeField] private AudioClip[] player_hit_sfx;
 
-    [Header("Footsteps")]       
-    [SerializeField] private AudioClip[] grassFS_sfx;
-    [SerializeField] private AudioClip[] concreteFS_sfx;  
-    [SerializeField] private AudioClip[] woodFS_sfx;  
+    [Header("Footsteps")] 
+    [Tooltip("Walking grass footsteps sounds")]        
+    [SerializeField] private AudioClip[] grassWalkingLeftFS_sfx;
+    [SerializeField] private AudioClip[] grassWalkingRightFS_sfx;
+    [Tooltip("Running grass footsteps sounds")]   
+    [SerializeField] private AudioClip[] grassRunningLeftFS_sfx;
+    [SerializeField] private AudioClip[] grassRunningRightFS_sfx;
+
+    [SerializeField] private AudioClip[] leftConcreteFS_sfx;
+    [SerializeField] private AudioClip[] rightConcreteFS_sfx;
+
+    [SerializeField] private AudioClip[] leftWoodFS_sfx;
+    [SerializeField] private AudioClip[] rightWoodFS_sfx;
+
 
     [Header("AudioSources")]    
     [SerializeField] private AudioSource AudioSource_Voice;
@@ -40,6 +50,12 @@ public class PlayerSound : MonoBehaviour
     private AudioClip lastHitSFXClip;
     private int lastFootstepIndex = -1;
 
+    // Alternate between left and right sfx for footsteps + walking/running bool
+    private bool playLeftFootstep;
+    private bool playRightFootstep;
+    private bool isRunning;
+
+    // Ground materials
     enum FSMaterial
     {
     Grass,
@@ -89,6 +105,58 @@ public class PlayerSound : MonoBehaviour
     }
 
 
+void Update(){
+    // Detect player input for running
+    isRunning = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        // Check if left footstep flag is set and play left footstep
+        if (playLeftFootstep)
+        {
+            // Check if the player is running and call the appropriate method
+            if (isRunning)
+            {
+                PlayRunningFootstep(true);
+            }
+            else
+            {
+                PlayWalkingFootstep(true);
+            }
+            playLeftFootstep = false;
+        }
+
+        // Check if right footstep flag is set and play right footstep
+        if (playRightFootstep)
+        {
+            // Check if the player is running and call the appropriate method
+            if (isRunning)
+            {
+                PlayRunningFootstep(false);
+            }
+            else
+            {
+                PlayWalkingFootstep(false);
+            }
+            playRightFootstep = false;
+        }
+}
+
+    // Animation event callback with no parameters -> functions to put in the animator for playing the appropriate sounds for walking/running footsteps
+    void SetLeftFootstepFlag()
+    {
+        playLeftFootstep = true;
+    }
+    void SetRightFootstepFlag()
+    {
+        playRightFootstep = true;
+    }
+    void SetLeftFootstepFlagRunning()
+    {
+        playLeftFootstep = true;
+    }
+    void SetRightFootstepFlagRunning()
+    {
+        playRightFootstep = true;
+    }
+
 private FSMaterial SurfaceSelect()
 {
     RaycastHit hit;
@@ -120,7 +188,7 @@ private FSMaterial SurfaceSelect()
     return FSMaterial.Empty;
 }
 
- void PlayFootstep()
+void PlayWalkingFootstep(bool isLeftFoot)
 {
     AudioClip clip;
     FSMaterial surface = SurfaceSelect();
@@ -128,30 +196,71 @@ private FSMaterial SurfaceSelect()
     switch (surface)
     {
         case FSMaterial.Grass:
-            clip = grassFS_sfx[RandomExcept(lastFootstepIndex, grassFS_sfx.Length)];
+            clip = isLeftFoot ? grassWalkingLeftFS_sfx[RandomExcept(lastFootstepIndex, grassWalkingLeftFS_sfx.Length)]
+                              : grassWalkingRightFS_sfx[RandomExcept(lastFootstepIndex, grassWalkingRightFS_sfx.Length)];
             break;
         case FSMaterial.Concrete:
-            clip = concreteFS_sfx[RandomExcept(lastFootstepIndex, concreteFS_sfx.Length)];
+            clip = isLeftFoot ? leftConcreteFS_sfx[RandomExcept(lastFootstepIndex, leftConcreteFS_sfx.Length)]
+                              : rightConcreteFS_sfx[RandomExcept(lastFootstepIndex, rightConcreteFS_sfx.Length)];
             break;
         case FSMaterial.Wood:
-            clip = woodFS_sfx[RandomExcept(lastFootstepIndex, woodFS_sfx.Length)];
+            clip = isLeftFoot ? leftWoodFS_sfx[RandomExcept(lastFootstepIndex, leftWoodFS_sfx.Length)]
+                              : rightWoodFS_sfx[RandomExcept(lastFootstepIndex, rightWoodFS_sfx.Length)];
             break;
         case FSMaterial.Empty:
         default:
             // Default to grass footstep sound if no specific material is detected
-            clip = grassFS_sfx[RandomExcept(lastFootstepIndex, grassFS_sfx.Length)];
+            clip = isLeftFoot ? grassWalkingLeftFS_sfx[RandomExcept(lastFootstepIndex, grassWalkingLeftFS_sfx.Length)]
+                              : grassWalkingRightFS_sfx[RandomExcept(lastFootstepIndex, grassWalkingRightFS_sfx.Length)];
             break;
     }
 
     // Update lastFootstepIndex with the index of the current footstep sound
-    lastFootstepIndex = Array.IndexOf(grassFS_sfx, clip);
-
+    lastFootstepIndex = isLeftFoot ? Array.IndexOf(grassWalkingLeftFS_sfx, clip) : Array.IndexOf(grassWalkingRightFS_sfx, clip);
     // Play the footstep sound
     AudioSource_FS.clip = clip;
-    AudioSource_FS.volume = UnityEngine.Random.Range(0.4f, 0.45f);
+    AudioSource_FS.volume = UnityEngine.Random.Range(0.2f, 0.23f);
     AudioSource_FS.pitch = UnityEngine.Random.Range(1f, 1.2f);
     AudioSource_FS.Play();
 }
+
+void PlayRunningFootstep(bool isLeftFoot)
+{
+    AudioClip clip;
+    FSMaterial surface = SurfaceSelect();
+
+    switch (surface)
+    {
+        case FSMaterial.Grass:
+            clip = isLeftFoot ? grassRunningLeftFS_sfx[RandomExcept(lastFootstepIndex, grassRunningLeftFS_sfx.Length)]
+                              : grassRunningRightFS_sfx[RandomExcept(lastFootstepIndex, grassRunningRightFS_sfx.Length)];
+            break;
+        case FSMaterial.Concrete:
+            clip = isLeftFoot ? leftConcreteFS_sfx[RandomExcept(lastFootstepIndex, leftConcreteFS_sfx.Length)]
+                              : rightConcreteFS_sfx[RandomExcept(lastFootstepIndex, rightConcreteFS_sfx.Length)];
+            break;
+        case FSMaterial.Wood:
+            clip = isLeftFoot ? leftWoodFS_sfx[RandomExcept(lastFootstepIndex, leftWoodFS_sfx.Length)]
+                              : rightWoodFS_sfx[RandomExcept(lastFootstepIndex, rightWoodFS_sfx.Length)];
+            break;
+        case FSMaterial.Empty:
+        default:
+            // Default to grass footstep sound if no specific material is detected
+            clip = isLeftFoot ? grassRunningLeftFS_sfx[RandomExcept(lastFootstepIndex, grassRunningLeftFS_sfx.Length)]
+                              : grassRunningRightFS_sfx[RandomExcept(lastFootstepIndex, grassRunningRightFS_sfx.Length)];
+            break;
+    }
+
+    // Update lastFootstepIndex with the index of the current footstep sound
+    lastFootstepIndex = isLeftFoot ? Array.IndexOf(grassRunningLeftFS_sfx, clip) : Array.IndexOf(grassRunningRightFS_sfx, clip);
+
+    // Play the footstep sound
+    AudioSource_FS.clip = clip;
+    AudioSource_FS.volume = UnityEngine.Random.Range(0.2f, 0.23f);
+    AudioSource_FS.pitch = UnityEngine.Random.Range(1f, 1.2f);
+    AudioSource_FS.Play();
+}
+
 
 int RandomExcept(int except, int max)
 {

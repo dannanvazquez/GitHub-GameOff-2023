@@ -156,22 +156,40 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0f2c2c62e21682044b9757f8955e5fcc, type: 3}
   - {fileID: 8300000, guid: 9680db70f8ec62347bafc1b5f78b0cf7, type: 3}
   player_hit_sfx: []
-  grassFS_sfx:
-  - {fileID: 8300000, guid: 87b25059a0048a349a8b16725ff022e8, type: 3}
-  - {fileID: 8300000, guid: 16111a6a3d9453d41b65656e39eaad4c, type: 3}
-  - {fileID: 8300000, guid: 3b5609f61f1b15c43a2150328c776a57, type: 3}
-  - {fileID: 8300000, guid: bd8432acb7943144bba605471f4a64ee, type: 3}
-  concreteFS_sfx:
-  - {fileID: 8300000, guid: a95f5aad8246abc4c86758140f2bff5b, type: 3}
-  - {fileID: 8300000, guid: 926393d4091651546b1339e8a471d4c2, type: 3}
-  - {fileID: 8300000, guid: e11d44279cc55f040855704d2c59ed94, type: 3}
-  - {fileID: 8300000, guid: cc2d15a3755438446878eb542dfd0c3a, type: 3}
-  woodFS_sfx:
-  - {fileID: 8300000, guid: 686598996ead5a34b9e4e019439f1d82, type: 3}
-  - {fileID: 8300000, guid: 42078c1512e56ed41939f96601c088f1, type: 3}
-  - {fileID: 8300000, guid: 6c5d5e645ee18aa48b50094b08cc0baa, type: 3}
-  - {fileID: 8300000, guid: 29dd0c266ac8f7e42937d40706059fa1, type: 3}
-  - {fileID: 8300000, guid: 5b333a808ae21f9439494cafff1ea063, type: 3}
+  grassWalkingLeftFS_sfx:
+  - {fileID: 8300000, guid: d55867354a87413449274e3e32e19834, type: 3}
+  - {fileID: 8300000, guid: 3fc3d284b8f21524eb9311e4a38d782e, type: 3}
+  - {fileID: 8300000, guid: 4f7978f3c0db0c54b9e03c77019ef623, type: 3}
+  - {fileID: 8300000, guid: bd5c4b6eedf8a2446868b2bd19360f1e, type: 3}
+  - {fileID: 8300000, guid: 17bf1cad503631e4c848f3037a89e0de, type: 3}
+  - {fileID: 8300000, guid: 4479f59c9d3656d48850ba34e748f913, type: 3}
+  - {fileID: 8300000, guid: e81c6bdb86bbeca418481eaf4da3abe1, type: 3}
+  - {fileID: 8300000, guid: eea44e5e2aed1ee40aee16fb6ba617db, type: 3}
+  - {fileID: 8300000, guid: bb04df444b5fc5c4ba4b0f05ad8d2105, type: 3}
+  grassWalkingRightFS_sfx:
+  - {fileID: 8300000, guid: fe6cd7377317ca9479ef1574fc6efe95, type: 3}
+  - {fileID: 8300000, guid: 0c15112831bedc2489a71712aeb7c923, type: 3}
+  - {fileID: 8300000, guid: d37297fcca0aedf4bb9df107742d03be, type: 3}
+  - {fileID: 8300000, guid: 09a7e2680583fc8429dda0a0a0a064f4, type: 3}
+  - {fileID: 8300000, guid: 0dd462ae5dc326a4eb85c6a38dfdb110, type: 3}
+  - {fileID: 8300000, guid: fa3634ab41d92794cb8bb3a24bd2ebd5, type: 3}
+  - {fileID: 8300000, guid: bc8965d7cf9db8d4982e18c15a5e749e, type: 3}
+  - {fileID: 8300000, guid: aa930ddc7c6bda242a25faf885500c24, type: 3}
+  grassRunningLeftFS_sfx:
+  - {fileID: 8300000, guid: 28518229f4f17c343b20408ee1041434, type: 3}
+  - {fileID: 8300000, guid: e7abc22146c37ef45b401a8037c707c8, type: 3}
+  - {fileID: 8300000, guid: dfb271be3eb64d544bd259c14c56c347, type: 3}
+  - {fileID: 8300000, guid: 9ace9990d3993fb43bbd41477ecd5195, type: 3}
+  - {fileID: 8300000, guid: 8f4210986398344498b23c721b2e5c95, type: 3}
+  grassRunningRightFS_sfx:
+  - {fileID: 8300000, guid: d2d49d5b658f5f24aa969979eff3c7b0, type: 3}
+  - {fileID: 8300000, guid: 4ade9c272ddbd6c46a743386d7496b2a, type: 3}
+  - {fileID: 8300000, guid: 6b1cfca919a5c864f9ef0d00c387337e, type: 3}
+  - {fileID: 8300000, guid: 862ffd31ff65f344caaf82ff899edd43, type: 3}
+  leftConcreteFS_sfx: []
+  rightConcreteFS_sfx: []
+  leftWoodFS_sfx: []
+  rightWoodFS_sfx: []
   AudioSource_Voice: {fileID: 5540192780545649378}
   AudioSource_SFX: {fileID: 1281823740922187995}
   AudioSource_FS: {fileID: 6271278161319263400}
@@ -541,7 +559,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.22
   m_Pitch: 1
   Loop: 0
   Mute: 0

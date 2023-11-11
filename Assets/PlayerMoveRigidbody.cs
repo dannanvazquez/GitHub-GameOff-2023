@@ -12,7 +12,7 @@ public class PlayerMoveRigidbody : MonoBehaviour
 
     private float speed = 300f;
     private float rotationSpeed = 200f;
-    private float quickRotationSpeed = 300f;
+    private float quickRotationSpeed = 400f;
 
     private float jumpForce = 200f;
 

@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_ChildAlignment: 3
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 140, y: 140}
-  m_Spacing: {x: 20, y: 0}
+  m_CellSize: {x: 128, y: 149}
+  m_Spacing: {x: -27.8, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1001 &463435533926027530
@@ -117,6 +117,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Button (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2485570854478858930, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3da71fde5cc6b1a409b9e64b412163f7,
+        type: 3}
     - target: {fileID: 5045403560572049615, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
       propertyPath: m_Pivot.x
@@ -216,6 +222,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7408854793113143855, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
@@ -281,6 +297,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2485570854478858930, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bbc5d85957b279b4cbdacf0bf3e32f31,
+        type: 3}
     - target: {fileID: 5045403560572049615, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
       propertyPath: m_Pivot.x
@@ -380,6 +402,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 149
       objectReference: {fileID: 0}
     - target: {fileID: 7408854793113143855, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
@@ -445,6 +477,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Button
       objectReference: {fileID: 0}
+    - target: {fileID: 2485570854478858930, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb25b831bd8cc3746841c4123b0d04b7,
+        type: 3}
     - target: {fileID: 5045403560572049615, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
       propertyPath: m_Pivot.x
@@ -544,6 +582,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685155639403691725, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 149
       objectReference: {fileID: 0}
     - target: {fileID: 7408854793113143855, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
@@ -599,6 +652,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Item_Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2485570854478858930, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b04a0bcd1d016d1469e6688fe71363fb,
+        type: 3}
     - target: {fileID: 5045403560572049615, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}
       propertyPath: m_Pivot.x
@@ -698,6 +757,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6606227266837791836, guid: a88ed2a43dc414c69b8fc097fbfed877,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 149
       objectReference: {fileID: 0}
     - target: {fileID: 7408854793113143855, guid: a88ed2a43dc414c69b8fc097fbfed877,
         type: 3}

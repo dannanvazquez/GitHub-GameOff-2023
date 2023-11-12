@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.08040227, g: 0.09979335, b: 0.3011908, a: 1}
+  m_IndirectSpecularColor: {r: 0.08051441, g: 0.09988873, b: 0.30114883, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6430,6 +6430,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 109340404}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1233674024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6159965310942272511, guid: f557d3d815ef345cab8e304c66bbf8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1034168035}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1243231539
 GameObject:
   m_ObjectHideFlags: 0
@@ -7377,6 +7389,18 @@ Transform:
   - {fileID: 1687991188}
   m_Father: {fileID: 818412922}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1551387713 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4278068617863118729, guid: f557d3d815ef345cab8e304c66bbf8db,
+    type: 3}
+  m_PrefabInstance: {fileID: 3875833781210936336}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1554929688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8696,6 +8720,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -279
       objectReference: {fileID: 0}
+    - target: {fileID: 6468682800310787167, guid: 3675f9cd375fa8047a38944fa4308063,
+        type: 3}
+      propertyPath: _healthBarForegroundImage
+      value: 
+      objectReference: {fileID: 1551387713}
+    - target: {fileID: 6468682800310787167, guid: 3675f9cd375fa8047a38944fa4308063,
+        type: 3}
+      propertyPath: _staminaBarForegroundImage
+      value: 
+      objectReference: {fileID: 1233674024}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13312,7 +13346,8 @@ PrefabInstance:
       value: 64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1355689263255983868, guid: f557d3d815ef345cab8e304c66bbf8db, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f557d3d815ef345cab8e304c66bbf8db, type: 3}

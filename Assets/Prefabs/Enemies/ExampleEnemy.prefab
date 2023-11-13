@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3672057333177364282}
   - component: {fileID: 8834630677052663860}
   - component: {fileID: 7472214706736553500}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,10 @@ GameObject:
   m_Component:
   - component: {fileID: 362246819792707507}
   - component: {fileID: 1613575116870268478}
+  - component: {fileID: 6882532673052746826}
   - component: {fileID: 4138500974328481772}
   - component: {fileID: 3437190983652888307}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ExampleEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +159,19 @@ MonoBehaviour:
   fovRange: 10
   attackRange: 2
   attackDamage: 5
+--- !u!114 &6882532673052746826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6498506397066811742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d223c587f2303459342b4bfca524bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!114 &4138500974328481772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +218,7 @@ GameObject:
   - component: {fileID: 4489930955974193259}
   - component: {fileID: 430542222957940438}
   - component: {fileID: 2431660237127409198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -311,7 +325,7 @@ GameObject:
   - component: {fileID: 5705081285941625732}
   - component: {fileID: 91268569071315962}
   - component: {fileID: 398962193762717334}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

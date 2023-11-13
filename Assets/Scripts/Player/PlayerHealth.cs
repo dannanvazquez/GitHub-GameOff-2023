@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-    private float maxHealth = 1.0f;
+    private float maxHealth = 100.0f;
     private float maxStamina = 1.0f;
 
 
@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour {
     private UnityEngine.UI.Image _staminaBarForegroundImage;
 
     private void Awake() {
-        currentHealth = 0.7f;
+        currentHealth = maxHealth * 0.7f;
         currentStamina = 0.7f;
     }
 
@@ -57,10 +57,10 @@ public class PlayerHealth : MonoBehaviour {
 
     private void UpdateHealthAndStamina()
     {
-        if (_healthBarForegroundImage.fillAmount != currentHealth)
+        if (_healthBarForegroundImage && _healthBarForegroundImage.fillAmount != currentHealth)
             _healthBarForegroundImage.fillAmount = currentHealth;
 
-        if (_staminaBarForegroundImage.fillAmount != currentStamina)
+        if (_staminaBarForegroundImage && _staminaBarForegroundImage.fillAmount != currentStamina)
             _staminaBarForegroundImage.fillAmount = currentStamina;
     }
 }

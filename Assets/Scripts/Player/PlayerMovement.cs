@@ -116,10 +116,5 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsFalling", rb.velocity.y < 0.01f);
         animator.SetBool("IsRunning", isRunning);
-
-        // TODO: Move this to a combat script
-        if (Input.GetButtonDown("Fire2")) animator.SetTrigger("Aim");
-        animator.SetBool("IsAiming", Input.GetButton("Fire2"));
-        if (Input.GetButtonDown("Fire1")) animator.SetTrigger("Shoot");
     }
 }

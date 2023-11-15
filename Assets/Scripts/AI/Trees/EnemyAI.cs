@@ -6,6 +6,8 @@ public class EnemyAI : MonoBehaviour {
     [Header("General Enemy References")]
     [SerializeField] protected Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
+    [SerializeField] protected ParticleSystem specialAttackParticles;
+    [SerializeField] protected SpecialAttackBase specialAttack;
 
     [Header("General Enemy Settings")]
     [Tooltip("The distance from the player before this enemy starts chasing.")]
@@ -22,8 +24,11 @@ public class EnemyAI : MonoBehaviour {
     protected Animator animator;
     protected PlayerHealth playerHealth;
 
-    [HideInInspector] public bool isAttacking;
-    [HideInInspector] public float lastTimeAttacked;
+    [HideInInspector] public bool isBasicAttacking;
+    [HideInInspector] public float lastTimeBasicAttacked;
+
+    [HideInInspector] public bool isSpecialAttacking;
+    [HideInInspector] public float lastTimeSpecialAttacked;
 
     protected Node root;
 
@@ -33,7 +38,8 @@ public class EnemyAI : MonoBehaviour {
         health = GetComponent<EnemyHealth>();
         animator = GetComponent<Animator>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
-        lastTimeAttacked -= basicAttackCooldown;
+        lastTimeBasicAttacked -= basicAttackCooldown;
+        lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
@@ -63,11 +69,19 @@ public class EnemyAI : MonoBehaviour {
         agent.isStopped = true;
     }
 
-    public void DoneAttacking() {
-        isAttacking = false;
+    public void DoneBasicAttacking() {
+        isBasicAttacking = false;
     }
 
     public void BasicAttackParticles() {
         basicAttackParticles?.Play();
+    }
+
+    public void DoneSpecialAttacking() {
+        isSpecialAttacking = false;
+    }
+
+    public void SpecialAttackParticles() {
+        specialAttackParticles?.Play();
     }
 }

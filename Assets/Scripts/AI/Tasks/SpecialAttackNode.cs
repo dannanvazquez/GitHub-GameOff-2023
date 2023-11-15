@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class MeleeNode : Node {
+public class SpecialAttackNode : Node {
     private Animator animator;
     private NavMeshAgent agent;
     private EnemyAI ai;
     private OffCooldownNode offCooldownNode;
 
-    public MeleeNode(Animator animator, NavMeshAgent agent, EnemyAI ai, OffCooldownNode offCooldownNode) {
+    public SpecialAttackNode(Animator animator, NavMeshAgent agent, EnemyAI ai, OffCooldownNode offCooldownNode) {
         this.animator = animator;
         this.agent = agent;
         this.ai = ai;
@@ -15,9 +15,9 @@ public class MeleeNode : Node {
     }
 
     public override NodeState Evaluate() {
-        animator.SetTrigger("Melee");
+        animator.SetTrigger("SpecialAttack");
         agent.isStopped = true;
-        ai.isBasicAttacking = true;
+        ai.isSpecialAttacking = true;
         offCooldownNode.lastTimeUsed = Time.time;
 
         _nodeState = NodeState.RUNNING;

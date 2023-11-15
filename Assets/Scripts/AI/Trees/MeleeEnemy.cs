@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class MeleeEnemy : EnemyAI {
     [Header("Melee Enemy Settings")]
@@ -8,14 +7,23 @@ public class MeleeEnemy : EnemyAI {
     [SerializeField] private float meleeDistance;
 
     public override void ConstructBehaviorTree() {
+        OffCooldownNode specialAttackCooldownNode = new OffCooldownNode(this, specialAttack.specialAttackCooldown);
+        OffCooldownNode meleeCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
+
         root = new Selector(new List<Node> {
+            new IsAttackingNode(this),
             new Sequence(new List<Node> {
-                new OffCooldownNode(this, basicAttackCooldown),
-                new RangeNode(basicAttackRange, playerTransform, transform),
-                new MeleeNode(animator, agent, this, playerTransform.GetComponent<PlayerHealth>())
+                specialAttackCooldownNode,
+                new RangeNode(specialAttack.specialAttackRange, playerTransform, transform),
+                new Inverter(new RangeNode(8f, playerTransform, transform)),
+                new SpecialAttackNode(animator, agent, this, specialAttackCooldownNode)
             }),
             new Sequence(new List<Node> {
-                new Inverter(new IsAttackingNode(this)),
+                meleeCooldownNode,
+                new RangeNode(basicAttackRange, playerTransform, transform),
+                new MeleeNode(animator, agent, this, meleeCooldownNode)
+            }),
+            new Sequence(new List<Node> {
                 new RangeNode(chasingRange, playerTransform, transform),
                 new ChaseNode(animator, playerTransform, agent)
             })
@@ -26,5 +34,9 @@ public class MeleeEnemy : EnemyAI {
         if (Vector3.Distance(transform.position, playerTransform.position) <= meleeDistance) {
             playerHealth.TakeDamage(basicAttackDamage);
         }
+    }
+
+    public void SpecialAttack() {
+        specialAttack.PerformSpecialAttack();
     }
 }

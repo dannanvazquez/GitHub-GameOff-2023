@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour {
     [Header("Settings")]
@@ -17,6 +18,7 @@ public class EnemyHealth : MonoBehaviour {
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
             Destroy(GetComponent<EnemyAI>());
+            GetComponent<NavMeshAgent>().isStopped = true;
             GetComponent<Animator>().SetTrigger("Death");
             return true;
         }

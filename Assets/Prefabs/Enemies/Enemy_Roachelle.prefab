@@ -566,6 +566,40 @@ Transform:
   - {fileID: 5306546291954036191}
   m_Father: {fileID: 964776084815588123}
   m_LocalEulerAnglesHint: {x: 7.8652277, y: -4.5291224, z: -74.98802}
+--- !u!1 &2551841422084728372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3508801818078379036}
+  m_Layer: 7
+  m_Name: Bread Spawn Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3508801818078379036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2551841422084728372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8769684027155264557}
+  - {fileID: 8717563759977871663}
+  - {fileID: 5327885062178163260}
+  m_Father: {fileID: 428229113455153417}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2876800360357327672
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,6 +664,37 @@ Transform:
   - {fileID: 7193375643515085778}
   m_Father: {fileID: 4214963462788317475}
   m_LocalEulerAnglesHint: {x: -11.436332, y: 29.9389, z: -115.48219}
+--- !u!1 &3118452061560149245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8717563759977871663}
+  m_Layer: 7
+  m_Name: Bread Spawn Point (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8717563759977871663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3118452061560149245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.4, y: 1.25, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3508801818078379036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3275217925095571888
 GameObject:
   m_ObjectHideFlags: 0
@@ -725,6 +790,37 @@ Transform:
   - {fileID: 3087859079458116774}
   m_Father: {fileID: 5955089262268233375}
   m_LocalEulerAnglesHint: {x: -7.0538297, y: -20.656551, z: 31.282879}
+--- !u!1 &3988428727484954691
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8769684027155264557}
+  m_Layer: 7
+  m_Name: Bread Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8769684027155264557
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988428727484954691}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3508801818078379036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4028994409527095968
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,6 +1011,37 @@ Transform:
   - {fileID: 5833814542357565922}
   m_Father: {fileID: 3251002643212154880}
   m_LocalEulerAnglesHint: {x: 28.095688, y: -4.0636168, z: 2.4725533}
+--- !u!1 &6313885466679141313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5327885062178163260}
+  m_Layer: 7
+  m_Name: Bread Spawn Point (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5327885062178163260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313885466679141313}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3, y: 1.1, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3508801818078379036}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6384203878659055787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1521,6 +1648,7 @@ Transform:
   - {fileID: 4214963462788317475}
   - {fileID: 7713784545873838992}
   - {fileID: 5192609916977711088}
+  - {fileID: 3508801818078379036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2196472560124299015
@@ -1537,12 +1665,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
+  specialAttackParticles: {fileID: 0}
+  specialAttack: {fileID: 0}
   chasingRange: 30
   basicAttackRange: 5
   basicAttackCooldown: 5
   basicAttackDamage: 10
-  isAttacking: 0
-  lastTimeAttacked: 0
+  isBasicAttacking: 0
+  lastTimeBasicAttacked: 0
+  isSpecialAttacking: 0
+  lastTimeSpecialAttacked: 0
   meleeDistance: 6
 --- !u!114 &2657148260055875351
 MonoBehaviour:

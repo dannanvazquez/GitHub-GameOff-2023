@@ -2452,7 +2452,6 @@ GameObject:
   m_Component:
   - component: {fileID: 428229113455153417}
   - component: {fileID: 2196472560124299015}
-  - component: {fileID: 3775036737449867330}
   - component: {fileID: 2699147665323994238}
   - component: {fileID: 2657148260055875351}
   - component: {fileID: 4662868641683325036}
@@ -2503,7 +2502,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
   specialAttackParticles: {fileID: 5192609916977711094}
-  specialAttack: {fileID: 3775036737449867330}
+  specialAttack: {fileID: 2699147665323994238}
   chasingRange: 30
   basicAttackRange: 5
   basicAttackCooldown: 5
@@ -2513,52 +2512,6 @@ MonoBehaviour:
   isSpecialAttacking: 0
   lastTimeSpecialAttacked: 0
   meleeDistance: 6
---- !u!114 &3775036737449867330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664182453759271245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33dd609e18511a468f6027ce04d4b34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialAttackRange: 25
-  specialAttackCooldown: 15
-  specialAttackDamage: 20
-  breadSpawnPointTransforms:
-  - {fileID: 8769684027155264557}
-  - {fileID: 8717563759977871663}
-  - {fileID: 5327885062178163260}
-  breadPrefab: {fileID: 4186378663058126894, guid: 2d41eec1da3b2f84ea225fb5f31a19fb,
-    type: 3}
-  playerTransform: {fileID: 0}
-  AudioSource_Breadspawn: {fileID: 7391264243744426539}
-  AudioSource_rangeattack: {fileID: 6489977672479474064}
-  spawnbread_sfx:
-  - {fileID: 8300000, guid: 1baea72403ea876459983e5b5bfbc595, type: 3}
-  - {fileID: 8300000, guid: 3d149a91bf764924c8d837bc5542eb81, type: 3}
-  - {fileID: 8300000, guid: 417351f34f20ca04f839036854db9857, type: 3}
-  - {fileID: 8300000, guid: 541e8cc646279fc43b2351be11ecc652, type: 3}
-  - {fileID: 8300000, guid: 1d89381781f2b3d4ea7cdcd2662bc2a7, type: 3}
-  - {fileID: 8300000, guid: 4034e7eee9fb95d469fe01185dde4471, type: 3}
-  - {fileID: 8300000, guid: 1f425d27b3ff8bf4ab8bf6ad7182fa82, type: 3}
-  throwbread_sfx:
-  - {fileID: 8300000, guid: 1baea72403ea876459983e5b5bfbc595, type: 3}
-  - {fileID: 8300000, guid: 3d149a91bf764924c8d837bc5542eb81, type: 3}
-  - {fileID: 8300000, guid: 417351f34f20ca04f839036854db9857, type: 3}
-  - {fileID: 8300000, guid: 541e8cc646279fc43b2351be11ecc652, type: 3}
-  - {fileID: 8300000, guid: 1d89381781f2b3d4ea7cdcd2662bc2a7, type: 3}
-  - {fileID: 8300000, guid: 4034e7eee9fb95d469fe01185dde4471, type: 3}
-  - {fileID: 8300000, guid: 1f425d27b3ff8bf4ab8bf6ad7182fa82, type: 3}
-  rangeattack_sfx:
-  - {fileID: 8300000, guid: 615461dbe603f6343b54ba3dcbcac47e, type: 3}
-  - {fileID: 8300000, guid: 615461dbe603f6343b54ba3dcbcac47e, type: 3}
-  throwForce: 50
-  spawnBreadIntervals: 0.5
-  throwBuffer: 1.5
 --- !u!114 &2699147665323994238
 MonoBehaviour:
   m_ObjectHideFlags: 0

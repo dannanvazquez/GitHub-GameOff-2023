@@ -11,17 +11,20 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     public bool TakeDamage(float damage) {
+        if (currentHealth <= 0) return true;
+
         currentHealth -= damage;
         if (currentHealth <= 0) {
-            Die();
             Debug.Log($"{gameObject.name} is now dead", transform);
+            Destroy(GetComponent<EnemyAI>());
+            GetComponent<Animator>().SetTrigger("Death");
             return true;
         }
         Debug.Log($"{gameObject.name} is now at " + currentHealth + " health.", transform);
         return false;
     }
 
-    private void Die() {
+    public void Die() {
         Destroy(gameObject);
     }
 }

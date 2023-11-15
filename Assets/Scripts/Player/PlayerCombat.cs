@@ -56,7 +56,7 @@ public class PlayerCombat : MonoBehaviour {
         animator.SetTrigger("Shoot");
         animator.SetBool("IsAiming", false);
 
-        int hittableLayerMask =~ (1 << LayerMask.GetMask("Player")) | (1 << LayerMask.GetMask("Ground"));
+        int hittableLayerMask = (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Ground"));
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100.0f, hittableLayerMask)) {
             shootPosition = hit.point;
         } else {

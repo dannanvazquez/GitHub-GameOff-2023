@@ -167,7 +167,7 @@ private FSMaterial SurfaceSelect()
     {
         Renderer surfaceRenderer = hit.collider.GetComponentInChildren<Renderer>();
         if (surfaceRenderer)
-        {   Debug.Log("Surface Material: " + surfaceRenderer.sharedMaterial.name);
+        {   //Debug.Log("Surface Material: " + surfaceRenderer.sharedMaterial.name);
             surfaceMaterial = surfaceRenderer ? surfaceRenderer.sharedMaterial : null;
             if (surfaceMaterial.name.Contains("Grass"))
             {

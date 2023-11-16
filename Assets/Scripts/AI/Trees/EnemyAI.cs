@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyAI : MonoBehaviour {
+public abstract class EnemyAI : MonoBehaviour {
     [Header("General Enemy References")]
+    [SerializeField] protected Animator animator;
     [SerializeField] protected Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
     [SerializeField] protected ParticleSystem specialAttackParticles;
@@ -21,7 +22,6 @@ public class EnemyAI : MonoBehaviour {
 
     protected NavMeshAgent agent;
     protected EnemyHealth health;
-    protected Animator animator;
     protected PlayerHealth playerHealth;
 
     [HideInInspector] public bool isBasicAttacking;
@@ -36,10 +36,9 @@ public class EnemyAI : MonoBehaviour {
         if (playerTransform == null) playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
-        animator = GetComponent<Animator>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
         lastTimeBasicAttacked -= basicAttackCooldown;
-        lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
+        if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
@@ -83,5 +82,9 @@ public class EnemyAI : MonoBehaviour {
 
     public void SpecialAttackParticles() {
         specialAttackParticles?.Play();
+    }
+
+    public void SetRotation(Quaternion rotation) {
+        transform.rotation = rotation;
     }
 }

@@ -11,7 +11,10 @@ public class MeleeEnemy : EnemyAI {
         OffCooldownNode meleeCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
 
         root = new Selector(new List<Node> {
-            new IsAttackingNode(this),
+            new Sequence(new List<Node> {
+                new IsAttackingNode(this),
+                new RotateTowardsPlayerNode(this, playerTransform, transform)
+            }),
             new Sequence(new List<Node> {
                 specialAttackCooldownNode,
                 new RangeNode(specialAttack.specialAttackRange, playerTransform, transform),

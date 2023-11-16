@@ -2499,6 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b0a251e4e1b53a4c986b42655c287ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 1132193146550105881}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
   specialAttackParticles: {fileID: 5192609916977711094}

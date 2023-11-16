@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1752335820444284473}
   - component: {fileID: 2304867257990838623}
   - component: {fileID: 2475962782967856772}
-  - component: {fileID: 4307012308568506845}
+  - component: {fileID: -5404157675128693322}
   m_Layer: 0
   m_Name: house_green
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4307012308568506845
-BoxCollider:
+--- !u!136 &-5404157675128693322
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,6 +105,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.13783155, y: 0.17976584, z: 0.19391069}
-  m_Center: {x: -0.0022746704, y: -0.006685257, z: 0.090857275}
+  serializedVersion: 2
+  m_Radius: 0.08308227
+  m_Height: 0.23812015
+  m_Direction: 2
+  m_Center: {x: -0.004794159, y: -0.00830409, z: 0.070412256}

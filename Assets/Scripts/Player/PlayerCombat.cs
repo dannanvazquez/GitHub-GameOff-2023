@@ -1,9 +1,8 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
     [Header("References")]
-    [SerializeField] private Animator animator;
+    public Animator animator;
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
@@ -29,15 +28,15 @@ public class PlayerCombat : MonoBehaviour {
     private bool canShoot = true;
 
     private void Update() {
-        if (canShoot) {
-            if (!isAiming && Input.GetButton("Fire2")) {
-                StartAiming();
-            } else if (isAiming && Input.GetButtonUp("Fire2")) {
-                Shoot();
-            }
+        if (Input.GetButtonDown("Fire2")) {
+            StartAiming();
+        } else if (canShoot && isAiming && Input.GetButtonDown("Fire1")) {
+            Shoot();
+        } else if (Input.GetButtonUp("Fire2")) {
+            StopAiming();
         }
 
-        if (canMelee && !isMeleeing && !isAiming && Input.GetButtonDown("Fire1")) {
+        if (canMelee && !isMeleeing && !isAiming && (Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.V))) {
             Melee();
         }
     }
@@ -54,7 +53,6 @@ public class PlayerCombat : MonoBehaviour {
         canShoot = false;
 
         animator.SetTrigger("Shoot");
-        animator.SetBool("IsAiming", false);
 
         int hittableLayerMask = (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("Ground"));
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100.0f, hittableLayerMask)) {
@@ -67,12 +65,15 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     public void ShootArrow() {
-        isAiming = false;
-
-        arrowVisual.SetActive(false);
-
         GameObject arrow = Instantiate(arrowPrefab, arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
+    }
+
+    public void StopAiming() {
+        isAiming = false;
+
+        animator.SetBool("IsAiming", false);
+        arrowVisual.SetActive(false);
     }
 
     private void Melee() {
@@ -105,13 +106,5 @@ public class PlayerCombat : MonoBehaviour {
 
     private void ResetShoot() {
         canShoot = true;
-    }
-
-    void OnDrawGizmos() {
-        if (shootPosition != Vector3.zero) {
-            // Draws a blue line from this transform to the target
-            Gizmos.color = Color.blue;
-            Gizmos.DrawLine(arrowHolderTransform.position, shootPosition);
-        }
     }
 }

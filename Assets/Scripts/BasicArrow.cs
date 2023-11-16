@@ -33,6 +33,6 @@ public class BasicArrow : MonoBehaviour {
             enemyHealth.TakeDamage(damage);
         }
 
-        Destroy(gameObject);
+        rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 }

@@ -29,8 +29,6 @@ public class PlayerCamera : MonoBehaviour {
     }
 
     private void Update() {
-        if (player == null) Destroy(this);
-
         if (currentStyle == CameraStyle.Basic && Input.GetButton("Fire2")) {
             SwitchCameraStyle(CameraStyle.Combat);
         } else if (currentStyle == CameraStyle.Combat && !Input.GetButton("Fire2")) {

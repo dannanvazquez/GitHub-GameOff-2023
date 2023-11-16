@@ -1,17 +1,15 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
+    [Header("References")]
+    [SerializeField] private PlayerCamera playerCamera;
 
     private float maxHealth = 100.0f;
     private float maxStamina = 1.0f;
 
-
     private float currentHealth;
     private float currentStamina;
- 
+
     [SerializeField]
     private UnityEngine.UI.Image _healthBarForegroundImage;
 
@@ -34,11 +32,9 @@ public class PlayerHealth : MonoBehaviour {
         return false;
     }
 
-    public bool LoseStamina(float staminaLost)
-    {
+    public bool LoseStamina(float staminaLost) {
         currentStamina -= staminaLost;
-        if (currentStamina <= 0)
-        {
+        if (currentStamina <= 0) {
             Debug.Log("Player has no stamina");
             return true;
         }
@@ -47,16 +43,18 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void Die() {
-        Destroy(gameObject);
+        PlayerCombat playerCombat = GetComponent<PlayerCombat>();
+        playerCombat.animator.SetTrigger("Death");
+        playerCombat.enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+        playerCamera.enabled = false;
     }
 
-    void LateUpdate()
-    {
+    void LateUpdate() {
         UpdateHealthAndStamina();
     }
 
-    private void UpdateHealthAndStamina()
-    {
+    private void UpdateHealthAndStamina() {
         if (_healthBarForegroundImage && _healthBarForegroundImage.fillAmount != currentHealth)
             _healthBarForegroundImage.fillAmount = currentHealth;
 

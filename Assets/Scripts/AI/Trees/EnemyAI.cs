@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public abstract class EnemyAI : MonoBehaviour {
     [Header("General Enemy References")]
-    [SerializeField] protected Animator animator;
+    public Animator animator;
     [SerializeField] protected Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
     [SerializeField] protected ParticleSystem specialAttackParticles;

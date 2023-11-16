@@ -67,6 +67,8 @@ public class PlayerCombat : MonoBehaviour {
     public void ShootArrow() {
         GameObject arrow = Instantiate(inventoryManager.CurrentlySelectedItem(), arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
+
+        inventoryManager.UseAmmo();
     }
 
     public void StopAiming() {

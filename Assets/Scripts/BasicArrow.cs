@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -32,7 +33,12 @@ public class BasicArrow : MonoBehaviour {
         if (other.transform.root.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(damage);
         }
+        OnHit(other);
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    public virtual void OnHit(Collider target) {
+
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour {
     [Header("References")]
     public Animator animator;
-    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private PlayerInventoryManager inventoryManager;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
     [SerializeField] private Transform cameraTransform;
@@ -65,7 +65,7 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     public void ShootArrow() {
-        GameObject arrow = Instantiate(arrowPrefab, arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
+        GameObject arrow = Instantiate(inventoryManager.CurrentlySelectedItem(), arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
     }
 

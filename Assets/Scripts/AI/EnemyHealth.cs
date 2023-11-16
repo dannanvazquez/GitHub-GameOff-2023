@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviour {
         if (currentHealth <= 0) return true;
 
         currentHealth -= damage;
-        StartCoroutine(DamageVisuals());
+        if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
             Destroy(GetComponent<EnemyAI>());

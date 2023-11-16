@@ -798,6 +798,7 @@ GameObject:
   - component: {fileID: 881846690046430754}
   - component: {fileID: 6215800126413346293}
   - component: {fileID: 6468682800310787167}
+  - component: {fileID: -6074008749856805312}
   - component: {fileID: 1654081994624587117}
   m_Layer: 3
   m_Name: Player
@@ -861,8 +862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 142003457065919825}
-  arrowPrefab: {fileID: 2760343139931413815, guid: 9f7d6e227a4fc3f47880c502548fbcc1,
-    type: 3}
+  inventoryManager: {fileID: -6074008749856805312}
   arrowHolderTransform: {fileID: 6023509555345991365}
   arrowVisual: {fileID: 1195755468130994857}
   cameraTransform: {fileID: 0}
@@ -883,8 +883,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad17146eaab96241ad476257b050c32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
   _healthBarForegroundImage: {fileID: 0}
   _staminaBarForegroundImage: {fileID: 0}
+--- !u!114 &-6074008749856805312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148347331944979900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa711ef4894914934a4fcdedb7dd9248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefabs:
+  - {fileID: 2760343139931413815, guid: 9f7d6e227a4fc3f47880c502548fbcc1, type: 3}
+  - {fileID: 3834880477613485681, guid: ba06951b49f22ef4eb4474762eab373e, type: 3}
+  currentItem: 0
 --- !u!54 &1654081994624587117
 Rigidbody:
   m_ObjectHideFlags: 0

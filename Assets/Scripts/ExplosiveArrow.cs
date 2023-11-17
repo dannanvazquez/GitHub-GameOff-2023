@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ExplosiveArrow : BasicArrow {
@@ -11,10 +12,15 @@ public class ExplosiveArrow : BasicArrow {
     [SerializeField] private float explosionRadius;
     [Tooltip("The force the explosion deals on entities.")]
     [SerializeField] private float explosionKnockbackForce;
+    [Header("Sounds")]
+    [Tooltip("AudioSource")]
+    [SerializeField] private AudioSource explosive_audiosource;
+    [Tooltip("Sfx")]
+    [SerializeField] private AudioClip explosion_sfx;
 
     public override void OnHit(Collider target) {
         hitParticles.Play();
-
+        explosive_audiosource.PlayOneShot(explosion_sfx);
         int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
         Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRadius, enemyLayerMask);
 

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public abstract class EnemyAI : MonoBehaviour {
     [Header("General Enemy References")]
     public Animator animator;
-    [SerializeField] protected Transform playerTransform;
+    public Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
     [SerializeField] protected ParticleSystem specialAttackParticles;
     [SerializeField] protected SpecialAttackBase specialAttack;
@@ -21,7 +21,7 @@ public abstract class EnemyAI : MonoBehaviour {
     [Tooltip("The amount of damage a basic attack does to the player.")]
     [SerializeField] protected float basicAttackDamage;
 
-    public NavMeshAgent agent;
+    [HideInInspector] public NavMeshAgent agent;
     protected EnemyHealth health;
     protected PlayerHealth playerHealth;
     protected Rigidbody rb;

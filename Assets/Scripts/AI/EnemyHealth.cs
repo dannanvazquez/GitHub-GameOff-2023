@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour {
     [Header("Settings")]
-    [SerializeField] private float maxHealth;
+    public float maxHealth;
     [SerializeField] private float damageVisualsInterval;
     [SerializeField, Range(0, 1f)] private float minimumScalePercentage;
 
@@ -24,11 +24,11 @@ public class EnemyHealth : MonoBehaviour {
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
             Destroy(GetComponent<EnemyAI>());
-            GetComponent<NavMeshAgent>().isStopped = true;
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            if (agent.enabled) agent.isStopped = true;
             GetComponent<EnemyAI>().animator.SetTrigger("Death");
             return true;
         }
-        Debug.Log($"{gameObject.name} is now at " + currentHealth + " health.", transform);
         return false;
     }
 

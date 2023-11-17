@@ -52,7 +52,7 @@ MonoBehaviour:
   hitParticles: {fileID: 4046479241864090530}
   explosionDamage: 5
   explosionRadius: 15
-  explosionKnockbackForce: 5
+  explosionKnockbackForce: 1
 --- !u!54 &5927822504876221503
 Rigidbody:
   m_ObjectHideFlags: 0

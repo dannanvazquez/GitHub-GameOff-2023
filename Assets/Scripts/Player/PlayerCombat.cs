@@ -58,7 +58,7 @@ public class PlayerCombat : MonoBehaviour {
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit, 100.0f, hittableLayerMask)) {
             shootPosition = hit.point;
         } else {
-            shootPosition = Camera.main.transform.forward * 100f;
+            shootPosition = Camera.main.transform.position + Camera.main.transform.forward * 100f;
         }
 
         Invoke(nameof(ResetShoot), shootCooldown);

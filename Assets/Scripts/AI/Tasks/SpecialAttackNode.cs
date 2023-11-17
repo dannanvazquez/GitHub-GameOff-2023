@@ -16,7 +16,7 @@ public class SpecialAttackNode : Node {
 
     public override NodeState Evaluate() {
         animator.SetTrigger("SpecialAttack");
-        agent.isStopped = true;
+        if (agent.enabled) agent.isStopped = true;
         ai.isSpecialAttacking = true;
         offCooldownNode.lastTimeUsed = Time.time;
 

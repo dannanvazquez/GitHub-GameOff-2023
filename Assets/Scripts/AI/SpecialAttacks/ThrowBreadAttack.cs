@@ -5,7 +5,8 @@ public class ThrowBreadAttack : SpecialAttackBase {
     [Header("Throw Bread References")]
     [SerializeField] private Transform[] breadSpawnPointTransforms;
     [SerializeField] private GameObject breadPrefab;
-    [SerializeField] private Transform playerTransform;
+
+    private Transform playerTransform;
 
     [Header("Audiosources & Audioclips")]
     [SerializeField] private AudioSource AudioSource_Breadspawn;
@@ -24,8 +25,12 @@ public class ThrowBreadAttack : SpecialAttackBase {
     [Tooltip("The amount of seconds after bread is spawned before it's thrown.")]
     [SerializeField] private float throwBuffer;
 
+    private void Awake() {
+        playerTransform = GetComponent<EnemyAI>().playerTransform;
+    }
+
     // --AUDIO-- // 
-   private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
     {
         if (clips.Length > 0)
         {

@@ -21,11 +21,13 @@ public class ExplosiveArrow : BasicArrow {
         foreach (var enemy in enemies) {
             float efficency = (explosionRadius - Vector3.Distance(transform.position, enemy.transform.position) / explosionRadius);
 
-            Vector3 direction = (enemy.transform.position - transform.position).normalized;
-            direction.y = explosionKnockbackForce;
-            enemy.GetComponent<EnemyAI>().KnockbackEnemy(efficency * explosionKnockbackForce * direction);
+            if (enemy.TryGetComponent(out EnemyAI ai) || enemy.transform.root.TryGetComponent(out ai)) {
+                Vector3 direction = (enemy.transform.position - transform.position).normalized;
+                direction.y = explosionKnockbackForce;
+                ai.KnockbackEnemy(efficency * explosionKnockbackForce * direction);
+            }
 
-            if (enemy.TryGetComponent(out EnemyHealth enemyHealth)) {
+            if (enemy.TryGetComponent(out EnemyHealth enemyHealth) || enemy.transform.root.TryGetComponent(out enemyHealth)) {
                 enemyHealth.TakeDamage(efficency * explosionDamage);
             }
         }

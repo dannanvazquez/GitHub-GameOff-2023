@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -23,6 +24,7 @@ public abstract class EnemyAI : MonoBehaviour {
     protected NavMeshAgent agent;
     protected EnemyHealth health;
     protected PlayerHealth playerHealth;
+    protected Rigidbody rb;
 
     [HideInInspector] public bool isBasicAttacking;
     [HideInInspector] public float lastTimeBasicAttacked;
@@ -37,11 +39,14 @@ public abstract class EnemyAI : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
+        rb = GetComponent<Rigidbody>();
         lastTimeBasicAttacked -= basicAttackCooldown;
         if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
+        rb.drag = 5f;
+
         ConstructBehaviorTree();
     }
 
@@ -65,7 +70,7 @@ public abstract class EnemyAI : MonoBehaviour {
 
     private void Idle() {
         animator.SetBool("IsWalking", false);
-        agent.isStopped = true;
+        if (agent.enabled) agent.isStopped = true;
     }
 
     public void DoneBasicAttacking() {
@@ -86,5 +91,23 @@ public abstract class EnemyAI : MonoBehaviour {
 
     public void SetRotation(Quaternion rotation) {
         transform.rotation = rotation;
+    }
+
+    public void KnockbackEnemy(Vector3 force) {
+        StartCoroutine(KnockbackCoroutine(force));
+    }
+
+    private IEnumerator KnockbackCoroutine(Vector3 force) {
+        agent.enabled = false;
+        rb.AddForce(force, ForceMode.Impulse);
+        rb.drag = 0f;
+
+        yield return new WaitForSeconds(0.5f);
+        CapsuleCollider collider = GetComponent<CapsuleCollider>();
+        int groundMask = 1 << LayerMask.NameToLayer("Ground");
+        while (!Physics.Raycast(transform.position, Vector3.down, 0.2f, groundMask)) yield return null;
+
+        rb.drag = 5f;
+        agent.enabled = true;
     }
 }

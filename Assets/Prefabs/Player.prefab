@@ -901,9 +901,11 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 2760343139931413815, guid: 9f7d6e227a4fc3f47880c502548fbcc1, type: 3}
   - {fileID: 3834880477613485681, guid: ba06951b49f22ef4eb4474762eab373e, type: 3}
+  - {fileID: 4026651197341319774, guid: 2dc1096cbfa90f543b87fdf097ac3b7c, type: 3}
   itemButtons: []
   currentItem: 0
   maxAmmo: 20
+  startingAmmo: 10
 --- !u!54 &1654081994624587117
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -13,12 +13,12 @@ public class PlayerInventoryManager : MonoBehaviour {
 
     [Header("Settings")]
     [SerializeField] private int maxAmmo;
-
+    [SerializeField] private int startingAmmo;
 
     private void Awake() {
         for (int i = 0; i < itemButtons.Length; i++) {
-            ammoCounts.Add(5);
-            itemButtons[i].SetAmmo(5, maxAmmo);
+            ammoCounts.Add(startingAmmo);
+            itemButtons[i].SetAmmo(startingAmmo, maxAmmo);
         }
     }
 
@@ -40,8 +40,8 @@ public class PlayerInventoryManager : MonoBehaviour {
 
     public void SelectItem(int selectedItem) {
         if (currentItem != selectedItem) {
+            if (selectedItem > 0 && ammoCounts[selectedItem - 1] <= 0) return;
             if (currentItem > 0) {
-                if (selectedItem > 0 && ammoCounts[selectedItem - 1] == 0) return;
                 itemButtons[currentItem - 1].ToggleSlotSelection(false);
             }
             if (selectedItem > 0) itemButtons[selectedItem - 1].ToggleSlotSelection(true);

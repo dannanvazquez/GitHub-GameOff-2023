@@ -16,12 +16,14 @@ public class ChaseNode : Node {
         float distance = Vector3.Distance(target.position, agent.transform.position);
         if (distance > 0.2f) {
             animator.SetBool("IsWalking", true);
-            agent.isStopped = false;
-            agent.SetDestination(target.position);
+            if (agent.enabled) {
+                agent.isStopped = false;
+                agent.SetDestination(target.position);
+            }
             _nodeState = NodeState.RUNNING;
         } else {
             animator.SetBool("IsWalking", false);
-            agent.isStopped = true;
+            if (agent.enabled) agent.isStopped = true;
             _nodeState = NodeState.SUCCESS;
         }
 

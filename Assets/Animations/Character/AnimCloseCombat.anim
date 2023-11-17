@@ -37667,6 +37667,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0.3
+    functionName: MeleeParticles
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 491a1ce1da38a52458a421d0989f8e99,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1
     functionName: DoneMeleeing
     data: 

@@ -83,7 +83,6 @@ public class PlayerCombat : MonoBehaviour {
         canMelee = false;
 
         animator.SetTrigger("Melee");
-        slashParticles.Play();
 
         Invoke(nameof(ResetMelee), meleeCooldown);
     }
@@ -96,6 +95,10 @@ public class PlayerCombat : MonoBehaviour {
 
             isMeleeing = false;
         }
+    }
+
+    public void MeleeParticles() {
+        slashParticles.Play();
     }
 
     public void DoneMeleeing() {

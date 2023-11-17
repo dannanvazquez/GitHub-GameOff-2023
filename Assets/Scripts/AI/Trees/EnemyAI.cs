@@ -21,16 +21,19 @@ public abstract class EnemyAI : MonoBehaviour {
     [Tooltip("The amount of damage a basic attack does to the player.")]
     [SerializeField] protected float basicAttackDamage;
 
-    protected NavMeshAgent agent;
+    public NavMeshAgent agent;
     protected EnemyHealth health;
     protected PlayerHealth playerHealth;
     protected Rigidbody rb;
+    protected Ice ice;
 
     [HideInInspector] public bool isBasicAttacking;
     [HideInInspector] public float lastTimeBasicAttacked;
 
     [HideInInspector] public bool isSpecialAttacking;
     [HideInInspector] public float lastTimeSpecialAttacked;
+
+    [HideInInspector] public bool isFrozen;
 
     protected Node root;
 
@@ -40,6 +43,7 @@ public abstract class EnemyAI : MonoBehaviour {
         health = GetComponent<EnemyHealth>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
         rb = GetComponent<Rigidbody>();
+        ice = GetComponent<Ice>();
         lastTimeBasicAttacked -= basicAttackCooldown;
         if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
@@ -61,6 +65,8 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private void Update() {
+        if (ice.isFrozen) return;
+
         root.Evaluate();
 
         if (root.nodeState == NodeState.FAILURE) {

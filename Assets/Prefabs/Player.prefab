@@ -902,6 +902,7 @@ MonoBehaviour:
   - {fileID: 2760343139931413815, guid: 9f7d6e227a4fc3f47880c502548fbcc1, type: 3}
   - {fileID: 3834880477613485681, guid: ba06951b49f22ef4eb4474762eab373e, type: 3}
   - {fileID: 4026651197341319774, guid: 2dc1096cbfa90f543b87fdf097ac3b7c, type: 3}
+  - {fileID: 4423126117951791997, guid: 86a654b092d244649964d82f64af5366, type: 3}
   itemButtons: []
   currentItem: 0
   maxAmmo: 20

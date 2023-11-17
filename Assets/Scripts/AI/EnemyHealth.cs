@@ -10,6 +10,45 @@ public class EnemyHealth : MonoBehaviour {
 
     private float currentHealth;
     private Vector3 initialScale;
+    [Header("Sounds")]
+    [SerializeField] private AudioSource damage_audioSource;
+    [Tooltip("Getting hit")]
+    [SerializeField] private AudioClip[] hit_sfx;
+    [Tooltip("Getting killed")]
+    [SerializeField] private AudioClip[] death_sfx;
+    private AudioClip lasthitClip;    
+    private AudioClip lastdeathClip;    
+
+        // SOUNDS //
+      private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+    {
+        if (clips.Length > 0)
+        {
+            AudioClip clip;
+            do
+            {
+                clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            } while (clip == lastClip);
+
+            lastClip = clip;
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+    }
+    int RandomExcept(int except, int max)
+    {
+        if (max <= 0)
+        {
+            return -1; // or some default value indicating an error
+        }
+
+        int result;
+        do
+        {
+        result = UnityEngine.Random.Range(0, max);
+        } while (result == except);
+        return result;
+    }
 
     private void Awake() {
         currentHealth = maxHealth;
@@ -27,8 +66,12 @@ public class EnemyHealth : MonoBehaviour {
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent.enabled) agent.isStopped = true;
             GetComponent<EnemyAI>().animator.SetTrigger("Death");
+            PlayRandomClip(death_sfx, ref lastdeathClip, damage_audioSource);
             return true;
         }
+        PlayRandomClip(hit_sfx, ref lasthitClip, damage_audioSource);
+        damage_audioSource.volume = UnityEngine.Random.Range(.19f, .28f);
+        damage_audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
         return false;
     }
 

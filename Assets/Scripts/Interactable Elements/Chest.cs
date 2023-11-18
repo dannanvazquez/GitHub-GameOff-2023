@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Chest : MonoBehaviour
 {
+    [SerializeField] private AudioSource AudioSource_opening;
+        [SerializeField] private AudioSource AudioSource_closing;
+    [Header("Audioclips")] 
+    [Tooltip("opening")]  
+    [SerializeField] private AudioClip[] chest_opening_sfx;
+    [Tooltip("closing")]       
+    [SerializeField] private AudioClip[] chest_closing_sfx;    
+
+
     private Animator anim;
     // Start is called before the first frame update
     void Start()
@@ -11,6 +20,15 @@ public class Chest : MonoBehaviour
         anim = this.gameObject.GetComponent<Animator>();
     }
 
+    private void PlayRandomClip(AudioClip[] clips, AudioSource audioSource)
+    {
+            AudioClip clip;
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            audioSource.clip = clip;
+            audioSource.pitch = UnityEngine.Random.Range(.95f, 1.15f);
+            audioSource.Play();
+            
+        }
 
 
     // Update is called once per frame
@@ -20,6 +38,8 @@ public class Chest : MonoBehaviour
         {
             anim.SetBool("OpenChest", true);
             Debug.Log("Test<color=red> chest should open");
+            PlayRandomClip(chest_opening_sfx, AudioSource_opening);
+
         }
     }
 
@@ -28,6 +48,7 @@ public class Chest : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             anim.SetBool("OpenChest", false);
+            PlayRandomClip(chest_closing_sfx, AudioSource_closing);
         }
     }
 }

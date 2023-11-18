@@ -2920,6 +2920,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 5507510570067888177}
   isFrozen: 0
+  AudioSource_burning: {fileID: 2070857193306712486}
+  intro_sfx: {fileID: 8300000, guid: 2619773ac24f4a34a80b528d0e000406, type: 3}
+  ice_sfx: {fileID: 8300000, guid: 8d7a2a64b0a1b59458542252e9a0f06d, type: 3}
 --- !u!114 &4662868641683325036
 MonoBehaviour:
   m_ObjectHideFlags: 0

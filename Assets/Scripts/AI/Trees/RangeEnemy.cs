@@ -34,20 +34,26 @@ public class RangeEnemy : EnemyAI {
     public override void ConstructBehaviorTree() {
         OffCooldownNode shootCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
 
-        root = new Selector(new List<Node> {
-            new Sequence(new List<Node> {
-                new IsAttackingNode(this),
-                new RotateTowardsPlayerNode(this, playerTransform, transform)
-            }),
-            new Sequence(new List<Node> {
-                shootCooldownNode,
-                new RangeNode(basicAttackRange, playerTransform, transform),
-                new ShootNode(animator, agent, this, shootCooldownNode)
-            }),
-            new Sequence(new List<Node> {
+        root = new Sequence(new List<Node> {  // Does this meet the requirements in order to be aggressive?
+            new Selector(new List<Node> {  // Do either of these requirements meet?
                 new RangeNode(chasingRange, playerTransform, transform),
-                new ChaseNode(animator, playerTransform, agent)
-            })
+                new Inverter(new HealthMinThresholdNode(health, health.maxHealth))
+            }),
+            new Selector(new List<Node> {  // Decide the aggressive action that fits best.
+                new Sequence(new List<Node> {  // Does this meet the requirements to rotate towards player?
+                    new IsAttackingNode(this),
+                    new RotateTowardsPlayerNode(this, playerTransform, transform)
+                }),
+                new Sequence(new List<Node> {  // Does this meet the requirements to basic attack?
+                    shootCooldownNode,
+                    new RangeNode(basicAttackRange, playerTransform, transform),
+                    new MeleeNode(animator, agent, this, shootCooldownNode)
+                }),
+                new Sequence(new List<Node> {  // Does this meet the requirements to chase?
+                    new Inverter(new RangeNode(minimumChaseRange, playerTransform, transform)),
+                    new ChaseNode(animator, playerTransform, agent)
+                }),
+            }),
         });
     }
 

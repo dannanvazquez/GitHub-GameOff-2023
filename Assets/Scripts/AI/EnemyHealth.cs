@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private float damageVisualsInterval;
     [SerializeField, Range(0, 1f)] private float minimumScalePercentage;
 
-    private float currentHealth;
+    [HideInInspector] public float currentHealth;
     private Vector3 initialScale;
     [Header("Sounds")]
     [SerializeField] private AudioSource damage_audioSource;

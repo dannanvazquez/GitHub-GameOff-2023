@@ -28,7 +28,7 @@ public class RandomEffectArrow : BasicArrow {
     
     private void OneHitKill(Collider target) {
         Debug.Log("Activated one shot ability!");
-        if (target.transform.root.TryGetComponent(out EnemyHealth health)) {
+        if (target.TryGetComponent(out EnemyHealth health) || target.transform.root.TryGetComponent(out health)) {
             health.TakeDamage(health.maxHealth);
         }
     }

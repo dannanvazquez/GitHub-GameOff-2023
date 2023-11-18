@@ -2806,8 +2806,9 @@ MonoBehaviour:
   specialAttackParticles: {fileID: 5192609916977711094}
   specialAttack: {fileID: 2699147665323994238}
   chasingRange: 30
+  minimumChaseRange: 2.5
   basicAttackRange: 5
-  basicAttackCooldown: 5
+  basicAttackCooldown: 2.66
   basicAttackDamage: 10
   agent: {fileID: 0}
   isBasicAttacking: 0
@@ -2876,6 +2877,7 @@ MonoBehaviour:
   maxHealth: 100
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
+  currentHealth: 0
   damage_audioSource: {fileID: 2966525557260405263}
   hit_sfx:
   - {fileID: 8300000, guid: 387dd56349c471045896c0aef0ceca5b, type: 3}

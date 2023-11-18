@@ -90,7 +90,7 @@ public class PlayerCombat : MonoBehaviour {
     public void MeleeHit(Collider collider) {
         if (!isMeleeing) return;
 
-        if (collider.transform.root.TryGetComponent(out EnemyHealth enemyHealth)) {
+        if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
 
             isMeleeing = false;

@@ -14,6 +14,8 @@ public abstract class EnemyAI : MonoBehaviour {
     [Header("General Enemy Settings")]
     [Tooltip("The distance from the player before this enemy starts chasing.")]
     [SerializeField] protected float chasingRange;
+    [Tooltip("The mimumum distance from the player before this enemy stops chasing.")]
+    [SerializeField] protected float minimumChaseRange;
     [Tooltip("The distance from the player before this enemy attempts to basic attack.")]
     [SerializeField] protected float basicAttackRange;
     [Tooltip("The amount of seconds in between each basic attack attempt.")]

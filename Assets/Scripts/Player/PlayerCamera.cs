@@ -11,7 +11,8 @@ public class PlayerCamera : MonoBehaviour {
     [SerializeField] private Transform combatLookAt;
     [SerializeField] private GameObject thirdPersonCamera;
     [SerializeField] private GameObject combatCamera;
-    [SerializeField] private GameObject topDownCamera;
+    //[SerializeField] private GameObject topDownCamera;
+    [SerializeField] private CinemachineShake[] cinemachineShakes;
 
     [Header("Settings")]
     [SerializeField] private float rotationSpeed;
@@ -63,15 +64,24 @@ public class PlayerCamera : MonoBehaviour {
     private void SwitchCameraStyle(CameraStyle newStyle) {
         thirdPersonCamera.SetActive(false);
         combatCamera.SetActive(false);
-        topDownCamera.SetActive(false);
+        //topDownCamera.SetActive(false);
 
         GameObject newCamera = null;
         if (newStyle == CameraStyle.Basic) newCamera = thirdPersonCamera;
         if (newStyle == CameraStyle.Combat) newCamera = combatCamera;
-        if (newStyle == CameraStyle.TopDown) newCamera = topDownCamera;
+        //if (newStyle == CameraStyle.TopDown) newCamera = topDownCamera;
 
         newCamera.SetActive(true);
 
         currentStyle = newStyle;
+    }
+
+    public void ShakeCamera(float intensity, float time) {
+        foreach (var cinemachineShake in cinemachineShakes) {
+            if (cinemachineShake.gameObject.activeSelf) {
+                cinemachineShake.ShakeCamera(intensity, time);
+                return;
+            }
+        }
     }
 }

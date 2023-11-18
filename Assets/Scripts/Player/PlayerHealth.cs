@@ -1,8 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
     [Header("References")]
     [SerializeField] private PlayerCamera playerCamera;
+
+    [Header("Settings")]
+    [Tooltip("The amount of seconds the damage visuals are shown for.")]
+    [SerializeField] private float damageVisualsInterval;
 
     private float maxHealth = 100.0f;
     private float maxStamina = 1.0f;
@@ -23,6 +28,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public bool TakeDamage(float damage) {
         currentHealth -= damage;
+        if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
             Die();
             Debug.Log("Player is now dead");
@@ -60,5 +66,24 @@ public class PlayerHealth : MonoBehaviour {
 
         if (_staminaBarForegroundImage && _staminaBarForegroundImage.fillAmount != currentStamina)
             _staminaBarForegroundImage.fillAmount = currentStamina;
+    }
+
+    private IEnumerator DamageVisuals() {
+        playerCamera.ShakeCamera(5f, 0.2f);
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.red;
+            }
+        }
+
+        yield return new WaitForSeconds(damageVisualsInterval);
+
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.white;
+            }
+        }
     }
 }

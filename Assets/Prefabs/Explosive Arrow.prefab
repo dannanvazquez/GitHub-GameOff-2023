@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5927822504876221503}
   - component: {fileID: 4887941416233610153}
   - component: {fileID: -38023684550325126}
-  - component: {fileID: 3671802403975119880}
   m_Layer: 8
   m_Name: Explosive Arrow
   m_TagString: Untagged
@@ -51,6 +50,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  arrow_sfx:
+  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  arrow_landing_sfx:
+  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  AudioSource_arrow: {fileID: -38023684550325126}
   hitParticles: {fileID: 4046479241864090530}
   explosionDamage: 5
   explosionRadius: 15
@@ -178,139 +186,6 @@ AudioSource:
     - serializedVersion: 3
       time: 0
       value: 0.3611111
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!82 &3671802403975119880
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4026651197341319774}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7059209037264617686, guid: 064386f1de35fb6408f29ad45fddc790,
-    type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 0.9
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 0.5
-  MinDistance: 10
-  MaxDistance: 100
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.0375
-      value: 1
-      inSlope: -0.003830643
-      outSlope: -0.003830643
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.42464635
-    - serializedVersion: 3
-      time: 0.126651
-      value: 0.9619446
-      inSlope: -0.11773282
-      outSlope: -0.11773282
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.3631854
-    - serializedVersion: 3
-      time: 0.39890748
-      value: 0.6095886
-      inSlope: -0.2334497
-      outSlope: -0.2334497
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.4137935
-    - serializedVersion: 3
-      time: 0.5148376
-      value: 0.38565063
-      inSlope: -1.3546133
-      outSlope: -1.3546133
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.21228524
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.9065796
-      value: 0.08026123
-      inSlope: -0.10420848
-      outSlope: -0.10420848
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0.0375
-      inSlope: -0.037514977
-      outSlope: -0.037514977
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.98
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1388889
       inSlope: 0
       outSlope: 0
       tangentMode: 0

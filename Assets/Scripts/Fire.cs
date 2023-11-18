@@ -14,7 +14,13 @@ public class Fire : MonoBehaviour {
     [SerializeField] private float fireInterval;
     [Tooltip("The amount of fire ticks before it extinguishes.")]
     [SerializeField] private int fireTicksAmount;
-
+    
+    [Header("Sounds")]
+    [SerializeField] private AudioSource AudioSource_burning;
+    [SerializeField] private AudioClip intro_sfx;  
+    [SerializeField] private AudioClip burning_sfx;
+    private bool hasPlayedIntro = false;
+    
     private int currentFireTicks;
     private bool isOnFire;
 
@@ -30,6 +36,14 @@ public class Fire : MonoBehaviour {
         particles.Play();
 
         Invoke(nameof(FireDamage), fireInterval);
+        if (!hasPlayedIntro)
+            {
+                AudioSource_burning.PlayOneShot(intro_sfx);
+                hasPlayedIntro = true;
+
+                // Schedule the looping sound to start after the intro sound finishes
+                Invoke("PlayLoopedSound", intro_sfx.length);
+            }
     }
 
     public void FireDamage() {
@@ -41,7 +55,17 @@ public class Fire : MonoBehaviour {
         } else {
             isOnFire = false;
             particles.Stop();
+            AudioSource_burning.Stop();
             return;
         }
+    }
+
+        private void PlayLoopedSound()
+    {
+        Debug.Log("loopedsfx");
+        // Play the burning sound in a loop
+        AudioSource_burning.clip = burning_sfx;
+        AudioSource_burning.loop = true;
+        AudioSource_burning.Play();
     }
 }

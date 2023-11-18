@@ -11,6 +11,12 @@ public class Ice : MonoBehaviour {
     [HideInInspector] public bool isFrozen;
     private float frozenTime;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource AudioSource_burning;
+    [SerializeField] private AudioClip intro_sfx;  
+    [SerializeField] private AudioClip ice_sfx;
+    private bool hasPlayedIntro = false;
+    
     private void Awake() {
         health = GetComponent<EnemyHealth>();
         ai = GetComponent<EnemyAI>();
@@ -24,8 +30,16 @@ public class Ice : MonoBehaviour {
         particles.Play();
         ai.animator.StartPlayback();
         ai.agent.isStopped = true;
+        if (!hasPlayedIntro)
+            {
+                AudioSource_burning.PlayOneShot(intro_sfx);
+                hasPlayedIntro = true;
 
+                // Schedule the looping sound to start after the intro sound finishes
+                Invoke("PlayLoopedSound", intro_sfx.length);
+            }
         StartCoroutine(WhileFrozen());
+
     }
 
     private IEnumerator WhileFrozen() {
@@ -36,6 +50,16 @@ public class Ice : MonoBehaviour {
 
         isFrozen = false;
         particles.Stop();
+        AudioSource_burning.Stop();
         ai.animator.StopPlayback();
+    }
+
+        private void PlayLoopedSound()
+    {
+        Debug.Log("loopedsfx");
+        // Play the burning sound in a loop
+        AudioSource_burning.clip = ice_sfx;
+        AudioSource_burning.loop = true;
+        AudioSource_burning.Play();
     }
 }

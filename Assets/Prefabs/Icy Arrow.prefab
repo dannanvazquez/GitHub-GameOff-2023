@@ -50,6 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+  arrow_sfx:
+  - {fileID: 8300000, guid: 610c134451ecd1f458b2dfe71b8a861d, type: 3}
+  - {fileID: 8300000, guid: 610c134451ecd1f458b2dfe71b8a861d, type: 3}
+  arrow_landing_sfx:
+  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  AudioSource_arrow: {fileID: 5232253640984635789}
   iceDuration: 5
 --- !u!54 &8119099850989980333
 Rigidbody:
@@ -110,8 +117,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7059209037264617686, guid: 064386f1de35fb6408f29ad45fddc790,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 610c134451ecd1f458b2dfe71b8a861d, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 0.9
   Loop: 0

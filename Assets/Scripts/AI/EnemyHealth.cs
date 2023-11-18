@@ -3,6 +3,11 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour {
+    [Header("References")]
+    [SerializeField] private RectTransform healthRect;
+
+    private float healthRectWidth;
+
     [Header("Settings")]
     public float maxHealth;
     [SerializeField] private float damageVisualsInterval;
@@ -17,7 +22,7 @@ public class EnemyHealth : MonoBehaviour {
     [Tooltip("Getting killed")]
     [SerializeField] private AudioClip[] death_sfx;
     private AudioClip lasthitClip;    
-    private AudioClip lastdeathClip;    
+    private AudioClip lastdeathClip;
 
         // SOUNDS //
       private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
@@ -53,6 +58,8 @@ public class EnemyHealth : MonoBehaviour {
     private void Awake() {
         currentHealth = maxHealth;
         initialScale = transform.localScale;
+        healthRectWidth = healthRect.rect.width;
+        healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
     }
 
     public bool TakeDamage(float damage) {
@@ -80,7 +87,9 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     private IEnumerator DamageVisuals() {
-        transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
+        //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
+
+        healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
 
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (var r in renderers) {

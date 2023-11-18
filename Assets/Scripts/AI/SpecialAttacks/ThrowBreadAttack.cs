@@ -55,7 +55,7 @@ public class ThrowBreadAttack : SpecialAttackBase {
         foreach (Transform t in breadSpawnPointTransforms) {
             GameObject bread = Instantiate(breadPrefab, t.position, t.rotation);
             PlayRandomClip(spawnbread_sfx, ref lastspawnbreadClip, AudioSource_Breadspawn);
-            bread.GetComponent<ThrownBread>().damage = specialAttackDamage;
+            bread.GetComponent<EnemyProjectile>().damage = specialAttackDamage;
             StartCoroutine(ThrowBread(bread));
             yield return new WaitForSeconds(spawnBreadIntervals);
         }

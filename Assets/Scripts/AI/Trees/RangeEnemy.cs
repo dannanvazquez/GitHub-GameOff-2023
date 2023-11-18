@@ -47,7 +47,7 @@ public class RangeEnemy : EnemyAI {
                 new Sequence(new List<Node> {  // Does this meet the requirements to basic attack?
                     shootCooldownNode,
                     new RangeNode(basicAttackRange, playerTransform, transform),
-                    new MeleeNode(animator, agent, this, shootCooldownNode)
+                    new ShootNode(animator, agent, this, shootCooldownNode)
                 }),
                 new Sequence(new List<Node> {  // Does this meet the requirements to chase?
                     new Inverter(new RangeNode(minimumChaseRange, playerTransform, transform)),
@@ -70,6 +70,7 @@ public class RangeEnemy : EnemyAI {
         loadedProjectile.transform.rotation = Quaternion.LookRotation((playerTransform.position - loadedProjectile.transform.position).normalized);
         loadedProjectile.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         loadedProjectile.GetComponent<Rigidbody>().AddForce(loadedProjectile.transform.forward * projectileForce, ForceMode.Impulse);
+        loadedProjectile.GetComponent<EnemyProjectile>().damage = basicAttackDamage;
         loadedProjectile = null;
         PlayRandomClip(missile_travel_sfx, missileAudioSource);
     }

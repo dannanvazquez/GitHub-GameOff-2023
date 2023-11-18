@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
-public class ThrownBread : MonoBehaviour {
+public class EnemyProjectile : MonoBehaviour {
     private Rigidbody rb;
 
     [HideInInspector] public float damage;
@@ -27,7 +27,7 @@ public class ThrownBread : MonoBehaviour {
 
         hasHit = true;
 
-        if (other.transform.root.TryGetComponent(out PlayerHealth playerHealth)) {
+        if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth)) {
             playerHealth.TakeDamage(damage);
         }
 

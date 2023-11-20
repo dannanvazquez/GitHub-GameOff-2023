@@ -135,11 +135,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   player_attack_sfx:
-  - {fileID: 8300000, guid: 87c4b43334574834e90a8dd8e3efcfd3, type: 3}
-  - {fileID: 8300000, guid: 850e4a7bf2a2a214a8b06e61f63f39f0, type: 3}
-  - {fileID: 8300000, guid: 5edc1f2e4b6cc534db9b2dfd59aac7b3, type: 3}
-  - {fileID: 8300000, guid: bf395f1a02d4183499f6fcd1c09804c3, type: 3}
-  - {fileID: 8300000, guid: fa9958d9d636a6a40a93964fac2e000b, type: 3}
+  - {fileID: 8300000, guid: e0ac463565229254e994e6b3e4ffd0a2, type: 3}
+  - {fileID: 8300000, guid: ae26c6490b89c604a9094d28cda7ede9, type: 3}
+  - {fileID: 8300000, guid: 606d01083638d7b4c854cca23026538d, type: 3}
+  - {fileID: 8300000, guid: 2f036f5830fbc1349a20411450030e9c, type: 3}
+  - {fileID: 8300000, guid: f1f64c75a4a96ba4b854ad498c2557a8, type: 3}
   player_death_voice:
   - {fileID: 8300000, guid: 1f6f1f2db28fefc43ac2f3ef3a79807d, type: 3}
   - {fileID: 8300000, guid: 01901b736be84b148a741b0fec00b54d, type: 3}
@@ -147,7 +147,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d2b303164ae66fc4bae4a45535e005d4, type: 3}
   - {fileID: 8300000, guid: 28952acc407f98348a54758f2a13ebb1, type: 3}
   - {fileID: 8300000, guid: d2f855462f8c87d44ba7741aaa660eaf, type: 3}
-  player_death_sfx: []
+  player_death_sfx:
+  - {fileID: 8300000, guid: d70f64db2b3887f4fbd8841cb2492a1c, type: 3}
+  - {fileID: 8300000, guid: d70f64db2b3887f4fbd8841cb2492a1c, type: 3}
   player_jump_voice:
   - {fileID: 8300000, guid: 682c77abe7a504f4f8c7d9f9ad8f9bcd, type: 3}
   - {fileID: 8300000, guid: 790ffe51de5440f4c99fb792a43db75d, type: 3}
@@ -217,6 +219,9 @@ MonoBehaviour:
   AudioSource_Voice: {fileID: 5540192780545649378}
   AudioSource_SFX: {fileID: 1281823740922187995}
   AudioSource_FS: {fileID: 6271278161319263400}
+  myAudioMixer: {fileID: 24100000, guid: 064386f1de35fb6408f29ad45fddc790, type: 2}
+  muffled: 3000
+  not_muffled: 22000
 --- !u!114 &4918300059694422437
 MonoBehaviour:
   m_ObjectHideFlags: 0

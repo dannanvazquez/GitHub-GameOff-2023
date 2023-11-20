@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Audio;
 public class PlayerSound : MonoBehaviour
 {
     [Header("AudioClips")]
@@ -41,6 +42,10 @@ public class PlayerSound : MonoBehaviour
     [SerializeField] private AudioSource AudioSource_SFX;
     [SerializeField] private AudioSource AudioSource_FS;
 
+    [Header("Mixer")]
+    [SerializeField] private AudioMixer myAudioMixer;
+    [Range(200,3000)][SerializeField] private float muffled=1000;
+    [Range(17000,22000)][SerializeField] private float not_muffled=22000;
 
     // Prevent the same audioclip to be played twice in a row
     private AudioClip lastAttackVoiceClip;
@@ -67,6 +72,28 @@ public class PlayerSound : MonoBehaviour
     Wood,
     Empty
     }
+    IEnumerator FadeMuffledSound()
+    {
+        float elapsedTime = 0f;
+        float currentMuffledValue = not_muffled; // Start with the not muffled value
+        float transitionDuration = 2.0f; // You can adjust the duration as needed
+
+        while (elapsedTime < transitionDuration)
+        {
+            // Interpolate between current value and muffled value over time
+            currentMuffledValue = Mathf.Lerp(not_muffled, muffled, elapsedTime / transitionDuration);
+
+            // Update the Audio Mixer parameter
+            myAudioMixer.SetFloat("MUFFLED_SOUND", currentMuffledValue);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the final value is set
+        myAudioMixer.SetFloat("MUFFLED_SOUND", muffled);
+    }
+
 
 
 private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
@@ -122,9 +149,12 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
 
     public void PlayDeath()
     {
+        StartCoroutine(FadeMuffledSound());
         PlayRandomClip(player_death_voice, ref lastDeathVoiceClip, AudioSource_Voice);
         PlayRandomClip(player_death_sfx, ref lastDeathSFXClip, AudioSource_SFX);
+
     }
+
 
     public void PlayJump()
     {

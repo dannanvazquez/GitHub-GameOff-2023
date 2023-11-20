@@ -45,7 +45,14 @@ public class ThrowBreadAttack : SpecialAttackBase {
             audioSource.Play();
         }
     }
-
+    private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource)
+    {
+            AudioClip clip;
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            audioSource.clip = clip;
+            audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
+            audioSource.Play();
+    }
     public override void PerformSpecialAttack() {
         PlayRandomClip(rangeattack_sfx, ref lastspawnbreadClip, AudioSource_rangeattack);
         StartCoroutine(SpawnBread());
@@ -65,7 +72,7 @@ public class ThrowBreadAttack : SpecialAttackBase {
         yield return new WaitForSeconds(throwBuffer);
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
         AudioSource breadAudioSource = bread.GetComponent<AudioSource>();
-        PlayRandomClip(throwbread_sfx, ref lastthrownbreadClip, breadAudioSource);
+        PlayRandomClipNoLast(throwbread_sfx, breadAudioSource);
         bread.transform.rotation = Quaternion.LookRotation((playerTransform.position - bread.transform.position).normalized);
         bread.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         bread.GetComponent<Rigidbody>().AddForce(bread.transform.forward * throwForce, ForceMode.Impulse);

@@ -21,6 +21,46 @@ public class PlayerHealth : MonoBehaviour {
     [SerializeField]
     private UnityEngine.UI.Image _staminaBarForegroundImage;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioSource damage_audioSource;
+    [SerializeField] private AudioSource voice_audioSource;
+    [Tooltip("Getting hit")]
+    [SerializeField] private AudioClip[] hit_sfx;
+    [SerializeField] private AudioClip[] hit_voice;    
+        private AudioClip lasthitClip;  
+        private AudioClip lasthitvoiceClip;  
+
+        // SOUNDS //
+      private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+    {
+        if (clips.Length > 0)
+        {
+            AudioClip clip;
+            do
+            {
+                clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            } while (clip == lastClip);
+
+            lastClip = clip;
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+    }
+    int RandomExcept(int except, int max)
+    {
+        if (max <= 0)
+        {
+            return -1; // or some default value indicating an error
+        }
+
+        int result;
+        do
+        {
+        result = UnityEngine.Random.Range(0, max);
+        } while (result == except);
+        return result;
+    }
+
     private void Awake() {
         currentHealth = maxHealth * 0.7f;
         currentStamina = 0.7f;
@@ -35,6 +75,8 @@ public class PlayerHealth : MonoBehaviour {
             return true;
         }
         Debug.Log("Player is now at " + currentHealth + " health.");
+        PlayRandomClip(hit_sfx, ref lasthitClip, damage_audioSource);
+        PlayRandomClip(hit_voice, ref lasthitvoiceClip, voice_audioSource);
         return false;
     }
 

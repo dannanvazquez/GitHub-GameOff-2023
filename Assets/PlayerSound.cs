@@ -17,8 +17,11 @@ public class PlayerSound : MonoBehaviour
     [Tooltip("Sounds for player getting hit")]    
     [SerializeField] private AudioClip[] player_hit_voice;
     [SerializeField] private AudioClip[] player_hit_sfx;
-
+    [Tooltip("Sounds for player equiping (loading) the bow")]    
+    [SerializeField] private AudioClip[] player_equip_bow_voice;
+    [SerializeField] private AudioClip[] player_equip_bow_sfx;
     [Header("Footsteps")] 
+    private TerrainChecker terrainChecker = new TerrainChecker();
     [Tooltip("Walking grass footsteps sounds")]        
     [SerializeField] private AudioClip[] grassWalkingLeftFS_sfx;
     [SerializeField] private AudioClip[] grassWalkingRightFS_sfx;
@@ -49,6 +52,7 @@ public class PlayerSound : MonoBehaviour
     private AudioClip lastHitVoiceClip;
     private AudioClip lastHitSFXClip;
     private int lastFootstepIndex = -1;
+    
 
     // Alternate between left and right sfx for footsteps + walking/running bool
     private bool playLeftFootstep;
@@ -64,21 +68,51 @@ public class PlayerSound : MonoBehaviour
     Empty
     }
 
-    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
-    {
-        if (clips.Length > 0)
-        {
-            AudioClip clip;
-            do
-            {
-                clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-            } while (clip == lastClip);
 
+private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+{
+    if (clips.Length > 0)
+    {
+        AudioClip clip = GetRandomClip(clips, lastClip);
+        if (clip != null)
+        {
             lastClip = clip;
             audioSource.clip = clip;
             audioSource.Play();
         }
     }
+}
+
+private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
+{
+    if (clips.Length == 1)
+    {
+        // If there is only one clip, return it without checking for duplicates
+        return clips[0];
+    }
+
+    int attemptCount = 0;
+    int maxAttempts = clips.Length * 2; // Adjust the maximum attempts as needed
+
+    AudioClip clip;
+    do
+    {
+        clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        attemptCount++;
+    } while (clip == lastClip && attemptCount < maxAttempts);
+
+    // If the loop exceeds the maximum attempts, return null
+    return (attemptCount >= maxAttempts) ? null : clip;
+}
+    private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource)
+    {
+            AudioClip clip;
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            audioSource.clip = clip;
+            audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
+            audioSource.Play();
+    }
+    
 
     public void PlayMeleeAttack()
     {
@@ -96,6 +130,12 @@ public class PlayerSound : MonoBehaviour
     {
         PlayRandomClip(player_jump_voice, ref lastJumpVoiceClip, AudioSource_Voice);
         PlayRandomClip(player_jump_sfx, ref lastJumpSFXClip, AudioSource_SFX);
+    }
+
+    public void PlayEquipBow()
+    {
+        PlayRandomClipNoLast(player_equip_bow_voice, AudioSource_Voice);
+        PlayRandomClipNoLast(player_equip_bow_sfx, AudioSource_SFX);
     }
 
     public void PlayHit()
@@ -161,32 +201,31 @@ private FSMaterial SurfaceSelect()
 {
     RaycastHit hit;
     Ray ray = new Ray(transform.position + Vector3.up * 0.5f, -Vector3.up);
-    Material surfaceMaterial;
 
     if (Physics.Raycast(ray, out hit, 1.0f, Physics.AllLayers, QueryTriggerInteraction.Ignore))
     {
-        Renderer surfaceRenderer = hit.collider.GetComponentInChildren<Renderer>();
-        if (surfaceRenderer)
-        {   //Debug.Log("Surface Material: " + surfaceRenderer.sharedMaterial.name);
-            surfaceMaterial = surfaceRenderer ? surfaceRenderer.sharedMaterial : null;
-            if (surfaceMaterial.name.Contains("Grass"))
-            {
-                return FSMaterial.Grass;
-            }
-            else if (surfaceMaterial.name.Contains("Concrete"))
-            {
-                return FSMaterial.Concrete;
-            }
-            else if (surfaceMaterial.name.Contains("Wood"))
-            {
-                return FSMaterial.Wood;
-            }
+        Terrain terrain = hit.collider.GetComponent<Terrain>();
+        if (terrain != null)
+        {
+            return TerrainTextureToFSMaterial(terrainChecker.GetLayerName(hit.point, terrain));
         }
     }
 
     // Return a default material if none of the specified materials are found
     return FSMaterial.Empty;
 }
+
+private FSMaterial TerrainTextureToFSMaterial(string textureName)
+{
+    switch (textureName)
+    {
+        case "GrassTexture": return FSMaterial.Grass;
+        case "New Layer 5": return FSMaterial.Concrete;
+        case "WoodTexture": return FSMaterial.Wood;
+        default: return FSMaterial.Empty;
+    }
+}
+
 
 void PlayWalkingFootstep(bool isLeftFoot)
 {

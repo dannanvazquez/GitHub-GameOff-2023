@@ -14,6 +14,7 @@ public class RoachelleSound : MonoBehaviour
     [Tooltip("Sounds for roachelle getting hit")]    
     [SerializeField] private AudioClip[] roachelle_hit_voice;
     [SerializeField] private AudioClip[] roachelle_hit_sfx;
+    [SerializeField] private AudioClip[] roachelle_bigattack_voice;
 
     [Header("Footsteps")] 
     [Tooltip("Walking grass footsteps sounds")]        
@@ -60,20 +61,48 @@ public class RoachelleSound : MonoBehaviour
     Empty
     }
 
-    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+{
+    if (clips.Length > 0)
     {
-        if (clips.Length > 0)
+        AudioClip clip = GetRandomClip(clips, lastClip);
+        if (clip != null)
         {
-            AudioClip clip;
-            do
-            {
-                clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-            } while (clip == lastClip);
-
             lastClip = clip;
             audioSource.clip = clip;
             audioSource.Play();
         }
+    }
+}
+
+private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
+{
+    if (clips.Length == 1)
+    {
+        // If there is only one clip, return it without checking for duplicates
+        return clips[0];
+    }
+
+    int attemptCount = 0;
+    int maxAttempts = clips.Length * 2; // Adjust the maximum attempts as needed
+
+    AudioClip clip;
+    do
+    {
+        clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        attemptCount++;
+    } while (clip == lastClip && attemptCount < maxAttempts);
+
+    // If the loop exceeds the maximum attempts, return null
+    return (attemptCount >= maxAttempts) ? null : clip;
+}
+        private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource)
+    {
+            AudioClip clip;
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            audioSource.clip = clip;
+            audioSource.pitch=UnityEngine.Random.Range(.95f, 1.05f);
+            audioSource.Play();
     }
 
     public void PlayMeleeAttack()
@@ -95,6 +124,10 @@ public class RoachelleSound : MonoBehaviour
         PlayRandomClip(roachelle_hit_sfx, ref lastHitSFXClip, AudioSource_SFX);
     }
 
+    public void BigAttack()
+    {
+        PlayRandomClipNoLast(roachelle_bigattack_voice, AudioSource_Voice);
+    }
 
 void Update(){
     // Detect roachelle input for running

@@ -1,9 +1,10 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-
+using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
     [Header("References")]
+    [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
 
     private float healthRectWidth;
@@ -60,6 +61,7 @@ public class EnemyHealth : MonoBehaviour {
         initialScale = transform.localScale;
         healthRectWidth = healthRect.rect.width;
         healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
+        healthFillImage.fillAmount = currentHealth / maxHealth;
     }
 
     public bool TakeDamage(float damage) {
@@ -89,7 +91,9 @@ public class EnemyHealth : MonoBehaviour {
     private IEnumerator DamageVisuals() {
         //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
 
-        healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
+        // Update the fill amount instead of resizing the RectTransform.
+        healthFillImage.fillAmount = currentHealth / maxHealth;
+        //healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
 
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (var r in renderers) {

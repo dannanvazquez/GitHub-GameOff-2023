@@ -51,20 +51,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   arrow_sfx:
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  - {fileID: 8300000, guid: f0fc10e41ce8a8c478343770c8ded645, type: 3}
+  - {fileID: 8300000, guid: 8875168629660864eb7735f76e11f0c5, type: 3}
+  - {fileID: 8300000, guid: 986999090ef7d1049af065c197af9406, type: 3}
+  - {fileID: 8300000, guid: 1ffa96841b6e76d42bed8dfda74a91ec, type: 3}
   arrow_landing_sfx:
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: 490b00519529b624cab89e6e1da2fc93, type: 3}
   AudioSource_arrow: {fileID: -38023684550325126}
   hitParticles: {fileID: 4046479241864090530}
   explosionDamage: 5
   explosionRadius: 15
   explosionKnockbackForce: 1
   explosive_audiosource: {fileID: -38023684550325126}
-  explosion_sfx: {fileID: 8300000, guid: 115dd729c0eb9824ba7a950abba7be46, type: 3}
+  explosion_sfx: {fileID: 8300000, guid: 1294c97bd3fcbb74cba305c20dd971a8, type: 3}
 --- !u!54 &5927822504876221503
 Rigidbody:
   m_ObjectHideFlags: 0

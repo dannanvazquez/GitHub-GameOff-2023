@@ -1,14 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody))]
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
     [Header("References")]
     [SerializeField] private Transform orientation;
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Animator animator;
+    [SerializeField] private Image staminaBar;
 
     private Rigidbody rb;
+    private PlayerStamina playerStamina; // Reference to PlayerStamina script
 
     [Header("Settings")]
     [Tooltip("The speed at which you move when walking.")]
@@ -33,10 +38,18 @@ public class PlayerMovement : MonoBehaviour {
     private bool isRunning;
     private bool canJump = true;
 
-    private void Start() {
+    private float stamina;
+
+    private Coroutine recharge;
+
+    private void Start()
+    {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+        playerStamina = GetComponent<PlayerStamina>(); // Assuming PlayerStamina script is on the same GameObject as PlayerMovement
+        UpdateStaminaBar();
     }
+
 
     private void Update() {
         // Ground check
@@ -61,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        isRunning = Input.GetButton("Run");
+        isRunning = Input.GetButton("Run") && playerStamina.UseStamina(playerStamina.RunCost * Time.deltaTime);
         moveSpeed = isRunning ? runSpeed : walkSpeed;
 
         // Check for jumping
@@ -71,6 +84,11 @@ public class PlayerMovement : MonoBehaviour {
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+                // Manage stamina recharge if not running
+        if (!isRunning && stamina < playerStamina.MaxStamina)
+        {
+            playerStamina.RechargeStamina();
         }
     }
 
@@ -115,5 +133,25 @@ public class PlayerMovement : MonoBehaviour {
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsFalling", rb.velocity.y < 0.01f);
         animator.SetBool("IsRunning", isRunning);
+    }
+
+    private IEnumerator RechargeStamina()
+    {
+        while (stamina < playerStamina.MaxStamina)
+        {
+            stamina += playerStamina.ChargeRate / 50f;
+            stamina = Mathf.Min(playerStamina.MaxStamina, stamina);
+            UpdateStaminaBar();
+            yield return new WaitForSeconds(0.05f);
+        }
+        recharge = null;
+    }
+
+    private void UpdateStaminaBar()
+    {
+        if (staminaBar != null)
+        {
+            staminaBar.fillAmount = stamina / playerStamina.MaxStamina;
+        }
     }
 }

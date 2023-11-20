@@ -56,9 +56,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 49e2789038a7e1f4ba28beda549e79a9, type: 3}
   - {fileID: 8300000, guid: 825f257fc46e8c8498efdb479edf45f3, type: 3}
   arrow_landing_sfx:
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: ae81b982d579af045a0b7638db4f9d5f, type: 3}
   AudioSource_arrow: {fileID: 1783575463014420578}
 --- !u!54 &8230769278181647267
 Rigidbody:

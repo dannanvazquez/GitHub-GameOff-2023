@@ -50,13 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   arrow_sfx:
-  - {fileID: 8300000, guid: 9aa721713aaf21a408b24f0cc3bcb8a5, type: 3}
-  - {fileID: 8300000, guid: f68d72ceab7f21a4ba0a0ba6f3f82c0a, type: 3}
-  - {fileID: 8300000, guid: 49e2789038a7e1f4ba28beda549e79a9, type: 3}
-  - {fileID: 8300000, guid: 825f257fc46e8c8498efdb479edf45f3, type: 3}
+  - {fileID: 8300000, guid: a686b98757dc8e549b328489b6241d37, type: 3}
+  - {fileID: 8300000, guid: a4c061b99f217d94aa8332f7d1560170, type: 3}
+  - {fileID: 8300000, guid: bd248232f4692b84b8534999ce30c08f, type: 3}
+  - {fileID: 8300000, guid: 9a7a002df71cc644293a4120b47ce73d, type: 3}
   arrow_landing_sfx:
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: ae81b982d579af045a0b7638db4f9d5f, type: 3}
   AudioSource_arrow: {fileID: -7079630120451065881}
   enemyCloserRange: 30
   enemyCloserDistanceRatio: 0.5

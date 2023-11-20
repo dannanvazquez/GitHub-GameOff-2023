@@ -51,15 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   arrow_sfx:
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
-  - {fileID: 8300000, guid: 6bf0077676f348a4e8d9f93be7b45afd, type: 3}
+  - {fileID: 8300000, guid: 05af51441e4ff814789975774408270e, type: 3}
+  - {fileID: 8300000, guid: 0033588cb7cc45c4e97f2703ad0e361a, type: 3}
+  - {fileID: 8300000, guid: 75f7363b814a24441a1c45e2cd7bb584, type: 3}
+  - {fileID: 8300000, guid: 9e7a85d5b7b22d7418f5b6cc9e3f23f0, type: 3}
   arrow_landing_sfx:
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
-  - {fileID: 8300000, guid: 9017e9b7722ecd140b562a6d31e791ea, type: 3}
+  - {fileID: 8300000, guid: 490b00519529b624cab89e6e1da2fc93, type: 3}
   AudioSource_arrow: {fileID: 3419318392622942869}
 --- !u!54 &2227990704930728498
 Rigidbody:

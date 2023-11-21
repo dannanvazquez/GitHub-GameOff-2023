@@ -10318,8 +10318,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f14cdffbc2fc3e419c3d686dd4585dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoxPartsWRigidbody: {fileID: 1311236254055816762}
-  BoxPartsNoRB: {fileID: 1250162885746501432}
+  mygameObject: {fileID: 8401004339699232810}
+  collider_arrow: {fileID: 5138856654595766795, guid: 9f7d6e227a4fc3f47880c502548fbcc1,
+    type: 3}
 --- !u!1 &8439964936638116505
 GameObject:
   m_ObjectHideFlags: 0
@@ -11209,15 +11210,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689621329782712, guid: f2bb6fbe63bfed24f8ee027776bfed73, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.3965
+      value: 3.3621736
       objectReference: {fileID: 0}
     - target: {fileID: 4689621329782712, guid: f2bb6fbe63bfed24f8ee027776bfed73, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.3965003
+      value: 3.3621738
       objectReference: {fileID: 0}
     - target: {fileID: 4689621329782712, guid: f2bb6fbe63bfed24f8ee027776bfed73, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.3965003
+      value: 3.3621738
       objectReference: {fileID: 0}
     - target: {fileID: 4689621329782712, guid: f2bb6fbe63bfed24f8ee027776bfed73, type: 3}
       propertyPath: m_LocalPosition.x

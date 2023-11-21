@@ -4,24 +4,17 @@ using UnityEngine;
 
 public class BreakableElement : MonoBehaviour
 {
-    public GameObject BoxPartsWRigidbody, BoxPartsNoRB;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
+    public GameObject mygameObject;
+    public Collider collider_arrow;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Arrow")
+    private void OnCollisionEnter(Collision collision)
+    { 
+        Debug.Log("Collision detected!");
+
+        if (collision.gameObject.tag == "Player")
         {
-          
-
-            BoxPartsNoRB.SetActive(false);
-            BoxPartsWRigidbody.SetActive(true);
-            
-            Destroy(this.gameObject, 4f);
+            Debug.Log("Arrow hit!");
+            Destroy(mygameObject);
         }
     }
 }

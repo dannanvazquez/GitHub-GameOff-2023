@@ -3097,7 +3097,6 @@ GameObject:
   - component: {fileID: 233983965631872922}
   - component: {fileID: 4152775823754234495}
   - component: {fileID: 2806550240193727208}
-  - component: {fileID: 491073234752732019}
   m_Layer: 7
   m_Name: Enemy_Roachelle
   m_TagString: Untagged
@@ -3318,7 +3317,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3396,33 +3395,6 @@ MonoBehaviour:
   AudioSource_Voice: {fileID: 479459071155932732}
   AudioSource_SFX: {fileID: 5536067917561907847}
   AudioSource_FS: {fileID: 6324167551250743756}
---- !u!54 &491073234752732019
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664182453759271245}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!1 &9119385821312000101
 GameObject:
   m_ObjectHideFlags: 0

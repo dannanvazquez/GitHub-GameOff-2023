@@ -93,6 +93,14 @@ public class EnemyHealth : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
+    public void Heal(float healAmount) {
+        if (healAmount <= 0 || currentHealth >= maxHealth) return;
+
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        StartCoroutine(HealVisuals());
+    }
 
     private IEnumerator DamageVisuals() {
         //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
@@ -105,6 +113,27 @@ public class EnemyHealth : MonoBehaviour {
         foreach (var r in renderers) {
             foreach (var m in r.materials) {
                 m.color = Color.red;
+            }
+        }
+
+        yield return new WaitForSeconds(damageVisualsInterval);
+
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.white;
+            }
+        }
+    }
+
+    private IEnumerator HealVisuals() {
+        //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
+
+        healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.green;
             }
         }
 

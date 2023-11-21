@@ -26,7 +26,6 @@ public abstract class EnemyAI : MonoBehaviour {
     [HideInInspector] public NavMeshAgent agent;
     protected EnemyHealth health;
     protected PlayerHealth playerHealth;
-    protected Rigidbody rb;
     protected Ice ice;
 
     [HideInInspector] public bool isBasicAttacking;
@@ -44,15 +43,12 @@ public abstract class EnemyAI : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
-        rb = GetComponent<Rigidbody>();
         ice = GetComponent<Ice>();
         lastTimeBasicAttacked -= basicAttackCooldown;
         if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
-        rb.drag = 5f;
-
         ConstructBehaviorTree();
     }
 
@@ -86,7 +82,7 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     public void BasicAttackParticles() {
-        basicAttackParticles?.Play();
+        if (basicAttackParticles) basicAttackParticles.Play();
     }
 
     public void DoneSpecialAttacking() {
@@ -94,7 +90,7 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     public void SpecialAttackParticles() {
-        specialAttackParticles?.Play();
+        if (specialAttackParticles) specialAttackParticles.Play();
     }
 
     public void SetRotation(Quaternion rotation) {
@@ -106,16 +102,20 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private IEnumerator KnockbackCoroutine(Vector3 force) {
+        Rigidbody rb = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
+
         agent.enabled = false;
         rb.AddForce(force, ForceMode.Impulse);
-        rb.drag = 0f;
+        rb.freezeRotation = true;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         yield return new WaitForSeconds(0.5f);
         CapsuleCollider collider = GetComponent<CapsuleCollider>();
         int groundMask = 1 << LayerMask.NameToLayer("Ground");
         while (!Physics.Raycast(transform.position, Vector3.down, 0.2f, groundMask)) yield return null;
 
-        rb.drag = 5f;
+        Destroy(rb);
         agent.enabled = true;
     }
 }

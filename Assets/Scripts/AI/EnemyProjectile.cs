@@ -31,6 +31,10 @@ public class EnemyProjectile : MonoBehaviour {
             playerHealth.TakeDamage(damage);
         }
 
+        OnHit();
+
         Destroy(gameObject);
     }
+
+    protected virtual void OnHit() { }
 }

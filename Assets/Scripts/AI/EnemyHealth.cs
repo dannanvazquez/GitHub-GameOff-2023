@@ -3,6 +3,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
+    public GameObject BoxWithRB;
+    public GameObject BoxNoRB;
+
+    private Animator animator;
+
+
     [Header("References")]
     [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
@@ -25,8 +31,10 @@ public class EnemyHealth : MonoBehaviour {
     private AudioClip lasthitClip;    
     private AudioClip lastdeathClip;
 
-        // SOUNDS //
-      private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
+    //public string Broken { get; private set; }
+
+    // SOUNDS //
+    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
     {
         if (clips.Length > 0)
         {
@@ -62,6 +70,14 @@ public class EnemyHealth : MonoBehaviour {
         healthRectWidth = healthRect.rect.width;
         healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
         healthFillImage.fillAmount = currentHealth / maxHealth;
+
+        
+    }
+
+    private void Start()
+    {
+        animator = this.gameObject.GetComponent<Animator>();
+        animator.SetBool("Broken", false);
     }
 
     public bool TakeDamage(float damage) {
@@ -71,6 +87,26 @@ public class EnemyHealth : MonoBehaviour {
         if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
+
+
+
+
+
+
+
+
+            BoxNoRB.SetActive(false);
+            BoxWithRB.SetActive(true);
+            animator.SetBool("Broken", true);
+
+            //Destroy(this.gameObject, 12f);
+
+
+
+
+
+
+
             Destroy(GetComponent<EnemyAI>());
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent.enabled) agent.isStopped = true;
@@ -85,8 +121,9 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     public void Die() {
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
+
 
     private IEnumerator DamageVisuals() {
         //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);

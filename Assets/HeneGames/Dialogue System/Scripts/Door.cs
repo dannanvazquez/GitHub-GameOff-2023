@@ -19,6 +19,8 @@ namespace HeneGames.DialogueSystem
 
         private void Update()
         {
+            Debug.Log("Door value = " + open.ToString());
+
             if(open)
             {
                 doorTransform.localPosition = Vector3.Lerp(doorTransform.localPosition, openTransform.localPosition, 1f * Time.deltaTime);

@@ -84,6 +84,7 @@ public class BreakableElement : MonoBehaviour
 
     public bool TakeDamage(float damage)
     {
+        Debug.Log("dmg taken");
         if (currentHealth <= 0) return true;
 
         currentHealth -= damage;

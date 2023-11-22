@@ -2523,11 +2523,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133183765526979850}
-  - component: {fileID: 7041606477826628352}
   - component: {fileID: 650642285248273171}
   - component: {fileID: 4349725229696815572}
-  - component: {fileID: 1835093998138597552}
   - component: {fileID: 6060364710774994314}
+  - component: {fileID: 1939327531422265756}
   m_Layer: 7
   m_Name: BreakableBox_Prefab
   m_TagString: Untagged
@@ -2554,29 +2553,6 @@ Transform:
   - {fileID: 5623885580419286560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7041606477826628352
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104843039829655868}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 1.6475846
-  m_Height: 3.2951698
-  m_Direction: 1
-  m_Center: {x: -7.070607e-17, y: 0.97, z: 0.03999996}
 --- !u!54 &650642285248273171
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2625,27 +2601,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &1835093998138597552
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104843039829655868}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.0571892, y: 1.6923151, z: 1}
-  m_Center: {x: -0.0046931505, y: 0.8045826, z: -1.1182503e-17}
 --- !u!114 &6060364710774994314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,9 +2623,34 @@ MonoBehaviour:
   currentHealth: 0
   damage_audioSource: {fileID: 2965207397293674562}
   hit_sfx:
+  - {fileID: 8300000, guid: 4f7c12c13b1bf7649a51106b03bf2783, type: 3}
+  - {fileID: 8300000, guid: 986ee2cc5a7eefe4085a069a95d781bf, type: 3}
   - {fileID: 8300000, guid: 814455d71a4299b40bc83cfda72e303f, type: 3}
   death_sfx:
   - {fileID: 8300000, guid: e81c6bdb86bbeca418481eaf4da3abe1, type: 3}
+--- !u!136 &1939327531422265756
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104843039829655868}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.95043945
+  m_Height: 1.9008789
+  m_Direction: 1
+  m_Center: {x: -0.012207031, y: 0.7972326, z: 0}
 --- !u!1 &2227269620868454268
 GameObject:
   m_ObjectHideFlags: 0

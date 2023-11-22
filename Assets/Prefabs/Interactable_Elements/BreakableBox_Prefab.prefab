@@ -2523,11 +2523,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 133183765526979850}
-  - component: {fileID: 7507193266029600088}
   - component: {fileID: 7041606477826628352}
   - component: {fileID: 650642285248273171}
   - component: {fileID: 4349725229696815572}
   - component: {fileID: 1835093998138597552}
+  - component: {fileID: 6060364710774994314}
   m_Layer: 7
   m_Name: BreakableBox_Prefab
   m_TagString: Untagged
@@ -2554,37 +2554,6 @@ Transform:
   - {fileID: 5623885580419286560}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7507193266029600088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104843039829655868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d223c587f2303459342b4bfca524bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BoxWithRB: {fileID: 1876801644620401050}
-  BoxNoRB: {fileID: 6482220307096563153}
-  healthFillImage: {fileID: 1689813496548904950}
-  healthRect: {fileID: 713769881034129114}
-  maxHealth: 1
-  damageVisualsInterval: 0.125
-  minimumScalePercentage: 0.75
-  currentHealth: 0
-  damage_audioSource: {fileID: 2965207397293674562}
-  hit_sfx:
-  - {fileID: 8300000, guid: 387dd56349c471045896c0aef0ceca5b, type: 3}
-  - {fileID: 8300000, guid: 9abe3cdd8dc83f74c9e7fb4d62632726, type: 3}
-  - {fileID: 8300000, guid: 99a94238cb7345e4cab8c14f08eabd9d, type: 3}
-  - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
-  death_sfx:
-  - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
-  - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
-  - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
-  - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
 --- !u!136 &7041606477826628352
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2677,6 +2646,31 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0571892, y: 1.6923151, z: 1}
   m_Center: {x: -0.0046931505, y: 0.8045826, z: -1.1182503e-17}
+--- !u!114 &6060364710774994314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104843039829655868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f14cdffbc2fc3e419c3d686dd4585dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoxWithRB: {fileID: 1876801644620401050}
+  BoxNoRB: {fileID: 6482220307096563153}
+  healthFillImage: {fileID: 1689813496548904950}
+  healthRect: {fileID: 713769881034129114}
+  maxHealth: 1
+  damageVisualsInterval: 0.2
+  minimumScalePercentage: 0.457
+  currentHealth: 0
+  damage_audioSource: {fileID: 2965207397293674562}
+  hit_sfx:
+  - {fileID: 8300000, guid: 814455d71a4299b40bc83cfda72e303f, type: 3}
+  death_sfx:
+  - {fileID: 8300000, guid: e81c6bdb86bbeca418481eaf4da3abe1, type: 3}
 --- !u!1 &2227269620868454268
 GameObject:
   m_ObjectHideFlags: 0

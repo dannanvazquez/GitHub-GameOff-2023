@@ -3,12 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
-    public GameObject BoxWithRB;
-    public GameObject BoxNoRB;
-
-    private Animator animator;
-
-
+    
     [Header("References")]
     [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
@@ -74,39 +69,13 @@ public class EnemyHealth : MonoBehaviour {
         
     }
 
-    private void Start()
-    {
-        animator = this.gameObject.GetComponent<Animator>();
-        animator.SetBool("Broken", false);
-    }
-
-    public bool TakeDamage(float damage) {
+     public bool TakeDamage(float damage) {
         if (currentHealth <= 0) return true;
 
         currentHealth -= damage;
         if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
-
-
-
-
-
-
-
-
-            BoxNoRB.SetActive(false);
-            BoxWithRB.SetActive(true);
-            animator.SetBool("Broken", true);
-
-            //Destroy(this.gameObject, 12f);
-
-
-
-
-
-
-
             Destroy(GetComponent<EnemyAI>());
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent.enabled) agent.isStopped = true;

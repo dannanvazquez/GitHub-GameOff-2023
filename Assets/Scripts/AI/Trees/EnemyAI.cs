@@ -58,7 +58,6 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private void Update() {
-        Debug.Log("Is attacking: " + isAttacking);
         if (ice.isFrozen) return;
 
         root.Evaluate();
@@ -74,7 +73,6 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     public void DoneAttacking() {
-        Debug.Log("Done attacking!");
         isAttacking = false;
     }
 

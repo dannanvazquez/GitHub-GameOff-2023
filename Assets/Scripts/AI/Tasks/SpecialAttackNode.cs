@@ -22,7 +22,6 @@ public class SpecialAttackNode : Node {
         if (specialAttackBase.specialAttackChancePerc == 1 || Random.value < specialAttackBase.specialAttackChancePerc) {
             specialAttackBase.StartSpecialAttack();
             if (agent.enabled) agent.isStopped = true;
-            Debug.Log("Special Attack Node is attacking");
             ai.isAttacking = true;
         }
 

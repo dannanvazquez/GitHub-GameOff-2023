@@ -64,7 +64,7 @@ public class EnemyHealth : MonoBehaviour {
         initialScale = transform.localScale;
         healthRectWidth = healthRect.rect.width;
         healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
-        healthFillImage.fillAmount = currentHealth / maxHealth;
+        if (healthFillImage) healthFillImage.fillAmount = currentHealth / maxHealth;
 
         
     }

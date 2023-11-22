@@ -62,7 +62,9 @@ public class RangeEnemy : EnemyAI {
     }
 
     public void RangeAttack() {
-        if (loadedProjectile) loadedProjectile.transform.SetParent(null);
+        if (!loadedProjectile) return;
+
+        loadedProjectile.transform.SetParent(null);
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
         AudioSource missileAudioSource = loadedProjectile.GetComponent<AudioSource>();
         loadedProjectile.transform.rotation = Quaternion.LookRotation((playerTransform.position - loadedProjectile.transform.position).normalized);

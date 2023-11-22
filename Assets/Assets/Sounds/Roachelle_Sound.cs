@@ -86,10 +86,20 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
     int attemptCount = 0;
     int maxAttempts = clips.Length * 2; // Adjust the maximum attempts as needed
 
+    List<AudioClip> availableClips = new List<AudioClip>(clips);
+    availableClips.Remove(lastClip);
+
+    if (availableClips.Count == 0)
+    {
+        // If all clips have been played, reset the lastClip and use all clips again
+        lastClip = null;
+        availableClips = new List<AudioClip>(clips);
+    }
+
     AudioClip clip;
     do
     {
-        clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        clip = availableClips[UnityEngine.Random.Range(0, availableClips.Count)];
         attemptCount++;
     } while (clip == lastClip && attemptCount < maxAttempts);
 
@@ -105,10 +115,10 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
             audioSource.Play();
     }
 
-    public void PlayMeleeAttack()
+    public void PlayMeleeAttackVoice()
     {
         PlayRandomClip(roachelle_attack_voice, ref lastAttackVoiceClip, AudioSource_Voice);
-        PlayRandomClip(roachelle_attack_sfx, ref lastAttackSFXClip, AudioSource_SFX);
+        PlayRandomClipNoLast(roachelle_attack_sfx, AudioSource_SFX);
     }
 
     public void PlayDeath()

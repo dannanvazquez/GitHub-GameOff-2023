@@ -47,7 +47,7 @@ public class BasicArrow : MonoBehaviour {
 
         hasHit = true;
         PlayRandomClip(arrow_landing_sfx, AudioSource_arrow);
-        if (other.transform.root.TryGetComponent(out EnemyHealth enemyHealth)) {
+        if (other.transform.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(damage);
         }
         OnHit(other);

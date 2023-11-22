@@ -17,7 +17,7 @@ public class ShootNode : Node {
     public override NodeState Evaluate() {
         animator.SetTrigger("Shoot");
         if (agent.enabled) agent.isStopped = true;
-        ai.isBasicAttacking = true;
+        ai.isAttacking = true;
         ai.StartCoroutine(ai.LoadProjectile());
         offCooldownNode.lastTimeUsed = Time.time;
 

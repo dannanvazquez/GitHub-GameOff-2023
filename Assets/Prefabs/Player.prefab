@@ -135,11 +135,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   player_attack_sfx:
-  - {fileID: 8300000, guid: e0ac463565229254e994e6b3e4ffd0a2, type: 3}
-  - {fileID: 8300000, guid: ae26c6490b89c604a9094d28cda7ede9, type: 3}
-  - {fileID: 8300000, guid: 606d01083638d7b4c854cca23026538d, type: 3}
-  - {fileID: 8300000, guid: 2f036f5830fbc1349a20411450030e9c, type: 3}
-  - {fileID: 8300000, guid: f1f64c75a4a96ba4b854ad498c2557a8, type: 3}
+  - {fileID: 8300000, guid: 405a1b4787ab3b0459db4e7a021c19c6, type: 3}
+  - {fileID: 8300000, guid: f189acc2ff07af549bb3fad53034e176, type: 3}
+  - {fileID: 8300000, guid: 01425e679c474974c83736fca54a2258, type: 3}
+  - {fileID: 8300000, guid: bb4644f9b3780a0438a0c62c57fba110, type: 3}
+  - {fileID: 8300000, guid: 9f00b4b03ef9d8042976ddc8a22ae18a, type: 3}
   player_death_voice:
   - {fileID: 8300000, guid: 1f6f1f2db28fefc43ac2f3ef3a79807d, type: 3}
   - {fileID: 8300000, guid: 01901b736be84b148a741b0fec00b54d, type: 3}
@@ -148,8 +148,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 28952acc407f98348a54758f2a13ebb1, type: 3}
   - {fileID: 8300000, guid: d2f855462f8c87d44ba7741aaa660eaf, type: 3}
   player_death_sfx:
-  - {fileID: 8300000, guid: d70f64db2b3887f4fbd8841cb2492a1c, type: 3}
-  - {fileID: 8300000, guid: d70f64db2b3887f4fbd8841cb2492a1c, type: 3}
+  - {fileID: 8300000, guid: f6f37ce5df4dc5f4ba63eeaf69495628, type: 3}
+  - {fileID: 8300000, guid: f6f37ce5df4dc5f4ba63eeaf69495628, type: 3}
   player_jump_voice:
   - {fileID: 8300000, guid: 682c77abe7a504f4f8c7d9f9ad8f9bcd, type: 3}
   - {fileID: 8300000, guid: 790ffe51de5440f4c99fb792a43db75d, type: 3}
@@ -922,10 +922,10 @@ MonoBehaviour:
   damage_audioSource: {fileID: 8313417498208330309}
   voice_audioSource: {fileID: 5540192780545649378}
   hit_sfx:
-  - {fileID: 8300000, guid: 387dd56349c471045896c0aef0ceca5b, type: 3}
-  - {fileID: 8300000, guid: 9abe3cdd8dc83f74c9e7fb4d62632726, type: 3}
-  - {fileID: 8300000, guid: 99a94238cb7345e4cab8c14f08eabd9d, type: 3}
-  - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
+  - {fileID: 8300000, guid: ced30cb9aba4e574a8569289b2efc056, type: 3}
+  - {fileID: 8300000, guid: ddf47635cb962944aa836e2fd8efe52c, type: 3}
+  - {fileID: 8300000, guid: d45067dd66afd2c4d97da0ec5da0bf18, type: 3}
+  - {fileID: 8300000, guid: 485903845082b9a48b2cd48688541503, type: 3}
   hit_voice:
   - {fileID: 8300000, guid: 36272f93acabe83449c3cbe1f1f0734d, type: 3}
   - {fileID: 8300000, guid: 64a0fbdc4ac1fb044ae5d36eac73730a, type: 3}

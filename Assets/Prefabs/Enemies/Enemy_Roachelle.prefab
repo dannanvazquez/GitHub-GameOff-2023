@@ -1356,18 +1356,18 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.616
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 0.24
+  DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 90
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1376,22 +1376,40 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      value: 0.44644165
+      inSlope: -0.7983316
+      outSlope: -0.7983316
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 1
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.2371782
+      value: 0.23764038
+      inSlope: -0.35964498
+      outSlope: -0.35964498
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.9982876
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5325217
+      value: 0.1071167
+      inSlope: -0.35170308
+      outSlope: -0.35170308
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.011111111
+      inSlope: -0.0111155445
+      outSlope: -0.0111155445
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1400,7 +1418,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.98
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1415,7 +1433,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.41666666
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3097,7 +3115,6 @@ GameObject:
   - component: {fileID: 233983965631872922}
   - component: {fileID: 4152775823754234495}
   - component: {fileID: 2806550240193727208}
-  - component: {fileID: 491073234752732019}
   m_Layer: 7
   m_Name: Enemy_Roachelle
   m_TagString: Untagged
@@ -3144,19 +3161,18 @@ MonoBehaviour:
   animator: {fileID: 1132193146550105881}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
-  specialAttackParticles: {fileID: 5192609916977711094}
-  specialAttack: {fileID: 2699147665323994238}
   chasingRange: 30
   minimumChaseRange: 2.5
   basicAttackRange: 5
   basicAttackCooldown: 2.66
   basicAttackDamage: 10
   agent: {fileID: 0}
-  isBasicAttacking: 0
+  isAttacking: 0
   lastTimeBasicAttacked: 0
-  isSpecialAttacking: 0
   lastTimeSpecialAttacked: 0
   isFrozen: 0
+  specialAttackParticles: {fileID: 5192609916977711094}
+  specialAttack: {fileID: 2699147665323994238}
   meleeDistance: 6
 --- !u!114 &2699147665323994238
 MonoBehaviour:
@@ -3173,6 +3189,7 @@ MonoBehaviour:
   specialAttackRange: 25
   specialAttackCooldown: 15
   specialAttackDamage: 20
+  specialAttackChancePerc: 1
   breadSpawnPointTransforms:
   - {fileID: 8769684027155264557}
   - {fileID: 8717563759977871663}
@@ -3318,7 +3335,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3363,7 +3380,9 @@ MonoBehaviour:
   roachelle_attack_voice:
   - {fileID: 8300000, guid: f3624d21da2e263428fbd79d37b6beb3, type: 3}
   - {fileID: 8300000, guid: 28f7e9c8ef4c9a647a0039ce114ab289, type: 3}
-  roachelle_attack_sfx: []
+  roachelle_attack_sfx:
+  - {fileID: 8300000, guid: 37e8a6d9cc76618479e3c0dea5faeb88, type: 3}
+  - {fileID: 8300000, guid: 37e8a6d9cc76618479e3c0dea5faeb88, type: 3}
   roachelle_death_voice:
   - {fileID: 8300000, guid: 6f14e1091ba7d97419e4c07340a8232c, type: 3}
   roachelle_death_sfx: []
@@ -3396,33 +3415,6 @@ MonoBehaviour:
   AudioSource_Voice: {fileID: 479459071155932732}
   AudioSource_SFX: {fileID: 5536067917561907847}
   AudioSource_FS: {fileID: 6324167551250743756}
---- !u!54 &491073234752732019
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8664182453759271245}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 1
-  m_Constraints: 112
-  m_CollisionDetection: 1
 --- !u!1 &9119385821312000101
 GameObject:
   m_ObjectHideFlags: 0

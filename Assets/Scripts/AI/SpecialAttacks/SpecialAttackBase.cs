@@ -8,6 +8,9 @@ public abstract class SpecialAttackBase : MonoBehaviour {
     public float specialAttackCooldown;
     [Tooltip("The amount of damage a special attack does to the player.")]
     public float specialAttackDamage;
+    [Tooltip("The percentage chance that this special attack actually happens.")]
+    [Range(0,1)] public float specialAttackChancePerc;
 
+    public abstract void StartSpecialAttack();
     public abstract void PerformSpecialAttack();
 }

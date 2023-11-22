@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public class IsAttackingNode : Node {
     private EnemyAI ai;
 
@@ -6,7 +8,7 @@ public class IsAttackingNode : Node {
     }
 
     public override NodeState Evaluate() {
-        _nodeState = ai.isBasicAttacking || ai.isSpecialAttacking ? NodeState.SUCCESS : NodeState.FAILURE;
+        _nodeState = ai.isAttacking ? NodeState.SUCCESS : NodeState.FAILURE;
         return _nodeState;
     }
 }

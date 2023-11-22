@@ -3,12 +3,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
-    public GameObject BoxWithRB;
-    public GameObject BoxNoRB;
-
-    private Animator animator;
-
-
+    
     [Header("References")]
     [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
@@ -69,44 +64,18 @@ public class EnemyHealth : MonoBehaviour {
         initialScale = transform.localScale;
         healthRectWidth = healthRect.rect.width;
         healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
-        healthFillImage.fillAmount = currentHealth / maxHealth;
+        if (healthFillImage) healthFillImage.fillAmount = currentHealth / maxHealth;
 
         
     }
 
-    private void Start()
-    {
-        animator = this.gameObject.GetComponent<Animator>();
-        animator.SetBool("Broken", false);
-    }
-
-    public bool TakeDamage(float damage) {
+     public bool TakeDamage(float damage) {
         if (currentHealth <= 0) return true;
 
         currentHealth -= damage;
         if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
             Debug.Log($"{gameObject.name} is now dead", transform);
-
-
-
-
-
-
-
-
-            BoxNoRB.SetActive(false);
-            BoxWithRB.SetActive(true);
-            animator.SetBool("Broken", true);
-
-            //Destroy(this.gameObject, 12f);
-
-
-
-
-
-
-
             Destroy(GetComponent<EnemyAI>());
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if (agent.enabled) agent.isStopped = true;
@@ -124,6 +93,14 @@ public class EnemyHealth : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
+    public void Heal(float healAmount) {
+        if (healAmount <= 0 || currentHealth >= maxHealth) return;
+
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        StartCoroutine(HealVisuals());
+    }
 
     private IEnumerator DamageVisuals() {
         //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
@@ -136,6 +113,27 @@ public class EnemyHealth : MonoBehaviour {
         foreach (var r in renderers) {
             foreach (var m in r.materials) {
                 m.color = Color.red;
+            }
+        }
+
+        yield return new WaitForSeconds(damageVisualsInterval);
+
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.white;
+            }
+        }
+    }
+
+    private IEnumerator HealVisuals() {
+        //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
+
+        healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.green;
             }
         }
 

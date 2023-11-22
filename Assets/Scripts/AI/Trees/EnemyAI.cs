@@ -8,8 +8,6 @@ public abstract class EnemyAI : MonoBehaviour {
     public Animator animator;
     public Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
-    [SerializeField] protected ParticleSystem specialAttackParticles;
-    [SerializeField] protected SpecialAttackBase specialAttack;
 
     [Header("General Enemy Settings")]
     [Tooltip("The distance from the player before this enemy starts chasing.")]
@@ -26,33 +24,26 @@ public abstract class EnemyAI : MonoBehaviour {
     [HideInInspector] public NavMeshAgent agent;
     protected EnemyHealth health;
     protected PlayerHealth playerHealth;
-    protected Rigidbody rb;
     protected Ice ice;
 
-    [HideInInspector] public bool isBasicAttacking;
+    [HideInInspector] public bool isAttacking;
     [HideInInspector] public float lastTimeBasicAttacked;
-
-    [HideInInspector] public bool isSpecialAttacking;
     [HideInInspector] public float lastTimeSpecialAttacked;
 
     [HideInInspector] public bool isFrozen;
 
     protected Node root;
 
-    private void Awake() {
+    public virtual void Awake() {
         if (playerTransform == null) playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
-        rb = GetComponent<Rigidbody>();
         ice = GetComponent<Ice>();
         lastTimeBasicAttacked -= basicAttackCooldown;
-        if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
-        rb.drag = 5f;
-
         ConstructBehaviorTree();
     }
 
@@ -81,20 +72,12 @@ public abstract class EnemyAI : MonoBehaviour {
         if (agent.enabled) agent.isStopped = true;
     }
 
-    public void DoneBasicAttacking() {
-        isBasicAttacking = false;
+    public void DoneAttacking() {
+        isAttacking = false;
     }
 
     public void BasicAttackParticles() {
-        basicAttackParticles?.Play();
-    }
-
-    public void DoneSpecialAttacking() {
-        isSpecialAttacking = false;
-    }
-
-    public void SpecialAttackParticles() {
-        specialAttackParticles?.Play();
+        if (basicAttackParticles) basicAttackParticles.Play();
     }
 
     public void SetRotation(Quaternion rotation) {
@@ -106,16 +89,20 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private IEnumerator KnockbackCoroutine(Vector3 force) {
+        Rigidbody rb = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
+
         agent.enabled = false;
         rb.AddForce(force, ForceMode.Impulse);
-        rb.drag = 0f;
+        rb.freezeRotation = true;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
+        rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
 
         yield return new WaitForSeconds(0.5f);
         CapsuleCollider collider = GetComponent<CapsuleCollider>();
         int groundMask = 1 << LayerMask.NameToLayer("Ground");
         while (!Physics.Raycast(transform.position, Vector3.down, 0.2f, groundMask)) yield return null;
 
-        rb.drag = 5f;
+        Destroy(rb);
         agent.enabled = true;
     }
 }

@@ -28,7 +28,7 @@ public class RandomEffectArrow : BasicArrow {
     
     private void OneHitKill(Collider target) {
         Debug.Log("Activated one shot ability!");
-        if (target.TryGetComponent(out EnemyHealth health) || target.transform.root.TryGetComponent(out health)) {
+        if (target.TryGetComponent(out EnemyHealth health)) {
             health.TakeDamage(health.maxHealth);
         }
     }
@@ -39,7 +39,7 @@ public class RandomEffectArrow : BasicArrow {
         Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCloserRange, enemyLayerMask);
 
         foreach (var enemy in enemies) {
-            if (enemy.TryGetComponent(out EnemyAI ai) || enemy.transform.root.TryGetComponent(out ai)) {
+            if (enemy.TryGetComponent(out EnemyAI ai)) {
                 enemy.transform.position = enemy.transform.position + (ai.playerTransform.position - enemy.transform.position) * enemyCloserDistanceRatio;
             }
         }

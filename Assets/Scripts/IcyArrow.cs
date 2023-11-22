@@ -6,7 +6,7 @@ public class IcyArrow : BasicArrow {
     [SerializeField] private float iceDuration;
 
     public override void OnHit(Collider target) {
-        if (target.transform.root.TryGetComponent(out Ice ice)) {
+        if (target.transform.TryGetComponent(out Ice ice)) {
             ice.SetFrozen(iceDuration);
         }
     }

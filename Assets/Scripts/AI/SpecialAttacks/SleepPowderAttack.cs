@@ -31,6 +31,8 @@ public class SleepPowderAttack : SpecialAttackBase {
     }
 
     public void ThrowSleepPowder() {
+        if (!sleepPowder) return;
+
         sleepPowder.transform.SetParent(null);
         sleepPowder.transform.rotation = Quaternion.LookRotation((ai.playerTransform.position - sleepPowder.transform.position).normalized);
         sleepPowder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;

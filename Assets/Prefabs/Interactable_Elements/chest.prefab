@@ -521,6 +521,7 @@ GameObject:
   - component: {fileID: 6512825701450791258}
   - component: {fileID: 6479895020197385505}
   - component: {fileID: 1673697744292677743}
+  - component: {fileID: 437724278069030222}
   m_Layer: 0
   m_Name: chest
   m_TagString: Untagged
@@ -612,6 +613,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
   - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
   - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
+--- !u!114 &437724278069030222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825434189270820673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f09b3e6aad7ec544a9de08a52becd0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  secondLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  thirdLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  fourthLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  fifthLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  sixthLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
+  seventhLootPrefab: {fileID: 7172111942661230829, guid: 9a895760aa67f3a42917e49ac81a00fa,
+    type: 3}
 --- !u!1001 &3000159052300443718
 PrefabInstance:
   m_ObjectHideFlags: 0

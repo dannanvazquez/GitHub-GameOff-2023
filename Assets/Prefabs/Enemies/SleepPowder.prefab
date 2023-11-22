@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3323327035972953611}
   - component: {fileID: -8229951932985439091}
   m_Layer: 9
-  m_Name: BerryBomb_CHECKScalepls
+  m_Name: SleepPowder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

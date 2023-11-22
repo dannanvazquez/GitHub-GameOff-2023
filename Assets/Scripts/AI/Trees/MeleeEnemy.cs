@@ -2,9 +2,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy : EnemyAI {
+    [Header("Melee Enemy References")]
+    [SerializeField] protected ParticleSystem specialAttackParticles;
+    [SerializeField] protected SpecialAttackBase specialAttack;
+
     [Header("Melee Enemy Settings")]
     [Tooltip("The distance from the player that a melee hit will actually hit the player.")]
     [SerializeField] private float meleeDistance;
+
+    public override void Awake() {
+        base.Awake();
+        if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
+    }
 
     public override void ConstructBehaviorTree() {
         OffCooldownNode specialAttackCooldownNode = new OffCooldownNode(this, specialAttack.specialAttackCooldown);
@@ -24,7 +33,7 @@ public class MeleeEnemy : EnemyAI {
                     specialAttackCooldownNode,
                     new RangeNode(specialAttack.specialAttackRange, playerTransform, transform),
                     new Inverter(new RangeNode(8f, playerTransform, transform)),
-                    new SpecialAttackNode(animator, agent, this, specialAttackCooldownNode)
+                    new SpecialAttackNode(animator, agent, this, specialAttackCooldownNode, specialAttack)
                 }),
                 new Sequence(new List<Node> {  // Does this meet the requirements to basic attack?
                     meleeCooldownNode,
@@ -47,5 +56,9 @@ public class MeleeEnemy : EnemyAI {
 
     public void SpecialAttack() {
         specialAttack.PerformSpecialAttack();
+    }
+
+    public void SpecialAttackParticles() {
+        if (specialAttackParticles) specialAttackParticles.Play();
     }
 }

@@ -17,7 +17,8 @@ public class MeleeNode : Node {
     public override NodeState Evaluate() {
         animator.SetTrigger("Melee");
         agent.isStopped = true;
-        ai.isBasicAttacking = true;
+        Debug.Log("Melee Node is attacking");
+        ai.isAttacking = true;
         offCooldownNode.lastTimeUsed = Time.time;
 
         _nodeState = NodeState.RUNNING;

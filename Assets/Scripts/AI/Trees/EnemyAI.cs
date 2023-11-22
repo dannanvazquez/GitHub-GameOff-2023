@@ -8,8 +8,6 @@ public abstract class EnemyAI : MonoBehaviour {
     public Animator animator;
     public Transform playerTransform;
     [SerializeField] protected ParticleSystem basicAttackParticles;
-    [SerializeField] protected ParticleSystem specialAttackParticles;
-    [SerializeField] protected SpecialAttackBase specialAttack;
 
     [Header("General Enemy Settings")]
     [Tooltip("The distance from the player before this enemy starts chasing.")]
@@ -28,24 +26,21 @@ public abstract class EnemyAI : MonoBehaviour {
     protected PlayerHealth playerHealth;
     protected Ice ice;
 
-    [HideInInspector] public bool isBasicAttacking;
+    [HideInInspector] public bool isAttacking;
     [HideInInspector] public float lastTimeBasicAttacked;
-
-    [HideInInspector] public bool isSpecialAttacking;
     [HideInInspector] public float lastTimeSpecialAttacked;
 
     [HideInInspector] public bool isFrozen;
 
     protected Node root;
 
-    private void Awake() {
+    public virtual void Awake() {
         if (playerTransform == null) playerTransform = FindFirstObjectByType<PlayerMovement>().transform;
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
         ice = GetComponent<Ice>();
         lastTimeBasicAttacked -= basicAttackCooldown;
-        if (specialAttack) lastTimeSpecialAttacked -= specialAttack.specialAttackCooldown;
     }
 
     private void Start() {
@@ -63,6 +58,7 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private void Update() {
+        Debug.Log("Is attacking: " + isAttacking);
         if (ice.isFrozen) return;
 
         root.Evaluate();
@@ -77,20 +73,13 @@ public abstract class EnemyAI : MonoBehaviour {
         if (agent.enabled) agent.isStopped = true;
     }
 
-    public void DoneBasicAttacking() {
-        isBasicAttacking = false;
+    public void DoneAttacking() {
+        Debug.Log("Done attacking!");
+        isAttacking = false;
     }
 
     public void BasicAttackParticles() {
         if (basicAttackParticles) basicAttackParticles.Play();
-    }
-
-    public void DoneSpecialAttacking() {
-        isSpecialAttacking = false;
-    }
-
-    public void SpecialAttackParticles() {
-        if (specialAttackParticles) specialAttackParticles.Play();
     }
 
     public void SetRotation(Quaternion rotation) {

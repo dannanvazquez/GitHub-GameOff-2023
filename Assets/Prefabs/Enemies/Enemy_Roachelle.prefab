@@ -3143,19 +3143,18 @@ MonoBehaviour:
   animator: {fileID: 1132193146550105881}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
-  specialAttackParticles: {fileID: 5192609916977711094}
-  specialAttack: {fileID: 2699147665323994238}
   chasingRange: 30
   minimumChaseRange: 2.5
   basicAttackRange: 5
   basicAttackCooldown: 2.66
   basicAttackDamage: 10
   agent: {fileID: 0}
-  isBasicAttacking: 0
+  isAttacking: 0
   lastTimeBasicAttacked: 0
-  isSpecialAttacking: 0
   lastTimeSpecialAttacked: 0
   isFrozen: 0
+  specialAttackParticles: {fileID: 5192609916977711094}
+  specialAttack: {fileID: 2699147665323994238}
   meleeDistance: 6
 --- !u!114 &2699147665323994238
 MonoBehaviour:
@@ -3172,6 +3171,7 @@ MonoBehaviour:
   specialAttackRange: 25
   specialAttackCooldown: 15
   specialAttackDamage: 20
+  specialAttackChancePerc: 1
   breadSpawnPointTransforms:
   - {fileID: 8769684027155264557}
   - {fileID: 8717563759977871663}

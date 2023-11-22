@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -263,6 +268,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Worman (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -349,6 +359,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Roachelle (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -421,6 +436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Worman (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -618,6 +638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Roachelle
       objectReference: {fileID: 0}
+    - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -703,78 +728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Roachelle (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e19545455f59f44f9c8684274e8a4e7, type: 3}
---- !u!1001 &609951094
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 50.025707
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.0000038146973
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -11.223114
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 428229113455153417, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2196472560124299015, guid: 8e19545455f59f44f9c8684274e8a4e7,
-        type: 3}
-      propertyPath: playerTransform
-      value: 
-      objectReference: {fileID: 7116496856564778467}
     - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
         type: 3}
-      propertyPath: m_Name
-      value: Enemy_Roachelle (2)
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -954,6 +911,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1026,6 +988,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Worman (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1149,6 +1116,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Roachelle (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1221,6 +1193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Roachelle (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1425,6 +1402,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Roachelle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8664182453759271245, guid: 8e19545455f59f44f9c8684274e8a4e7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1497,6 +1479,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Worman (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1571,6 +1558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1644,6 +1636,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1660,7 +1657,7 @@ PrefabInstance:
     - target: {fileID: 1564921721310977893, guid: 7f414dd0fff171b458a0adb012250e36,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -26.1
       objectReference: {fileID: 0}
     - target: {fileID: 1564921721310977893, guid: 7f414dd0fff171b458a0adb012250e36,
         type: 3}
@@ -1670,7 +1667,7 @@ PrefabInstance:
     - target: {fileID: 1564921721310977893, guid: 7f414dd0fff171b458a0adb012250e36,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 1564921721310977893, guid: 7f414dd0fff171b458a0adb012250e36,
         type: 3}
@@ -1711,6 +1708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_LadB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: 7f414dd0fff171b458a0adb012250e36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1957,6 +1959,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy_Worman (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2241,6 +2248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2314,11 +2326,84 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23976814cdb0914393e16f3df13eb43, type: 3}
+--- !u!1001 &2005756065
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009536743
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -15.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564921721310977893, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: bdba7bda095a41f4993a36b032200369,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_BBBug
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bdba7bda095a41f4993a36b032200369, type: 3}
 --- !u!114 &2090022525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5256345408507922536, guid: ac3f100a58a31460b9d01a911d4b69a5,
@@ -2845,6 +2930,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Worman
       objectReference: {fileID: 0}
+    - target: {fileID: 6507892438606158192, guid: b23976814cdb0914393e16f3df13eb43,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3362,7 +3452,7 @@ PrefabInstance:
     - target: {fileID: 189016489225712829, guid: fc0bd7580bf0367498159898377537cb,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000039591185
+      value: -0.000000039591182
       objectReference: {fileID: 0}
     - target: {fileID: 189016489225712829, guid: fc0bd7580bf0367498159898377537cb,
         type: 3}
@@ -3564,9 +3654,9 @@ SceneRoots:
   - {fileID: 222659840}
   - {fileID: 85410173}
   - {fileID: 1228002239}
-  - {fileID: 609951094}
   - {fileID: 460897229}
   - {fileID: 986701814}
   - {fileID: 279946527}
   - {fileID: 942272302}
   - {fileID: 1448695490}
+  - {fileID: 2005756065}

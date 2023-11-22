@@ -1607,7 +1607,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6507892438606158192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
@@ -1618,7 +1618,7 @@ Transform:
   - {fileID: 5490759746583221204}
   - {fileID: 3935178466406821561}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2207280779617381144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1634,17 +1634,14 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 0}
-  specialAttackParticles: {fileID: 0}
-  specialAttack: {fileID: 0}
   chasingRange: 30
   minimumChaseRange: 0
   basicAttackRange: 5
   basicAttackCooldown: 5
   basicAttackDamage: 0
   agent: {fileID: 0}
-  isBasicAttacking: 0
+  isAttacking: 0
   lastTimeBasicAttacked: 0
-  isSpecialAttacking: 0
   lastTimeSpecialAttacked: 0
   isFrozen: 0
   projectileSpawnTransform: {fileID: 8205440739664719156}

@@ -16,13 +16,11 @@ public class RangeEnemy : EnemyAI {
     [SerializeField] private AudioSource AudioSource_missile;
     [SerializeField] private AudioClip[] missile_charge_sfx;
     //[SerializeField] private AudioClip[] missile_shoot_sfx;    
-    [SerializeField] private AudioClip[] missile_travel_sfx;    
+    [SerializeField] private AudioClip[] missile_travel_sfx;
 
     // --AUDIO-- // 
-    private void PlayRandomClip(AudioClip[] clips, AudioSource audioSource)
-    {
-        if (clips.Length > 0)
-        {
+    private void PlayRandomClip(AudioClip[] clips, AudioSource audioSource) {
+        if (clips.Length > 0) {
             AudioClip clip;
             clip = clips[UnityEngine.Random.Range(0, clips.Length)];
             audioSource.clip = clip;
@@ -64,7 +62,7 @@ public class RangeEnemy : EnemyAI {
     }
 
     public void RangeAttack() {
-        loadedProjectile.transform.SetParent(null);
+        if (loadedProjectile) loadedProjectile.transform.SetParent(null);
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
         AudioSource missileAudioSource = loadedProjectile.GetComponent<AudioSource>();
         loadedProjectile.transform.rotation = Quaternion.LookRotation((playerTransform.position - loadedProjectile.transform.position).normalized);
@@ -73,9 +71,9 @@ public class RangeEnemy : EnemyAI {
         loadedProjectile.GetComponent<EnemyProjectile>().damage = basicAttackDamage;
         loadedProjectile = null;
         PlayRandomClip(missile_travel_sfx, missileAudioSource);
-    }
 
-    public void SpecialAttack() {
-        specialAttack.PerformSpecialAttack();
+        while (projectileSpawnTransform.childCount > 0) {
+            DestroyImmediate(transform.GetChild(0).gameObject);
+        }
     }
 }

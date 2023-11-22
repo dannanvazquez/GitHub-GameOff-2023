@@ -6,7 +6,7 @@ public class ThrowBreadAttack : SpecialAttackBase {
     [SerializeField] private Transform[] breadSpawnPointTransforms;
     [SerializeField] private GameObject breadPrefab;
 
-    private Transform playerTransform;
+    private EnemyAI ai;
 
     [Header("Audiosources & Audioclips")]
     [SerializeField] private AudioSource AudioSource_Breadspawn;
@@ -26,7 +26,7 @@ public class ThrowBreadAttack : SpecialAttackBase {
     [SerializeField] private float throwBuffer;
 
     private void Awake() {
-        playerTransform = GetComponent<EnemyAI>().playerTransform;
+        ai = GetComponent<EnemyAI>();
     }
 
     // --AUDIO-- // 
@@ -53,6 +53,11 @@ public class ThrowBreadAttack : SpecialAttackBase {
             audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
             audioSource.Play();
     }
+
+    public override void StartSpecialAttack() {
+        ai.animator.SetTrigger("SpecialAttack");
+    }
+
     public override void PerformSpecialAttack() {
         PlayRandomClip(rangeattack_sfx, ref lastspawnbreadClip, AudioSource_rangeattack);
         StartCoroutine(SpawnBread());
@@ -73,7 +78,7 @@ public class ThrowBreadAttack : SpecialAttackBase {
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
         AudioSource breadAudioSource = bread.GetComponent<AudioSource>();
         PlayRandomClipNoLast(throwbread_sfx, breadAudioSource);
-        bread.transform.rotation = Quaternion.LookRotation((playerTransform.position - bread.transform.position).normalized);
+        bread.transform.rotation = Quaternion.LookRotation((ai.playerTransform.position - bread.transform.position).normalized);
         bread.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         bread.GetComponent<Rigidbody>().AddForce(bread.transform.forward * throwForce, ForceMode.Impulse);
     }

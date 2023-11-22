@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  explosionParticlePrefab: {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947,
+    type: 3}
   explosionRadius: 8
   explosionDamage: 5
   explosionHeal: 10

@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private PlayerCamera playerCamera;
+    [SerializeField] private GameObject deathParticlePrefab;
 
     [Header("Settings")]
     [Tooltip("The amount of seconds the damage visuals are shown for.")]
@@ -65,6 +66,8 @@ public class PlayerHealth : MonoBehaviour
 
     public bool TakeDamage(float damage)
     {
+        if (currentHealth <= 0) return true;
+
         currentHealth -= damage;
         if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0)
@@ -85,6 +88,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         PlayerCombat playerCombat = GetComponent<PlayerCombat>();
         playerCombat.animator.SetTrigger("Death");
         playerCombat.enabled = false;

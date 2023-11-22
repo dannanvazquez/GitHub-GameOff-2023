@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public class RandomEffectArrow : BasicArrow {
+    [Header("Random Effect References")]
+    [SerializeField] private GameObject blackholeParticlePrefab;
+
     [Header("Random Effect Settings")]
     [Tooltip("The range around the arrow where enemies are moved closer to the player.")]
     [SerializeField] private float enemyCloserRange;
@@ -27,14 +30,12 @@ public class RandomEffectArrow : BasicArrow {
     }
     
     private void OneHitKill(Collider target) {
-        Debug.Log("Activated one shot ability!");
         if (target.TryGetComponent(out EnemyHealth health)) {
             health.TakeDamage(health.maxHealth);
         }
     }
 
     private void TeleportEnemiesCloser() {
-        Debug.Log("Activated teleport enemies closer ability!");
         int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
         Collider[] enemies = Physics.OverlapSphere(transform.position, enemyCloserRange, enemyLayerMask);
 
@@ -46,7 +47,8 @@ public class RandomEffectArrow : BasicArrow {
     }
 
     private void BlackHole() {
-        Debug.Log("Activated black hole ability!");
+        Instantiate(blackholeParticlePrefab, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
+
         int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
         Collider[] enemies = Physics.OverlapSphere(transform.position, blackHoleRange, enemyLayerMask);
 

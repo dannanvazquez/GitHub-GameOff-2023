@@ -900,7 +900,7 @@ MonoBehaviour:
   arrowVisual: {fileID: 1195755468130994857}
   cameraTransform: {fileID: 0}
   slashParticles: {fileID: 2439039051049603047}
-  arrowForce: 100
+  arrowForce: 250
   meleeDamage: 15
   shootCooldown: 1
   meleeCooldown: 1
@@ -917,6 +917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
+  deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   damageVisualsInterval: 0.2
   healthBarForegroundImage: {fileID: 0}
   damage_audioSource: {fileID: 8313417498208330309}

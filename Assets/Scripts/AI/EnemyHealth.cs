@@ -7,6 +7,8 @@ public class EnemyHealth : MonoBehaviour {
     [Header("References")]
     [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
+    [SerializeField] private GameObject hitParticlesPrefab;
+    [SerializeField] private Transform enemyObjectTransform;
 
     private float healthRectWidth;
 
@@ -108,6 +110,8 @@ public class EnemyHealth : MonoBehaviour {
         // Update the fill amount instead of resizing the RectTransform.
         healthFillImage.fillAmount = currentHealth / maxHealth;
         //healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
+
+        Instantiate(hitParticlesPrefab, enemyObjectTransform.position, Quaternion.identity);
 
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (var r in renderers) {

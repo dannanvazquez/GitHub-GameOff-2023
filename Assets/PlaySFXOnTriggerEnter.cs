@@ -1,5 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Audio;
 
 public class PlaySFXOnTriggerEnter : MonoBehaviour
@@ -16,11 +17,11 @@ public class PlaySFXOnTriggerEnter : MonoBehaviour
 
     [Header("Mixer")]
     [SerializeField] private AudioMixer myAudioMixer;
-    [Range(200,3000)][SerializeField] private float muffled=3000;
+    [Range(200,8000)][SerializeField] private float muffled=3000;
     [Range(17000,22000)][SerializeField] private float not_muffled=22000;
 
     [Range(-80,-10)][SerializeField] private float normal_level=-25;
-    [Range(-20,0)][SerializeField] private float high_level=-5;
+    [Range(-40,0)][SerializeField] private float high_level=-5;
     private bool isPlayerInside;
 
     private void Start()

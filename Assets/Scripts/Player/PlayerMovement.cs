@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform orientation;
+    [SerializeField] private Transform playerObject;
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Animator animator;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private PlayerStamina playerStamina; // Reference to PlayerStamina script
     private PlayerCombat playerCombat;
+    private PlayerHealth playerHealth;
 
     [Header("Settings")]
     [Tooltip("The speed at which you move when walking.")]
@@ -30,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpCooldown;
     [Tooltip("The speed at which your movement is multiplied while in the air.")]
     [SerializeField] private float airMultiplier;
+    [Tooltip("The amount of seconds before you can roll again.")]
+    [SerializeField] private float rollCooldown;
+    [Tooltip("The initial force that you gain when rolling.")]
+    [SerializeField] private float rollForce;
+    [Tooltip("The amount of seconds before invincible after rolling.")]
+    [SerializeField] private float delayBeforeInvincible;
+    [Tooltip("The amount of seconds invincible for.")]
+    [SerializeField] private float invincibleLength;
 
     private float horizontalInput;
     private float verticalInput;
@@ -39,7 +49,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool isRunning;
     private bool canJump = true;
+    private bool canRoll = true;
     private bool isAsleep;
+    private bool doRoll;
 
     private float stamina;
 
@@ -51,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
         rb.freezeRotation = true;
         playerStamina = GetComponent<PlayerStamina>(); // Assuming PlayerStamina script is on the same GameObject as PlayerMovement
         playerCombat = GetComponent<PlayerCombat>();
+        playerHealth = GetComponent<PlayerHealth>();
         UpdateStaminaBar();
     }
 
@@ -77,6 +90,16 @@ public class PlayerMovement : MonoBehaviour
     private void MyInput() {
         if (isAsleep) return;
 
+        if (Input.GetButtonDown("Roll") && canRoll && isGrounded) {
+            canRoll = false;
+
+            Roll();
+
+            Invoke(nameof(StopRoll), delayBeforeInvincible + invincibleLength);
+            Invoke(nameof(ResetRoll), rollCooldown);
+            return;
+        }
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -91,6 +114,7 @@ public class PlayerMovement : MonoBehaviour
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+
                 // Manage stamina recharge if not running
         if (!isRunning && stamina < playerStamina.MaxStamina)
         {
@@ -99,6 +123,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MovePlayer() {
+        if (doRoll) {
+            rb.AddForce(10f * rollForce * playerObject.forward.normalized, ForceMode.Force);
+            return;
+        }
+
         // Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -130,8 +159,24 @@ public class PlayerMovement : MonoBehaviour
         animator.SetTrigger("Jump");
     }
 
+    private void StopRoll() {
+        doRoll = false;
+    }
+
     private void ResetJump() {
         canJump = true;
+    }
+
+    private void Roll() {
+        playerHealth.Invincible(delayBeforeInvincible, invincibleLength);
+
+        doRoll = true;
+
+        animator.SetTrigger("Roll");
+    }
+
+    private void ResetRoll() {
+        canRoll = true;
     }
 
     private void AnimationParameters() {

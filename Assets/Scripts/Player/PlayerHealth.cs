@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     private float maxHealth = 100.0f;
     private float currentHealth;
+    private bool isInvincible;
 
     [SerializeField]
     private UnityEngine.UI.Image healthBarForegroundImage;
@@ -64,9 +65,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth * 0.7f;
     }
 
+    // Returns true if the player is dead.
     public bool TakeDamage(float damage)
     {
         if (currentHealth <= 0) return true;
+        if (isInvincible) return false;
 
         currentHealth -= damage;
         if (damage > 0) StartCoroutine(DamageVisuals());
@@ -132,5 +135,19 @@ public class PlayerHealth : MonoBehaviour
                 m.color = Color.white;
             }
         }
+    }
+
+    public void Invincible(float delay, float invincibleLength) {
+        StartCoroutine(InvincibleCoroutine(delay, invincibleLength));
+    }
+
+    private IEnumerator InvincibleCoroutine(float delay, float invincibleLength) {
+        yield return new WaitForSeconds(delay);
+
+        isInvincible = true;
+
+        yield return new WaitForSeconds(invincibleLength);
+
+        isInvincible = false;
     }
 }

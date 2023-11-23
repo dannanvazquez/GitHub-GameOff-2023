@@ -77,7 +77,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343860926519083411}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a7e90e57ba88229408fda9c198aac440, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -870,6 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 2090545712536862331}
+  playerObject: {fileID: 7807476449904772652}
   playerHeight: 4
   groundMask:
     serializedVersion: 2
@@ -883,6 +884,10 @@ MonoBehaviour:
   jumpForce: 25
   jumpCooldown: 0.25
   airMultiplier: 0.4
+  rollCooldown: 2
+  rollForce: 200
+  delayBeforeInvincible: 0
+  invincibleLength: 0.6
 --- !u!114 &6215800126413346293
 MonoBehaviour:
   m_ObjectHideFlags: 0

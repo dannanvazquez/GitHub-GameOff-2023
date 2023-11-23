@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
@@ -6,7 +7,7 @@ public class PlayerCombat : MonoBehaviour {
     [SerializeField] private PlayerInventoryManager inventoryManager;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
-    [SerializeField] private Transform cameraTransform;
+    public PlayerCamera playerCamera;
     [SerializeField] private ParticleSystem slashParticles;
 
     private Vector3 shootPosition;
@@ -23,11 +24,16 @@ public class PlayerCombat : MonoBehaviour {
 
     private bool isAiming;
     private bool isMeleeing;
+    [HideInInspector] public bool isAsleep;
 
     private bool canMelee = true;
     private bool canShoot = true;
 
+    List<Collider> enemiesHit = new();
+
     private void Update() {
+        if (isAsleep) return;
+
         if (Input.GetButtonDown("Fire2")) {
             StartAiming();
         } else if (canShoot && isAiming && Input.GetButtonDown("Fire1")) {
@@ -67,6 +73,7 @@ public class PlayerCombat : MonoBehaviour {
     public void ShootArrow() {
         GameObject arrow = Instantiate(inventoryManager.CurrentlySelectedItem(), arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
+        arrow.GetComponent<BasicArrow>().hitPos = shootPosition;
 
         inventoryManager.UseAmmo();
     }
@@ -84,16 +91,29 @@ public class PlayerCombat : MonoBehaviour {
 
         animator.SetTrigger("Melee");
 
+        foreach (var enemy in enemiesHit) {
+            DealMeleeDamage(enemy);
+        }
+
         Invoke(nameof(ResetMelee), meleeCooldown);
     }
 
-    public void MeleeHit(Collider collider) {
-        if (!isMeleeing) return;
+    public void AddMeleeTriggerEnter(Collider collider) {
+        if (isMeleeing) DealMeleeDamage(collider);
 
+        enemiesHit.Add(collider);
+    }
+
+    public void RemoveMeleeTriggerEnter(Collider collider) {
+        enemiesHit.Remove(collider);
+    }
+
+    private void DealMeleeDamage(Collider collider) {
         if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
-
-            isMeleeing = false;
+            if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {
+                antiRangeShieldAttack.DisableShield();
+            }
         }
     }
 

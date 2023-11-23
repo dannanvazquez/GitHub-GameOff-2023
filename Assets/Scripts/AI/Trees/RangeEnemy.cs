@@ -8,6 +8,8 @@ public class RangeEnemy : EnemyAI {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject loadedProjectile;
 
+    private OffCooldownNode shootCooldownNode;
+
     [Header("Range Enemy Settings")]
     [Tooltip("The initial force that the projectile of the basic attack is thrown at.")]
     [SerializeField] private float projectileForce;
@@ -30,7 +32,7 @@ public class RangeEnemy : EnemyAI {
     }
 
     public override void ConstructBehaviorTree() {
-        OffCooldownNode shootCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
+        shootCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
 
         root = new Sequence(new List<Node> {  // Does this meet the requirements in order to be aggressive?
             new Selector(new List<Node> {  // Do either of these requirements meet?
@@ -56,6 +58,7 @@ public class RangeEnemy : EnemyAI {
     }
 
     public IEnumerator LoadProjectile() {
+        //while (shootCooldownNode.lastTimeUsed)
         yield return new WaitForSeconds(basicAttackCooldown);
         loadedProjectile = Instantiate(projectilePrefab, projectileSpawnTransform);
         if (AudioSource_missile) PlayRandomClip(missile_charge_sfx, AudioSource_missile);

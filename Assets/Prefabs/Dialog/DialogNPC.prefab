@@ -56,9 +56,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8904966977103845109}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.9864189, z: -0, w: -0.16424915}
+  m_LocalRotation: {x: -0, y: -0.98641926, z: 0, w: -0.16424689}
   m_LocalPosition: {x: -3.79, y: -0.015, z: -2.9}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6417204979123872777}
@@ -76,17 +76,22 @@ PrefabInstance:
     - target: {fileID: 880292023814025696, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}
       propertyPath: m_Size.z
-      value: 0.70083696
+      value: 0.34095266
       objectReference: {fileID: 0}
     - target: {fileID: 880292023814025696, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}
       propertyPath: m_Center.x
-      value: -0.000000001256873
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 880292023814025696, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}
       propertyPath: m_Center.z
-      value: 0.14958172
+      value: -0.030361516
+      objectReference: {fileID: 0}
+    - target: {fileID: 5992440063495275401, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
+        type: 3}
+      propertyPath: MinDistance
+      value: 2.1033325
       objectReference: {fileID: 0}
     - target: {fileID: 6011988201399623206, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}
@@ -208,7 +213,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sentences.Array.data[0].dialogueCharacter
       value: 
-      objectReference: {fileID: 11400000, guid: 3e5e644d8d5725941b79d3277f39cbc1,
+      objectReference: {fileID: 11400000, guid: 4752645aa0d4f144783c729ff9e40e5a,
         type: 2}
     - target: {fileID: 8557568673631317014, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}
@@ -241,6 +246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: sentences.Array.data[1].sentenceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8557568673631317014, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
+        type: 3}
+      propertyPath: sentences.Array.data[1].sentenceEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: HeneGames.DialogueSystem.Door, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8557568673631317014, guid: cc0b3ff4467379548b7df5f7e83dd6a2,
         type: 3}

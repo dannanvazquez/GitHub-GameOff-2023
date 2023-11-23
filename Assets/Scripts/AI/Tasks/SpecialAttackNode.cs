@@ -17,12 +17,16 @@ public class SpecialAttackNode : Node {
     }
 
     public override NodeState Evaluate() {
+
         offCooldownNode.lastTimeUsed = Time.time;
 
         if (specialAttackBase.specialAttackChancePerc == 1 || Random.value < specialAttackBase.specialAttackChancePerc) {
             specialAttackBase.StartSpecialAttack();
-            if (agent.enabled) agent.isStopped = true;
-            ai.isAttacking = true;
+            // TODO: Get rid of this specific condition. Possibly make a buff node rather than using an attack node.
+            if (specialAttackBase is not AntiRangeShieldAttack) {
+                if (agent.enabled) agent.isStopped = true;
+                ai.isAttacking = true;
+            }
         }
 
         _nodeState = NodeState.RUNNING;

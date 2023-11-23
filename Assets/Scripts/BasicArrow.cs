@@ -15,6 +15,7 @@ public class BasicArrow : MonoBehaviour {
     [SerializeField] private AudioClip[] arrow_landing_sfx;
     [SerializeField] private AudioSource AudioSource_arrow;
 
+    [HideInInspector] public Vector3 hitPos;
     private bool hasHit;
 
     private void Awake() {
@@ -45,12 +46,18 @@ public class BasicArrow : MonoBehaviour {
     private void OnTriggerEnter(Collider other) {
         if (hasHit) return;
 
+        transform.position = hitPos;
+        transform.SetParent(other.transform, true);
         hasHit = true;
         PlayRandomClip(arrow_landing_sfx, AudioSource_arrow);
-        if (other.transform.TryGetComponent(out EnemyHealth enemyHealth)) {
+
+        AntiRangeShieldAttack antiRangeShieldAttack = null;
+        if (other.transform.TryGetComponent(out EnemyHealth enemyHealth) && (!other.transform.TryGetComponent(out antiRangeShieldAttack) || !antiRangeShieldAttack.shieldActive)) {
             enemyHealth.TakeDamage(damage);
         }
-        OnHit(other);
+        if (antiRangeShieldAttack == null || !antiRangeShieldAttack.shieldActive) {
+            OnHit(other);
+        }
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }

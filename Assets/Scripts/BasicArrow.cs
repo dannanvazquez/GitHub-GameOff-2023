@@ -50,10 +50,14 @@ public class BasicArrow : MonoBehaviour {
         transform.SetParent(other.transform, true);
         hasHit = true;
         PlayRandomClip(arrow_landing_sfx, AudioSource_arrow);
-        if (other.transform.TryGetComponent(out EnemyHealth enemyHealth)) {
+
+        AntiRangeShieldAttack antiRangeShieldAttack = null;
+        if (other.transform.TryGetComponent(out EnemyHealth enemyHealth) && (!other.transform.TryGetComponent(out antiRangeShieldAttack) || !antiRangeShieldAttack.shieldActive)) {
             enemyHealth.TakeDamage(damage);
         }
-        OnHit(other);
+        if (antiRangeShieldAttack == null || !antiRangeShieldAttack.shieldActive) {
+            OnHit(other);
+        }
 
         rb.constraints = RigidbodyConstraints.FreezeAll;
     }

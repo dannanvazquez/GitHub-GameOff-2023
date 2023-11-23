@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour {
     [SerializeField] private PlayerInventoryManager inventoryManager;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
-    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private PlayerCamera playerCamera;
     [SerializeField] private ParticleSystem slashParticles;
 
     private Vector3 shootPosition;
@@ -93,6 +93,9 @@ public class PlayerCombat : MonoBehaviour {
 
         if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
+            if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {
+                antiRangeShieldAttack.DisableShield();
+            }
 
             isMeleeing = false;
         }

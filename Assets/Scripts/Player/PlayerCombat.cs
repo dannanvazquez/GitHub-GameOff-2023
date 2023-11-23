@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
@@ -27,6 +28,8 @@ public class PlayerCombat : MonoBehaviour {
 
     private bool canMelee = true;
     private bool canShoot = true;
+
+    List<Collider> enemiesHit = new();
 
     private void Update() {
         if (isAsleep) return;
@@ -88,19 +91,29 @@ public class PlayerCombat : MonoBehaviour {
 
         animator.SetTrigger("Melee");
 
+        foreach (var enemy in enemiesHit) {
+            DealMeleeDamage(enemy);
+        }
+
         Invoke(nameof(ResetMelee), meleeCooldown);
     }
 
-    public void MeleeHit(Collider collider) {
-        if (!isMeleeing) return;
+    public void AddMeleeTriggerEnter(Collider collider) {
+        if (isMeleeing) DealMeleeDamage(collider);
 
+        enemiesHit.Add(collider);
+    }
+
+    public void RemoveMeleeTriggerEnter(Collider collider) {
+        enemiesHit.Remove(collider);
+    }
+
+    private void DealMeleeDamage(Collider collider) {
         if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
             if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {
                 antiRangeShieldAttack.DisableShield();
             }
-
-            isMeleeing = false;
         }
     }
 

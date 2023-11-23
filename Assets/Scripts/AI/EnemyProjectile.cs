@@ -30,7 +30,6 @@ public class EnemyProjectile : MonoBehaviour {
         if (other.transform.parent.TryGetComponent(out PlayerHealth playerHealth)) {
             playerHealth.TakeDamage(damage);
         }
-        Debug.Log("We hit the " + other.name, other.transform);
         OnHit();
 
         Destroy(gameObject);

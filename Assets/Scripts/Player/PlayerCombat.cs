@@ -16,7 +16,7 @@ public class PlayerCombat : MonoBehaviour {
     [Tooltip("The force that the arrow is initially shot at.")]
     [SerializeField] private float arrowForce;
     [Tooltip("The amount of damage a melee hit does to an enemy.")]
-    [SerializeField] private float meleeDamage;
+    public float meleeDamage;
     [Tooltip("The amount of seconds before the player can shoot again.")]
     [SerializeField] private float shootCooldown;
     [Tooltip("The amount of seconds before the player can melee again.")]

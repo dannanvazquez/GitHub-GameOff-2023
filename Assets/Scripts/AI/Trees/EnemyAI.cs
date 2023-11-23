@@ -41,12 +41,10 @@ public abstract class EnemyAI : MonoBehaviour {
         playerHealth = playerTransform.GetComponent<PlayerHealth>();
         ice = GetComponent<Ice>();
         lastTimeBasicAttacked -= basicAttackCooldown;
-        Debug.Log("awake");
     }
 
     private void Start() {
         ConstructBehaviorTree();
-        Debug.Log("start");
     }
 
     public virtual void ConstructBehaviorTree() {
@@ -61,7 +59,7 @@ public abstract class EnemyAI : MonoBehaviour {
 
     private void Update() {
         if (ice.isFrozen) return;
-        Debug.Log("Is attacking: " + isAttacking);
+
         root.Evaluate();
 
         if (root.nodeState == NodeState.FAILURE) {

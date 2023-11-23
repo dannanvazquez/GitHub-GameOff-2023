@@ -1499,7 +1499,7 @@ MonoBehaviour:
   specialAttackDamage: 0
   specialAttackChancePerc: 0.3
   enemyPrefab: {fileID: 6507892438606158192}
-  spawnDistance: 10
+  spawnDistance: 20
   duplicateAmount: 2
   initialHealth: 0.1
 --- !u!114 &2305481942898636104
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   sleepPowderPrefab: {fileID: 7737829040505777056, guid: afc6fc90552bfd24fba2e4272117b704,
     type: 3}
   sleepPowderSpawnTransform: {fileID: 7031915166833899740}
-  throwForce: 50
+  throwForce: 100
 --- !u!114 &2901495149282812029
 MonoBehaviour:
   m_ObjectHideFlags: 0

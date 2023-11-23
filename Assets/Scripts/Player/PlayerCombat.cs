@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour {
     [SerializeField] private PlayerInventoryManager inventoryManager;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
-    [SerializeField] private PlayerCamera playerCamera;
+    public PlayerCamera playerCamera;
     [SerializeField] private ParticleSystem slashParticles;
 
     private Vector3 shootPosition;
@@ -23,11 +23,14 @@ public class PlayerCombat : MonoBehaviour {
 
     private bool isAiming;
     private bool isMeleeing;
+    [HideInInspector] public bool isAsleep;
 
     private bool canMelee = true;
     private bool canShoot = true;
 
     private void Update() {
+        if (isAsleep) return;
+
         if (Input.GetButtonDown("Fire2")) {
             StartAiming();
         } else if (canShoot && isAiming && Input.GetButtonDown("Fire1")) {

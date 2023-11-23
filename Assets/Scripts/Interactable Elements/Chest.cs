@@ -49,15 +49,15 @@
             }
         }
 
-        //private void OnTriggerExit(Collider other)
-        //{
-        //    if (other.gameObject.tag == "Player")
-        //    {
-        //        anim.SetBool("OpenChest", false);
-        //        PlayRandomClip(chest_closing_sfx, AudioSource_closing);
-        //        // Destroy the loot when closing the chest
+        private void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                //anim.SetBool("OpenChest", false);
+                //PlayRandomClip(chest_closing_sfx, AudioSource_closing);
+                // Destroy the loot when closing the chest
 
-        //        lootManager.DestroyLoot();
-        //   }
-        //}
+                //lootManager.DestroyLoot();
+           }
+        }
     }

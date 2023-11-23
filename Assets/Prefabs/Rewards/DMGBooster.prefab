@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5466542986607832052}
   - component: {fileID: 8967463417294529617}
   - component: {fileID: 6599501055538909339}
+  - component: {fileID: 9101281392793280883}
   m_Layer: 0
   m_Name: DMGBooster
   m_TagString: Untagged
@@ -26,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4654152794131525966}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.57735026, z: -0.57735026, w: 0.57735026}
+  m_LocalRotation: {x: -0.0000026524067, y: 0.5773498, z: -0.5773498, w: 0.5773512}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 64.694954, y: 143.14407, z: 64.69496}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 59, y: 130.54343, z: 59}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 41.81, y: 63.435, z: -63.435}
 --- !u!33 &8967463417294529617
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84,3 +85,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9101281392793280883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4654152794131525966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c5c4b3edbbc2d449fc2b5f0ac97da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
+    type: 3}
+  audiosource_pickup: {fileID: 0}
+  pickupParticlesPrefab: {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947,
+    type: 3}
+  canvasPrefab: {fileID: 8611146193605963090, guid: 5ac4c2f76fca9cd4695b8ff475891bff,
+    type: 3}
+  uiLootingPrefab: {fileID: 5485593646836419072, guid: 7b2e1f1d0dc7b4e4fb189844e9e49ac5,
+    type: 3}

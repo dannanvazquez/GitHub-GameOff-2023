@@ -16,6 +16,9 @@ public class PlayerCamera : MonoBehaviour {
 
     [Header("Settings")]
     [SerializeField] private float rotationSpeed;
+
+    [HideInInspector] public bool isAsleep;
+
     public CameraStyle currentStyle { get; private set; } = CameraStyle.Basic;
 
     public enum CameraStyle {
@@ -30,6 +33,8 @@ public class PlayerCamera : MonoBehaviour {
     }
 
     private void Update() {
+        if (isAsleep) return;
+
         if (currentStyle == CameraStyle.Basic && Input.GetButton("Fire2")) {
             SwitchCameraStyle(CameraStyle.Combat);
         } else if (currentStyle == CameraStyle.Combat && !Input.GetButton("Fire2")) {

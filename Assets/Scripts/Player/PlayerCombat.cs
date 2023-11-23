@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour {
     [SerializeField] private PlayerInventoryManager inventoryManager;
     [SerializeField] private Transform arrowHolderTransform;
     [SerializeField] private GameObject arrowVisual;
-    [SerializeField] private Transform cameraTransform;
+    public PlayerCamera playerCamera;
     [SerializeField] private ParticleSystem slashParticles;
 
     private Vector3 shootPosition;
@@ -23,11 +23,14 @@ public class PlayerCombat : MonoBehaviour {
 
     private bool isAiming;
     private bool isMeleeing;
+    [HideInInspector] public bool isAsleep;
 
     private bool canMelee = true;
     private bool canShoot = true;
 
     private void Update() {
+        if (isAsleep) return;
+
         if (Input.GetButtonDown("Fire2")) {
             StartAiming();
         } else if (canShoot && isAiming && Input.GetButtonDown("Fire1")) {
@@ -67,6 +70,7 @@ public class PlayerCombat : MonoBehaviour {
     public void ShootArrow() {
         GameObject arrow = Instantiate(inventoryManager.CurrentlySelectedItem(), arrowHolderTransform.position, Quaternion.LookRotation((shootPosition - arrowHolderTransform.position).normalized));
         arrow.GetComponent<Rigidbody>().AddForce(arrow.transform.forward * arrowForce, ForceMode.Impulse);
+        arrow.GetComponent<BasicArrow>().hitPos = shootPosition;
 
         inventoryManager.UseAmmo();
     }
@@ -92,6 +96,9 @@ public class PlayerCombat : MonoBehaviour {
 
         if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
+            if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {
+                antiRangeShieldAttack.DisableShield();
+            }
 
             isMeleeing = false;
         }

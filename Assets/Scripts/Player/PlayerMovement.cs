@@ -11,9 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Animator animator;
     [SerializeField] private Image staminaBar;
+    [SerializeField] private ParticleSystem sleepParticles;
 
     private Rigidbody rb;
     private PlayerStamina playerStamina; // Reference to PlayerStamina script
+    private PlayerCombat playerCombat;
 
     [Header("Settings")]
     [Tooltip("The speed at which you move when walking.")]
@@ -37,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded;
     private bool isRunning;
     private bool canJump = true;
+    private bool isAsleep;
 
     private float stamina;
 
@@ -47,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         playerStamina = GetComponent<PlayerStamina>(); // Assuming PlayerStamina script is on the same GameObject as PlayerMovement
+        playerCombat = GetComponent<PlayerCombat>();
         UpdateStaminaBar();
     }
 
@@ -71,6 +75,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void MyInput() {
+        if (isAsleep) return;
+
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
@@ -153,5 +159,26 @@ public class PlayerMovement : MonoBehaviour
         {
             staminaBar.fillAmount = stamina / playerStamina.MaxStamina;
         }
+    }
+
+    public void Sleep(float sleepTime) {
+        StartCoroutine(SleepCoroutine(sleepTime));
+    }
+
+    // TODO: Seperate script to use as a reference for isAsleep? Since many scripts depend on it.
+    private IEnumerator SleepCoroutine(float sleepTime) {
+        isAsleep = true;
+        playerCombat.isAsleep = true;
+        playerCombat.playerCamera.isAsleep = true;
+        sleepParticles.Play();
+        horizontalInput = 0;
+        verticalInput = 0;
+
+        yield return new WaitForSeconds(sleepTime);
+
+        isAsleep = false;
+        playerCombat.isAsleep = false;
+        playerCombat.playerCamera.isAsleep = false;
+        sleepParticles.Stop();
     }
 }

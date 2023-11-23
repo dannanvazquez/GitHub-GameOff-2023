@@ -6,6 +6,7 @@ public class BBBossEnemy : EnemyAI {
     [SerializeField] private GameObject sword;
     [SerializeField] protected SpecialAttackBase mediumRangeAttack;
     [SerializeField] protected SpecialAttackBase farRangeAttack;
+    [SerializeField] protected SpecialAttackBase antiRangeShieldAttack;
 
     [Header("BBBoss Enemy Settings")]
     [Tooltip("The distance from the player that a melee hit will actually hit the player.")]
@@ -15,12 +16,16 @@ public class BBBossEnemy : EnemyAI {
         OffCooldownNode meleeCooldownNode = new OffCooldownNode(this, basicAttackCooldown);
         OffCooldownNode mediumAttackCooldownNode = new OffCooldownNode(this, mediumRangeAttack.specialAttackCooldown);
         OffCooldownNode farAttackCooldownNode = new OffCooldownNode(this, farRangeAttack.specialAttackCooldown);
+        OffCooldownNode antiRangeShieldAttackCooldownNode = new OffCooldownNode(this, antiRangeShieldAttack.specialAttackCooldown);
 
         root = new Sequence(new List<Node> {  // Does this meet the requirements in order to be aggressive?
             new Selector(new List<Node> {  // Do either of these requirements meet?
                 new RangeNode(chasingRange, playerTransform, transform),
                 new Sequence(new List<Node> {
-                    // Enable anti-range shield here
+                    new Selector(new List<Node> {
+                        new Inverter(antiRangeShieldAttackCooldownNode),
+                        new SpecialAttackNode(animator, agent, this, antiRangeShieldAttackCooldownNode, antiRangeShieldAttack)
+                    }),
                     new Inverter(new HealthMinThresholdNode(health, health.maxHealth))
                 })
             }),

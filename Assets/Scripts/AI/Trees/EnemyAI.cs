@@ -105,4 +105,12 @@ public abstract class EnemyAI : MonoBehaviour {
         Destroy(rb);
         agent.enabled = true;
     }
+
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, chasingRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, basicAttackRange);
+    }
 }

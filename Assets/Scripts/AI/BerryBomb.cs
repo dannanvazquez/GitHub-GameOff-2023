@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public class BerryBomb : EnemyProjectile {
+    [Header("Berry Bomb References")]
+    [SerializeField] private GameObject explosionParticlePrefab;
+
     [Header("Berry Bomb Settings")]
     [Tooltip("The radius of the explosion when collided.")]
     [SerializeField] private float explosionRadius;
@@ -10,6 +13,8 @@ public class BerryBomb : EnemyProjectile {
     [SerializeField] private float explosionHeal;
 
     protected override void OnHit() {
+        Instantiate(explosionParticlePrefab, transform.position, Quaternion.identity);
+
         int playerLayerMask = 1 << LayerMask.NameToLayer("Player");
         Collider[] players = Physics.OverlapSphere(transform.position, explosionRadius, playerLayerMask);
 

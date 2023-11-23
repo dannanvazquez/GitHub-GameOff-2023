@@ -1414,10 +1414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1564921721310977893}
-  - component: {fileID: 23130797692160047}
-  - component: {fileID: 8737519608260453036}
-  - component: {fileID: 2305481942898636104}
-  - component: {fileID: 2901495149282812029}
+  - component: {fileID: 2283134572500727902}
   - component: {fileID: 7757083036797666839}
   - component: {fileID: -9002489189816814891}
   - component: {fileID: 6420007893309500054}
@@ -1425,7 +1422,7 @@ GameObject:
   - component: {fileID: 384962108444641694}
   - component: {fileID: 5499263649230587652}
   m_Layer: 7
-  m_Name: Enemy_BBBoss
+  m_Name: Enemy_BBMinion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1441,8 +1438,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1466723564195666136}
   - {fileID: 5321312534169698059}
@@ -1452,7 +1449,7 @@ Transform:
   - {fileID: 3935178466406821561}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &23130797692160047
+--- !u!114 &2283134572500727902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1461,7 +1458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6507892438606158192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e156323a29104a34eab11076cdf75f42, type: 3}
+  m_Script: {fileID: 11500000, guid: 51ade9b0d12157048b8379d82f7ab226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 77018329103100189}
@@ -1469,78 +1466,16 @@ MonoBehaviour:
   basicAttackParticles: {fileID: 0}
   chasingRange: 50
   minimumChaseRange: 2.5
-  basicAttackRange: 5
+  basicAttackRange: 4
   basicAttackCooldown: 1
-  basicAttackDamage: 25
+  basicAttackDamage: 15
   agent: {fileID: 0}
   isAttacking: 0
   lastTimeBasicAttacked: 0
   lastTimeSpecialAttacked: 0
   isFrozen: 0
   sword: {fileID: 809169479451393959}
-  mediumRangeAttack: {fileID: 8737519608260453036}
-  farRangeAttack: {fileID: 2305481942898636104}
-  antiRangeShieldAttack: {fileID: 2901495149282812029}
-  meleeDistance: 6
---- !u!114 &8737519608260453036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6507892438606158192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f7c0e36d3d4244a965eacaa5495c67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialAttackRange: 30
-  specialAttackCooldown: 10
-  specialAttackDamage: 0
-  specialAttackChancePerc: 0.3
-  enemyPrefab: {fileID: 6507892438606158192, guid: 97859a565dacdf94f844e550b80719f5,
-    type: 3}
-  spawnDistance: 20
-  duplicateAmount: 2
-  initialHealth: 1
---- !u!114 &2305481942898636104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6507892438606158192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4b37231d04c03e4984871fe1da9ddeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialAttackRange: 40
-  specialAttackCooldown: 10
-  specialAttackDamage: 10
-  specialAttackChancePerc: 0.7
-  sleepPowderPrefab: {fileID: 7737829040505777056, guid: afc6fc90552bfd24fba2e4272117b704,
-    type: 3}
-  sleepPowderSpawnTransform: {fileID: 7031915166833899740}
-  throwForce: 100
---- !u!114 &2901495149282812029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6507892438606158192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e0a0f718137f9945b95357b714d3d93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialAttackRange: 1000
-  specialAttackCooldown: 5
-  specialAttackDamage: 0
-  specialAttackChancePerc: 1
-  shieldParticles: {fileID: 1839216789212076878}
-  shieldActive: 0
+  meleeDistance: 5
 --- !u!114 &7757083036797666839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,7 +1493,7 @@ MonoBehaviour:
   hitParticlesPrefab: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0,
     type: 3}
   enemyObjectTransform: {fileID: 5321312534169698059}
-  maxHealth: 1000
+  maxHealth: 100
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
   currentHealth: 0
@@ -1634,7 +1569,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 10
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -2673,12 +2608,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8cba1113eab4ae41951ebb3c43200d1, type: 3}
---- !u!198 &1839216789212076878 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198580925921170478, guid: b8cba1113eab4ae41951ebb3c43200d1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1965739461528031072}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1969918701004863140 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4850216584067524, guid: b8cba1113eab4ae41951ebb3c43200d1,

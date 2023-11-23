@@ -13,7 +13,19 @@ public class EnemyAnimationEvents : MonoBehaviour {
 
     public void ThrowSleepPowder() => transform.parent.GetComponent<SleepPowderAttack>().ThrowSleepPowder();
 
-    public void MeleeAttack() => transform.parent.GetComponent<BBBossEnemy>().MeleeAttack();
+    public void MeleeAttack() {
+        if (transform.parent.TryGetComponent(out BBBossEnemy bbBossEnemy)) {
+            bbBossEnemy.MeleeAttack();
+        } else if (transform.parent.TryGetComponent(out BBMinionEnemy bbMinionEnemy)) {
+            bbMinionEnemy.MeleeAttack();
+        }
+    }
 
-    public void ToggleSword(int toggle) => transform.parent.GetComponent<BBBossEnemy>().ToggleSword(toggle);
+    public void ToggleSword(int toggle) {
+        if (transform.parent.TryGetComponent(out BBBossEnemy bbBossEnemy)) {
+            bbBossEnemy.ToggleSword(toggle);
+        } else if (transform.parent.TryGetComponent(out BBMinionEnemy bbMinionEnemy)) {
+            bbMinionEnemy.ToggleSword(toggle);
+        }
+    }
 }

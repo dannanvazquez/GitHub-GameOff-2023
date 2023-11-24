@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class PickupObject : MonoBehaviour
+public class PickupObject: MonoBehaviour
 {
     public GameObject playerPrefab;
     private PlayerCombat playerCombat; // To change the stat of the playerCombat (!!WE MUST RESET AFTER EACH USE!!)
@@ -9,6 +10,10 @@ public class PickupObject : MonoBehaviour
     public GameObject pickupParticlesPrefab;
     public Canvas canvasPrefab; 
     public GameObject uiLootingPrefab; 
+
+    // List to keep track of active UI popups
+    private List<GameObject> activeUIPopups = new List<GameObject>();
+
     void Start()
     {
         playerCombat = playerPrefab.GetComponent<PlayerCombat>();
@@ -32,6 +37,9 @@ public class PickupObject : MonoBehaviour
 
     private void PickUp()
     {
+        // Destroy any existing UI popups
+        DestroyExistingUIPopups();
+
         // Instantiate particles at the position of the pickup object
         Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
 
@@ -41,7 +49,7 @@ public class PickupObject : MonoBehaviour
 
         audiosource_pickup.Play();
 
-                // Instantiate the Canvas
+        // Instantiate the Canvas
         Canvas canvasInstance = Instantiate(canvasPrefab);
 
         // Instantiate the UI_Looting prefab
@@ -55,5 +63,23 @@ public class PickupObject : MonoBehaviour
         
         // Enable the Canvas (if it's not enabled by default)
         canvasInstance.gameObject.SetActive(true);
+
+        // Activate the UI_Looting prefab
+        uiLootingInstance.SetActive(true);
+
+        // Add the new UI popup to the list of active UI popups
+        activeUIPopups.Add(uiLootingInstance);
+    }
+
+    // Destroy any existing UI popups
+    private void DestroyExistingUIPopups()
+    {
+        foreach (GameObject popup in activeUIPopups)
+        {
+            Destroy(popup);
+        }
+
+        // Clear the list of active UI popups
+        activeUIPopups.Clear();
     }
 }

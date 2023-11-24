@@ -9,11 +9,11 @@ public class PlayerInventoryManager : MonoBehaviour {
 
     public int currentItem;
 
-    private List<int> ammoCounts = new();
+    public List<int> ammoCounts = new();
 
     [Header("Settings")]
     [SerializeField] private int maxAmmo;
-    [SerializeField] private int startingAmmo;
+    public int startingAmmo;
 
     private void Awake() {
         for (int i = 0; i < itemButtons.Length; i++) {

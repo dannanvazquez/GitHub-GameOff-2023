@@ -44,31 +44,31 @@ public class LootManager : MonoBehaviour
             {
                 case 0:
                     lootPrefab = firstLootPrefab;
-                    lootName = "First Loot";
+                    lootName = "Explosion Arrows";
                     break;
                 case 1:
                     lootPrefab = secondLootPrefab;
-                    lootName = "Second Loot";
+                    lootName = "Fire Arrows";
                     break;
                 case 2:
                     lootPrefab = thirdLootPrefab;
-                    lootName = "Third Loot";
+                    lootName = "Icy Arrows";
                     break;
                 case 3:
                     lootPrefab = fourthLootPrefab;
-                    lootName = "Fourth Loot";
+                    lootName = "Random Arrows";
                     break;
                 case 4:
                     lootPrefab = fifthLootPrefab;
-                    lootName = "Fifth Loot";
+                    lootName = "Medkit";
                     break;
                 case 5:
                     lootPrefab = sixthLootPrefab;
-                    lootName = "Sixth Loot";
+                    lootName = "Speed";
                     break;
                 case 6:
                     lootPrefab = seventhLootPrefab;
-                    lootName = "Seventh Loot";
+                    lootName = "Damage Booster";
                     break;
             }
 

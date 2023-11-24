@@ -1137,17 +1137,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f09b3e6aad7ec544a9de08a52becd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  firstLootPrefab: {fileID: 7833751985119687652, guid: 2f8701362b07e9e428ed01fc5cd3b02e,
     type: 3}
-  secondLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  secondLootPrefab: {fileID: 7833751985119687652, guid: 3f8697bd2fc2d044997d3b26c44bfe62,
     type: 3}
-  thirdLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  thirdLootPrefab: {fileID: 7833751985119687652, guid: 87eb829c934b2cb4c83aba55d44f9412,
     type: 3}
-  fourthLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  fourthLootPrefab: {fileID: 7833751985119687652, guid: 5e07d26086f0268449ee09081e8d7ec0,
     type: 3}
-  fifthLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  fifthLootPrefab: {fileID: 397132057427326763, guid: 8d180b05101c14a4f9934a9300bda778,
     type: 3}
-  sixthLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
+  sixthLootPrefab: {fileID: 2181552997038510532, guid: 7f8c0c62352f7a549827f25ba13fffaf,
     type: 3}
   seventhLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
     type: 3}

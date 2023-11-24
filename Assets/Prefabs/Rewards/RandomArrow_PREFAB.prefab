@@ -48,8 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowType: 4
   addAmmoAmount: 5
-  playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
-    type: 3}
   audiosource_pickup: {fileID: 50609053924533041}
   pickupParticlesPrefab: {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947,
     type: 3}
@@ -102,7 +100,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7059209037264617686, guid: 064386f1de35fb6408f29ad45fddc790,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: d6d85034f2ccd6345a34154b2828be4f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 311f6b94566c5554fbe6675c02a1e6f5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1

@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Settings")]
     [Tooltip("The speed at which you move when walking.")]
-    [SerializeField] private float walkSpeed;
+    [SerializeField] public float walkSpeed;
     [Tooltip("The speed at which you move when running.")]
-    [SerializeField] private float runSpeed;
+    [SerializeField] public float runSpeed;
     [Tooltip("The drag your rigidbody has when on the ground.")]
     [SerializeField] private float groundDrag;
     [Tooltip("The force that you gain when jumping.")]

@@ -12,12 +12,12 @@ public class PlayerHealth : MonoBehaviour
     [Tooltip("The amount of seconds the damage visuals are shown for.")]
     [SerializeField] private float damageVisualsInterval;
 
-    private float maxHealth = 100.0f;
-    private float currentHealth;
+    public float maxHealth = 100.0f;
+    public float currentHealth;
     private bool isInvincible;
 
     [SerializeField]
-    private UnityEngine.UI.Image healthBarForegroundImage;
+    UnityEngine.UI.Image healthBarForegroundImage;
 
     [Header("Sounds")]
     [SerializeField] private AudioSource damage_audioSource;
@@ -103,9 +103,10 @@ public class PlayerHealth : MonoBehaviour
     {
         // Update health bar in LateUpdate to ensure proper synchronization
         UpdateHealthBar();
+    
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (healthBarForegroundImage && healthBarForegroundImage.fillAmount != currentHealth / maxHealth)
         {

@@ -44,7 +44,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7059209037264617686, guid: 064386f1de35fb6408f29ad45fddc790,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: d6d85034f2ccd6345a34154b2828be4f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 077ee0d141716ae4f82623a337845d9b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.3
   m_Pitch: 1
@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8615296101151484506}
   - component: {fileID: 520393834424766130}
-  - component: {fileID: 8980616970944043331}
+  - component: {fileID: 2545744828289509283}
   m_Layer: 0
   m_Name: medKit
   m_TagString: Untagged
@@ -288,7 +288,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8980616970944043331
+--- !u!114 &2545744828289509283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,13 +297,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3668563496690940681}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c5c4b3edbbc2d449fc2b5f0ac97da7, type: 3}
+  m_Script: {fileID: 11500000, guid: 321dfe0c0623c2b4b91fe248c9f3bc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
     type: 3}
+  healthToAdd: 50
   audiosource_pickup: {fileID: 7798868663632742125}
-  pickupParticlesPrefab: {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947,
+  pickupParticlesPrefab: {fileID: 185744, guid: b88a52d0de3924c4db6011de30ecccd0,
     type: 3}
   canvasPrefab: {fileID: 8611146193605963090, guid: 5ac4c2f76fca9cd4695b8ff475891bff,
     type: 3}

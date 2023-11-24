@@ -878,7 +878,7 @@ MonoBehaviour:
   animator: {fileID: 142003457065919825}
   staminaBar: {fileID: 0}
   sleepParticles: {fileID: 530051087790773683}
-  walkSpeed: 15
+  walkSpeed: 10
   runSpeed: 30
   groundDrag: 5
   jumpForce: 25
@@ -926,6 +926,8 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   damageVisualsInterval: 0.2
+  maxHealth: 100
+  currentHealth: 100
   healthBarForegroundImage: {fileID: 0}
   damage_audioSource: {fileID: 8313417498208330309}
   voice_audioSource: {fileID: 5540192780545649378}

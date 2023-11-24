@@ -100,7 +100,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
     type: 3}
   audiosource_pickup: {fileID: 0}
-  pickupParticlesPrefab: {fileID: 112506, guid: 625fd74b8294443449d2aded4ac87947,
+  pickupParticlesPrefab: {fileID: 183890, guid: 9e4bcae82995535429d012d5fe4a76c0,
     type: 3}
   canvasPrefab: {fileID: 8611146193605963090, guid: 5ac4c2f76fca9cd4695b8ff475891bff,
     type: 3}

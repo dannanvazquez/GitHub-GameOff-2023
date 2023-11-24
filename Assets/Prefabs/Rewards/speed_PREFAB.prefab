@@ -433,7 +433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7542603670230967140}
   - component: {fileID: 2804639002683520925}
-  - component: {fileID: 8686690466956330875}
+  - component: {fileID: 1991512025764881740}
   m_Layer: 0
   m_Name: speed
   m_TagString: Untagged
@@ -480,7 +480,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8686690466956330875
+--- !u!114 &1991512025764881740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -489,7 +489,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4757832584024554355}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64c5c4b3edbbc2d449fc2b5f0ac97da7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4403c0444ba601f478a4913ed999b5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,

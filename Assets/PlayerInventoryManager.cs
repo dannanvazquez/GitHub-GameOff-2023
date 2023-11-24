@@ -1,6 +1,14 @@
 using System.Collections.Generic;
-using UnityEditor.Search;
+using System.Linq;
 using UnityEngine;
+
+public enum ArrowTypes {
+    BasicArrow = 0,
+    FireArrow = 1,
+    ExplosiveArrow = 2,
+    IcyArrow = 3,
+    RandomEffectArrow = 4
+}
 
 public class PlayerInventoryManager : MonoBehaviour {
     [Header("References")]
@@ -9,13 +17,21 @@ public class PlayerInventoryManager : MonoBehaviour {
 
     public int currentItem;
 
-    public List<int> ammoCounts = new();
+    private List<int> ammoCounts = new();
 
     [Header("Settings")]
     [SerializeField] private int maxAmmo;
-    public int startingAmmo;
+    [SerializeField] private int startingAmmo;
+
+    public static PlayerInventoryManager Instance { get; private set; }
 
     private void Awake() {
+        if (Instance != null && Instance != this) {
+            Destroy(this);
+        } else {
+            Instance = this;
+        }
+
         for (int i = 0; i < itemButtons.Length; i++) {
             ammoCounts.Add(startingAmmo);
             itemButtons[i].SetAmmo(startingAmmo, maxAmmo);
@@ -29,7 +45,8 @@ public class PlayerInventoryManager : MonoBehaviour {
             else {
                 if (Input.GetKeyDown(KeyCode.Alpha3)) SelectItem(3);
                 else {
-                    if (Input.GetKeyDown(KeyCode.Alpha4)) SelectItem(4); }
+                    if (Input.GetKeyDown(KeyCode.Alpha4)) SelectItem(4);
+                }
             }
         }
     }
@@ -65,5 +82,24 @@ public class PlayerInventoryManager : MonoBehaviour {
                 SelectItem(0);
             }
         }
+    }
+
+    public void AddAmmo(ArrowTypes arrow, int amount) {
+        int arrowIndex = (int)arrow;
+        if (arrowIndex == 0) {
+            Debug.LogError("There are an infinite supply of basic arrows. Cannot add anymore.", transform);
+            return;
+        }
+
+        ammoCounts[arrowIndex - 1] += amount;
+        if (ammoCounts[arrowIndex - 1] > maxAmmo) ammoCounts[arrowIndex - 1] = maxAmmo;
+
+        itemButtons[arrowIndex - 1].SetAmmo(ammoCounts[arrowIndex - 1], maxAmmo);
+    }
+
+    public bool IsFullAmmo(ArrowTypes arrow) {
+        int arrowIndex = (int)arrow;
+        if (ammoCounts.ElementAt(arrowIndex - 1) < maxAmmo) return false;
+        else return true;
     }
 }

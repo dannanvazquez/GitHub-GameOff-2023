@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c1f625154774b041b6d8e1751c05163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowType: 4
+  addAmmoAmount: 5
   playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
     type: 3}
   audiosource_pickup: {fileID: 50609053924533041}

@@ -1,6 +1,9 @@
 using UnityEngine;
 
 public class Billboard : MonoBehaviour {
+    [Header("Settings")]
+    [SerializeField] private Vector3 rotateOffset = new(0, 180, 0);
+
     private Camera mainCamera;
 
     void Start() {
@@ -9,6 +12,6 @@ public class Billboard : MonoBehaviour {
 
     void LateUpdate() {
         transform.LookAt(mainCamera.transform);
-        transform.Rotate(0, 180, 0);
+        transform.Rotate(rotateOffset);
     }
 }

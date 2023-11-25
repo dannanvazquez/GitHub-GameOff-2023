@@ -22,7 +22,7 @@ public abstract class EnemyAI : MonoBehaviour {
     [SerializeField] protected float basicAttackDamage;
 
     [HideInInspector] public NavMeshAgent agent;
-    protected EnemyHealth health;
+    [HideInInspector] public EnemyHealth health;
     protected PlayerHealth playerHealth;
     protected Ice ice;
 
@@ -89,7 +89,7 @@ public abstract class EnemyAI : MonoBehaviour {
     }
 
     private IEnumerator KnockbackCoroutine(Vector3 force) {
-        Rigidbody rb = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
+        if (!gameObject.TryGetComponent(out Rigidbody rb)) rb = gameObject.AddComponent(typeof(Rigidbody)) as Rigidbody;
 
         agent.enabled = false;
         rb.AddForce(force, ForceMode.Impulse);

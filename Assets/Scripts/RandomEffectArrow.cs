@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RandomEffectArrow : BasicArrow {
     [Header("Random Effect References")]
-    [SerializeField] private GameObject blackholeParticlePrefab;
+    [SerializeField] private GameObject blackholePrefab;
 
     [Header("Random Effect Settings")]
     [Tooltip("The range around the arrow where enemies are moved closer to the player.")]
@@ -47,17 +47,6 @@ public class RandomEffectArrow : BasicArrow {
     }
 
     private void BlackHole() {
-        Instantiate(blackholeParticlePrefab, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
-
-        int enemyLayerMask = 1 << LayerMask.NameToLayer("Enemy");
-        Collider[] enemies = Physics.OverlapSphere(transform.position, blackHoleRange, enemyLayerMask);
-
-        foreach (var enemy in enemies) {
-            enemy.transform.position = transform.position;
-
-            if (enemy.TryGetComponent(out EnemyHealth enemyHealth)) {
-                enemyHealth.TakeDamage(enemyHealth.maxHealth);
-            }
-        }
+        Instantiate(blackholePrefab, transform.position + new Vector3(0, 0.1f, 0), Quaternion.identity);
     }
 }

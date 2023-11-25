@@ -47,7 +47,9 @@ public class BasicArrow : MonoBehaviour {
         if (hasHit) return;
 
         transform.position = hitPos;
-        transform.SetParent(other.transform, true);
+        GameObject emptyGameObject = new GameObject("Arrow Parent");
+        emptyGameObject.transform.SetParent(other.transform, true);
+        transform.SetParent(emptyGameObject.transform, true);
         hasHit = true;
         PlayRandomClip(arrow_landing_sfx, AudioSource_arrow);
 
@@ -64,5 +66,11 @@ public class BasicArrow : MonoBehaviour {
 
     public virtual void OnHit(Collider target) {
 
+    }
+
+    private void OnDestroy() {
+        if (transform.parent) {
+            Destroy(transform.parent.gameObject);
+        }
     }
 }

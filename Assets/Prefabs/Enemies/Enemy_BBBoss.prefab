@@ -1249,7 +1249,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.669
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1258,7 +1258,7 @@ AudioSource:
   Priority: 100
   DopplerLevel: 0
   MinDistance: 15
-  MaxDistance: 45
+  MaxDistance: 120
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -1302,7 +1302,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.95
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1317,7 +1317,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.22222222
+      value: 0.33333334
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1467,12 +1467,13 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 0}
-  chasingRange: 50
+  chasingRange: 75
   minimumChaseRange: 2.5
   basicAttackRange: 5
-  basicAttackCooldown: 1
-  basicAttackDamage: 25
+  basicAttackCooldown: 1.5
+  basicAttackDamage: 10
   agent: {fileID: 0}
+  health: {fileID: 0}
   isAttacking: 0
   lastTimeBasicAttacked: 0
   lastTimeSpecialAttacked: 0
@@ -1517,11 +1518,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackRange: 40
   specialAttackCooldown: 10
-  specialAttackDamage: 10
+  specialAttackDamage: 0
   specialAttackChancePerc: 0.7
   sleepPowderPrefab: {fileID: 7737829040505777056, guid: afc6fc90552bfd24fba2e4272117b704,
     type: 3}
   sleepPowderSpawnTransform: {fileID: 7031915166833899740}
+  sleepattack_audioSource: {fileID: 5034735668889112}
+  spawn_sleep_powder_sfx: {fileID: 8300000, guid: 4da58f6cc45dcf24e95af2967b2a2366,
+    type: 3}
+  throw_sleep_powder_sfx: {fileID: 8300000, guid: 8e42660d6e92d9341afd9f1948403f14,
+    type: 3}
   throwForce: 100
 --- !u!114 &2901495149282812029
 MonoBehaviour:
@@ -1721,6 +1727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d375f6c26f8a4429d3563aa0003247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateOffset: {x: 0, y: 180, z: 0}
 --- !u!223 &956498280197691689
 Canvas:
   m_ObjectHideFlags: 0

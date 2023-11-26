@@ -8,6 +8,11 @@ public class SleepPowderAttack : SpecialAttackBase {
     private EnemyAI ai;
     private GameObject sleepPowder;
 
+    [SerializeField] private AudioSource sleepattack_audioSource;
+    [SerializeField] private AudioClip spawn_sleep_powder_sfx;
+    [SerializeField] private AudioClip throw_sleep_powder_sfx;    
+
+
     [Header("Sleep Powder Settings")]
     [Tooltip("The force that the sleep powder is initially thrown at.")]
     [SerializeField] private float throwForce;
@@ -28,6 +33,7 @@ public class SleepPowderAttack : SpecialAttackBase {
     private void SpawnSleepPowder() {
         sleepPowder = Instantiate(sleepPowderPrefab, sleepPowderSpawnTransform);
         sleepPowder.GetComponent<EnemyProjectile>().damage = specialAttackDamage;
+        sleepattack_audioSource.PlayOneShot(spawn_sleep_powder_sfx);
     }
 
     public void ThrowSleepPowder() {
@@ -38,5 +44,6 @@ public class SleepPowderAttack : SpecialAttackBase {
         sleepPowder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         sleepPowder.GetComponent<Rigidbody>().AddForce(sleepPowder.transform.forward * throwForce, ForceMode.Impulse);
         sleepPowder = null;
+        sleepattack_audioSource.PlayOneShot(throw_sleep_powder_sfx);
     }
 }

@@ -827,8 +827,10 @@ GameObject:
   - component: {fileID: 6215800126413346293}
   - component: {fileID: 6468682800310787167}
   - component: {fileID: -6074008749856805312}
+  - component: {fileID: 1607869027492445331}
   - component: {fileID: 1654081994624587117}
   - component: {fileID: 7949889618205861425}
+  - component: {fileID: 4254184901050769435}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -855,6 +857,7 @@ Transform:
   - {fileID: 4109523300082556727}
   - {fileID: 5999853500197507824}
   - {fileID: 3818424753928312055}
+  - {fileID: 7654774244292652574}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &881846690046430754
@@ -879,7 +882,7 @@ MonoBehaviour:
   staminaBar: {fileID: 0}
   sleepParticles: {fileID: 530051087790773683}
   walkSpeed: 10
-  runSpeed: 30
+  runSpeed: 100
   groundDrag: 5
   jumpForce: 25
   jumpCooldown: 0.25
@@ -969,6 +972,51 @@ MonoBehaviour:
   currentItem: 0
   maxAmmo: 20
   startingAmmo: 10
+--- !u!114 &1607869027492445331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148347331944979900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da6c51194ab84042bc718fd8ead8aa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: StopMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 0
+  nextSentenceDialogueEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  endDialogueEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: StopMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
 --- !u!54 &1654081994624587117
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1012,6 +1060,27 @@ MonoBehaviour:
   runCost: 20
   chargeRate: 50
   staminaBar: {fileID: 0}
+--- !u!65 &4254184901050769435
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148347331944979900}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.02, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2214728550906192538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3750,4 +3819,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df,
     type: 3}
   m_PrefabInstance: {fileID: 5999853500197938130}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7654774244292288316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5250181315869196910}
+    m_Modifications:
+    - target: {fileID: 125638, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_Name
+      value: LightningFloorYellowTrail - when the player has super speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 125638, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.1817856
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.1817856
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.1817856
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00000011920926
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000000057622636
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0000000057622627
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882602, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: LifetimeByEmitterSpeedModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19882602, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 36c40fe19a4447d468678ecd395846df, type: 3}
+--- !u!4 &7654774244292652574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 438562, guid: 36c40fe19a4447d468678ecd395846df,
+    type: 3}
+  m_PrefabInstance: {fileID: 7654774244292288316}
   m_PrefabAsset: {fileID: 0}

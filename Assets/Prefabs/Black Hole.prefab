@@ -4878,8 +4878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pullRadius: 15
-  gravitationalPull: 50
-  destroyRadius: 1
+  gravitationalPull: 250
   layersToPull:
     serializedVersion: 2
     m_Bits: 128

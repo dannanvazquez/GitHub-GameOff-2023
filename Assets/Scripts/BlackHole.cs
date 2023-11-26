@@ -6,12 +6,20 @@ public class BlackHole : MonoBehaviour {
     [SerializeField] private float pullRadius;
     [Tooltip("The maximum amount of force this black hole will pull in.")]
     [SerializeField] private float gravitationalPull; // Pull force
-    [Tooltip("The maximum distance from the black hole that it will destroy enemies.")]
-    [SerializeField] private float destroyRadius;
+    /*[Tooltip("The maximum distance from the black hole that it will destroy enemies.")]
+    [SerializeField] private float destroyRadius;*/
 
     [SerializeField] private LayerMask layersToPull;
 
+    private Transform childTransform;  // Reference to the particle system that will destroy on its own.
+
+    private void Awake() {
+        childTransform = transform.GetChild(0);
+    }
+
     private void FixedUpdate() {
+        if (childTransform == null) Destroy(gameObject);
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, pullRadius, layersToPull);
 
         foreach (var collider in colliders) {
@@ -23,6 +31,7 @@ public class BlackHole : MonoBehaviour {
                 ai.agent.enabled = false;
                 rb.freezeRotation = true;
                 rb.useGravity = false;
+                rb.drag = 5;
             }
 
             float distance = Vector3.Distance(transform.position, collider.transform.position);
@@ -31,9 +40,9 @@ public class BlackHole : MonoBehaviour {
 
             rb.AddForce(gravitationalPull * gravityIntensity * rb.mass * Time.fixedDeltaTime * direction);
 
-            if (distance < destroyRadius) {
+            /*if (distance < destroyRadius) {
                 Destroy(collider.gameObject);
-            }
+            }*/
         }
     }
 

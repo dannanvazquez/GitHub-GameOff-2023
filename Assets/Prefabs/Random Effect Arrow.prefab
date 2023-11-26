@@ -62,7 +62,7 @@ MonoBehaviour:
     type: 3}
   enemyCloserRange: 30
   enemyCloserDistanceRatio: 0.5
-  blackHoleRange: 15
+  oneHitKillDamage: 100
 --- !u!54 &837476177855513496
 Rigidbody:
   m_ObjectHideFlags: 0

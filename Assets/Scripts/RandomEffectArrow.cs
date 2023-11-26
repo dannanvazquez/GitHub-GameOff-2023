@@ -9,8 +9,8 @@ public class RandomEffectArrow : BasicArrow {
     [SerializeField] private float enemyCloserRange;
     [Tooltip("The ratio between initial distance to the player the enemies will move. 0 is not moving at all, while 1 is on top of the player.")]
     [SerializeField, Range(0, 1)] private float enemyCloserDistanceRatio;
-    [Tooltip("The range around the arrow where enemies are sucked into the void.")]
-    [SerializeField] private float blackHoleRange;
+    [Tooltip("The amount of damage the \"One Hit\" effect actually does.")]
+    [SerializeField] private float oneHitKillDamage;
 
     public override void OnHit(Collider target) {
         int randomAbility = Random.Range(0, 3);
@@ -31,7 +31,7 @@ public class RandomEffectArrow : BasicArrow {
     
     private void OneHitKill(Collider target) {
         if (target.TryGetComponent(out EnemyHealth health)) {
-            health.TakeDamage(health.maxHealth);
+            health.TakeDamage(oneHitKillDamage);
         }
     }
 

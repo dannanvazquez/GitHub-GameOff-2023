@@ -734,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d375f6c26f8a4429d3563aa0003247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateOffset: {x: 0, y: 180, z: 0}
 --- !u!223 &6024132315172195013
 Canvas:
   m_ObjectHideFlags: 0
@@ -1147,7 +1148,7 @@ MonoBehaviour:
     type: 3}
   fifthLootPrefab: {fileID: 397132057427326763, guid: 8d180b05101c14a4f9934a9300bda778,
     type: 3}
-  sixthLootPrefab: {fileID: 2181552997038510532, guid: 7f8c0c62352f7a549827f25ba13fffaf,
+  sixthLootPrefab: {fileID: 664867320536469484, guid: 7597f15714c52c54f8c16642439c68bb,
     type: 3}
   seventhLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
     type: 3}

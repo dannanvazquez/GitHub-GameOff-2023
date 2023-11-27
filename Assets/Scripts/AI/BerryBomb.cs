@@ -1,4 +1,7 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class BerryBomb : EnemyProjectile {
     [Header("Berry Bomb References")]
@@ -11,6 +14,9 @@ public class BerryBomb : EnemyProjectile {
     [SerializeField] private float explosionDamage;
     [Tooltip("The amount of healing the explosion will do to its allies.")]
     [SerializeField] private float explosionHeal;
+
+    [SerializeField] private AudioSource audioSource;
+       [SerializeField] private AudioClip heal_berry; 
 
     protected override void OnHit() {
         Instantiate(explosionParticlePrefab, transform.position, Quaternion.identity);
@@ -30,6 +36,7 @@ public class BerryBomb : EnemyProjectile {
         foreach (var enemy in enemies) {
             if (enemy.transform.TryGetComponent(out EnemyHealth health)) {
                 health.Heal(explosionHeal);
+                //audioSource.PlayOneShot(heal_berry);
             }
         }
     }

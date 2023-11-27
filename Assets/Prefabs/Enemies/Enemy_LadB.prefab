@@ -1640,6 +1640,7 @@ MonoBehaviour:
   basicAttackCooldown: 5
   basicAttackDamage: 0
   agent: {fileID: 0}
+  health: {fileID: 0}
   isAttacking: 0
   lastTimeBasicAttacked: 0
   lastTimeSpecialAttacked: 0
@@ -1651,21 +1652,13 @@ MonoBehaviour:
   projectileForce: 0
   AudioSource_missile: {fileID: 5034735668889112}
   missile_charge_sfx:
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
-  - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
+  - {fileID: 8300000, guid: 786dcb2b4720de9448e93d375043041d, type: 3}
+  - {fileID: 8300000, guid: 1fc70f0d65df5054a857bcef17e0ad83, type: 3}
+  - {fileID: 8300000, guid: 07bb5457eea3d7943b5c478f33fce5a3, type: 3}
   missile_travel_sfx:
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
-  - {fileID: 8300000, guid: 326c3d53d737f0247910158f2f92040f, type: 3}
+  - {fileID: 8300000, guid: 025122fe509fa5f469e07b77dd52456f, type: 3}
+  - {fileID: 8300000, guid: 3a8532b8746002546bea0a619d787d00, type: 3}
+  - {fileID: 8300000, guid: c72eb73b7d3c36844bd4f008dd3731ac, type: 3}
 --- !u!114 &7757083036797666839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,6 +1691,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-9002489189816814891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,6 +1870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d375f6c26f8a4429d3563aa0003247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateOffset: {x: 0, y: 180, z: 0}
 --- !u!223 &956498280197691689
 Canvas:
   m_ObjectHideFlags: 0

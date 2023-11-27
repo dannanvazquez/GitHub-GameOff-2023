@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
-
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,36 +9,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask groundMask;
     [SerializeField] private Animator animator;
-    [SerializeField] private Image staminaBar;
     [SerializeField] private ParticleSystem sleepParticles;
 
+    // Other script references
     private Rigidbody rb;
-    private PlayerStamina playerStamina; // Reference to PlayerStamina script
+    private PlayerStamina playerStamina;
     private PlayerCombat playerCombat;
     private PlayerHealth playerHealth;
 
+    // Movement settings
     [Header("Settings")]
-    [Tooltip("The speed at which you move when walking.")]
     [SerializeField] public float walkSpeed;
-    [Tooltip("The speed at which you move when running.")]
     [SerializeField] public float runSpeed;
-    [Tooltip("The drag your rigidbody has when on the ground.")]
     [SerializeField] private float groundDrag;
-    [Tooltip("The force that you gain when jumping.")]
     [SerializeField] private float jumpForce;
-    [Tooltip("The amount of seconds before you can jump again.")]
     [SerializeField] private float jumpCooldown;
-    [Tooltip("The speed at which your movement is multiplied while in the air.")]
     [SerializeField] private float airMultiplier;
-    [Tooltip("The amount of seconds before you can roll again.")]
     [SerializeField] private float rollCooldown;
-    [Tooltip("The initial force that you gain when rolling.")]
     [SerializeField] private float rollForce;
-    [Tooltip("The amount of seconds before invincible after rolling.")]
     [SerializeField] private float delayBeforeInvincible;
-    [Tooltip("The amount of seconds invincible for.")]
     [SerializeField] private float invincibleLength;
 
+    // Input and state variables
     private float horizontalInput;
     private float verticalInput;
     private Vector3 moveDirection;
@@ -53,165 +43,155 @@ public class PlayerMovement : MonoBehaviour
     private bool isAsleep;
     private bool doRoll;
 
-    private float stamina;
-
-    private Coroutine recharge;
-
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        playerStamina = GetComponent<PlayerStamina>(); // Assuming PlayerStamina script is on the same GameObject as PlayerMovement
+        playerStamina = GetComponent<PlayerStamina>();
         playerCombat = GetComponent<PlayerCombat>();
         playerHealth = GetComponent<PlayerHealth>();
-        UpdateStaminaBar();
     }
 
-
-    private void Update() {
-        // Ground check
+    private void Update()
+    {
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundMask);
         MyInput();
         SpeedControl();
         AnimationParameters();
 
-        // Handle drag
-        if (isGrounded) {
+        if (isGrounded)
+        {
             rb.drag = groundDrag;
-        } else {
+        }
+        else
+        {
             rb.drag = 0;
         }
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
         MovePlayer();
     }
 
-    private void MyInput() {
+    private void MyInput()
+    {
         if (isAsleep) return;
 
-        if (Input.GetButtonDown("Roll") && canRoll && isGrounded) {
+        if (Input.GetButtonDown("Roll") && canRoll && isGrounded)
+        {
             canRoll = false;
 
-            Roll();
+            if (playerStamina.UseStamina(40f))
+            {
+                Roll();
+                Invoke(nameof(StopRoll), delayBeforeInvincible + invincibleLength);
+                Invoke(nameof(ResetRoll), rollCooldown);
+            }
+            else
+            {
+                Debug.Log("Not enough stamina to roll.");
+                canRoll = true;
+            }
 
-            Invoke(nameof(StopRoll), delayBeforeInvincible + invincibleLength);
-            Invoke(nameof(ResetRoll), rollCooldown);
             return;
         }
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        isRunning = Input.GetButton("Run") && playerStamina.UseStamina(playerStamina.RunCost * Time.deltaTime);
+        float inputMagnitude = new Vector2(horizontalInput, verticalInput).sqrMagnitude;
+        isRunning = Input.GetButton("Run") && inputMagnitude > 0.1f && playerStamina.UseStamina(playerStamina.RunCost * Time.deltaTime);
         moveSpeed = isRunning ? runSpeed : walkSpeed;
 
-        // Check for jumping
-        if (Input.GetButton("Jump") && canJump && isGrounded) {
+        if (Input.GetButton("Jump") && canJump && isGrounded)
+        {
             canJump = false;
-
             Jump();
-
             Invoke(nameof(ResetJump), jumpCooldown);
         }
 
-                // Manage stamina recharge if not running
-        if (!isRunning && stamina < playerStamina.MaxStamina)
+        if (!isRunning && playerStamina.CurrentStamina < playerStamina.MaxStamina)
         {
             playerStamina.RechargeStamina();
         }
     }
 
-    private void MovePlayer() {
-        if (doRoll) {
+    private void MovePlayer()
+    {
+        if (doRoll)
+        {
             rb.AddForce(10f * rollForce * playerObject.forward.normalized, ForceMode.Force);
             return;
         }
 
-        // Calculate movement direction
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        // Movement on ground
-        if (isGrounded) {
+        if (isGrounded)
+        {
             rb.AddForce(10f * moveSpeed * moveDirection.normalized, ForceMode.Force);
-        } else {
-            // Movement in air
+        }
+        else
+        {
             rb.AddForce(10f * airMultiplier * moveSpeed * moveDirection.normalized, ForceMode.Force);
         }
     }
 
-    private void SpeedControl() {
+    private void SpeedControl()
+    {
         Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        // Limit velocity if needed
-        if (flatVelocity.magnitude > moveSpeed) {
+        if (flatVelocity.magnitude > moveSpeed)
+        {
             Vector3 limitedVelocity = flatVelocity.normalized * moveSpeed;
             rb.velocity = new Vector3(limitedVelocity.x, rb.velocity.y, limitedVelocity.z);
         }
     }
 
-    private void Jump() {
-        // Reset y velocity
+    private void Jump()
+    {
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-
         animator.SetTrigger("Jump");
     }
 
-    private void StopRoll() {
+    private void StopRoll()
+    {
         doRoll = false;
     }
 
-    private void ResetJump() {
+    private void ResetJump()
+    {
         canJump = true;
     }
 
-    private void Roll() {
+    private void Roll()
+    {
         playerHealth.Invincible(delayBeforeInvincible, invincibleLength);
-
         doRoll = true;
-
         animator.SetTrigger("Roll");
     }
 
-    private void ResetRoll() {
+    private void ResetRoll()
+    {
         canRoll = true;
     }
 
-    private void AnimationParameters() {
-        animator.SetFloat("Velocity", rb.velocity.x*rb.velocity.x + rb.velocity.z*rb.velocity.z);
+    private void AnimationParameters()
+    {
+        animator.SetFloat("Velocity", rb.velocity.sqrMagnitude);
         animator.SetBool("IsGrounded", isGrounded);
         animator.SetBool("IsFalling", rb.velocity.y < 0.01f);
         animator.SetBool("IsRunning", isRunning);
     }
 
-    private IEnumerator RechargeStamina()
+    public void Sleep(float sleepTime)
     {
-        while (stamina < playerStamina.MaxStamina)
-        {
-            stamina += playerStamina.ChargeRate / 50f;
-            stamina = Mathf.Min(playerStamina.MaxStamina, stamina);
-            UpdateStaminaBar();
-            yield return new WaitForSeconds(0.05f);
-        }
-        recharge = null;
-    }
-
-    private void UpdateStaminaBar()
-    {
-        if (staminaBar != null)
-        {
-            staminaBar.fillAmount = stamina / playerStamina.MaxStamina;
-        }
-    }
-
-    public void Sleep(float sleepTime) {
         StartCoroutine(SleepCoroutine(sleepTime));
     }
 
-    // TODO: Seperate script to use as a reference for isAsleep? Since many scripts depend on it.
-    private IEnumerator SleepCoroutine(float sleepTime) {
+    private IEnumerator SleepCoroutine(float sleepTime)
+    {
         isAsleep = true;
         playerCombat.isAsleep = true;
         playerCombat.playerCamera.isAsleep = true;

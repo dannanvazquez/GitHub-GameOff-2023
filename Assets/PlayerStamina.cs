@@ -1,3 +1,4 @@
+// PlayerStamina.cs
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
@@ -65,4 +66,5 @@ public class PlayerStamina : MonoBehaviour
     public float RunCost => runCost;
     public float MaxStamina => maxStamina;
     public float ChargeRate => chargeRate;
+    public float CurrentStamina => currentStamina;
 }

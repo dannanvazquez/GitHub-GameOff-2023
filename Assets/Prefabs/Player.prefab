@@ -879,7 +879,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animator: {fileID: 142003457065919825}
-  staminaBar: {fileID: 0}
   sleepParticles: {fileID: 530051087790773683}
   walkSpeed: 10
   runSpeed: 100
@@ -887,7 +886,7 @@ MonoBehaviour:
   jumpForce: 25
   jumpCooldown: 0.25
   airMultiplier: 0.4
-  rollCooldown: 2
+  rollCooldown: 0.25
   rollForce: 200
   delayBeforeInvincible: 0
   invincibleLength: 0.6
@@ -1058,7 +1057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 100
   runCost: 20
-  chargeRate: 50
+  chargeRate: 16
   staminaBar: {fileID: 0}
 --- !u!65 &4254184901050769435
 BoxCollider:

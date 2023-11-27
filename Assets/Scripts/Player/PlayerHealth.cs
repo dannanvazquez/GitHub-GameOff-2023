@@ -97,14 +97,33 @@ public class PlayerHealth : MonoBehaviour
         playerCombat.enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         playerCamera.enabled = false;
-    }
 
+    }
+    void Update(){
+                if (currentHealth <= 0)
+        {
+            // Player is dead, allow respawn with "R" key
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Respawn();
+            }
+        }
+    }
+    void Respawn()
+    {
+        currentHealth = maxHealth;
+        isInvincible = false;
+        GameManager.Instance.RespawnPlayer(gameObject);
+        //Reset animations
+    }
     void LateUpdate()
     {
         // Update health bar in LateUpdate to ensure proper synchronization
         UpdateHealthBar();
     
     }
+
+    
 
     public void UpdateHealthBar()
     {

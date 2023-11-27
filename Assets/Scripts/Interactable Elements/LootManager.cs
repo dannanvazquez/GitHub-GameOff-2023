@@ -74,7 +74,7 @@ public class LootManager : MonoBehaviour
 
             if (lootPrefab != null)
             {
-                Vector3 adjustedPosition = chestPosition + new Vector3(0f, 1.5f, -0.28f);
+                Vector3 adjustedPosition = chestPosition + new Vector3(0f, 2.5f, -0.28f);
 
                 // Instantiate new loot
                 currentLoot = Instantiate(lootPrefab, adjustedPosition, Quaternion.identity);

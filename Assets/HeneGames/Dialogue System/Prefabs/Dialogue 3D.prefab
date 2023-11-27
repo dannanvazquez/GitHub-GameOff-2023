@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 880292023814025696}
   - component: {fileID: 5992440063495275401}
   m_Layer: 0
-  m_Name: Dialogue
+  m_Name: Dialogue 3D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,12 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6011988201399623206}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8557568673631317014
 MonoBehaviour:
@@ -56,7 +57,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   triggerState: 1
-  sentences: []
+  sentences:
+  - dialogueCharacter: {fileID: 11400000, guid: 3e5e644d8d5725941b79d3277f39cbc1,
+      type: 2}
+    sentence: Hello Player, welcome to my world.
+    sentenceSound: {fileID: 8300000, guid: 32974a213b725e44cb870cc72968492d, type: 3}
+    sentenceEvent:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!65 &880292023814025696
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65,11 +73,19 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6011988201399623206}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 4.2115984, y: 5.018632, z: 4.1206293}
+  m_Center: {x: 0.15385772, y: 2.009316, z: 0.44150332}
 --- !u!82 &5992440063495275401
 AudioSource:
   m_ObjectHideFlags: 0
@@ -90,7 +106,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.1852722
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

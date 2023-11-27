@@ -304,7 +304,7 @@ MonoBehaviour:
     type: 3}
   healthToAdd: 50
   audiosource_pickup: {fileID: 7798868663632742125}
-  pickupParticlesPrefab: {fileID: 185744, guid: b88a52d0de3924c4db6011de30ecccd0,
+  pickupParticlesPrefab: {fileID: 147890, guid: a4a1462c4d222c040ba20b5994e8a35f,
     type: 3}
   canvasPrefab: {fileID: 8611146193605963090, guid: 5ac4c2f76fca9cd4695b8ff475891bff,
     type: 3}

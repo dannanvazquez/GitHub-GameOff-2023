@@ -243,6 +243,12 @@ PrefabInstance:
       propertyPath: audiosource_pickup
       value: 
       objectReference: {fileID: 372934089998545749}
+    - target: {fileID: 9101281392793280883, guid: ebe82a5bce8424d418cdff1e688fb28f,
+        type: 3}
+      propertyPath: pickupParticlesPrefab
+      value: 
+      objectReference: {fileID: 8680598818964007281, guid: dcd90c4976197424b9958a7c54b6bb8c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

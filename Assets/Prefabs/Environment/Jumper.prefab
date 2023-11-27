@@ -5033,7 +5033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e487c06e143bb4d87244c3cdfedc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yForce: 2
+  yForce: 3
   jumper_audiosource: {fileID: 953191286895468211}
   jump_mushroom_sfx: {fileID: 8300000, guid: 9b59ea36f11f66a48860cb438826ff52, type: 3}
 --- !u!135 &1606577122449735368

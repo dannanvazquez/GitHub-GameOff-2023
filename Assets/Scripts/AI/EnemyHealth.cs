@@ -10,6 +10,8 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private RectTransform healthRect;
     [SerializeField] private GameObject hitParticlesPrefab;
     [SerializeField] private Transform enemyObjectTransform;
+    [SerializeField] private Vector3 particleSpawnOffset;  // This spawns particles offset from enemyObjectTransform's position.
+    [SerializeField] private GameObject deathParticlePrefab;
 
     private float healthRectWidth;
 
@@ -81,12 +83,7 @@ public class EnemyHealth : MonoBehaviour {
         onDamage?.Invoke();
         if (damage > 0) StartCoroutine(DamageVisuals());
         if (currentHealth <= 0) {
-            Debug.Log($"{gameObject.name} is now dead", transform);
-            Destroy(GetComponent<EnemyAI>());
-            NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            if (agent.enabled) agent.isStopped = true;
-            GetComponent<EnemyAI>().animator.SetTrigger("Death");
-            PlayRandomClip(death_sfx, ref lastdeathClip, damage_audioSource);
+            Die();
             return true;
         }
         PlayRandomClip(hit_sfx, ref lasthitClip, damage_audioSource);
@@ -96,6 +93,9 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     public void Die() {
+        Instantiate(deathParticlePrefab, enemyObjectTransform.position + particleSpawnOffset, Quaternion.identity);
+        //GetComponent<EnemyAI>().animator.SetTrigger("Death");
+        PlayRandomClip(death_sfx, ref lastdeathClip, damage_audioSource);
         Destroy(this.gameObject);
     }
 
@@ -115,7 +115,7 @@ public class EnemyHealth : MonoBehaviour {
         healthFillImage.fillAmount = currentHealth / maxHealth;
         //healthRect.sizeDelta = new Vector2(currentHealth / maxHealth * healthRectWidth, healthRect.sizeDelta.y);
 
-        Instantiate(hitParticlesPrefab, enemyObjectTransform.position, Quaternion.identity);
+        Instantiate(hitParticlesPrefab, enemyObjectTransform.position + particleSpawnOffset, Quaternion.identity);
 
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (var r in renderers) {

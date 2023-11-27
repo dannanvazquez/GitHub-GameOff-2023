@@ -1305,6 +1305,7 @@ MonoBehaviour:
   basicAttackCooldown: 5
   basicAttackDamage: 10
   agent: {fileID: 0}
+  health: {fileID: 0}
   isAttacking: 0
   lastTimeBasicAttacked: 0
   lastTimeSpecialAttacked: 0
@@ -1348,6 +1349,8 @@ MonoBehaviour:
   hitParticlesPrefab: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0,
     type: 3}
   enemyObjectTransform: {fileID: 5321312534169698059}
+  particleSpawnOffset: {x: 0, y: 1.5, z: 0}
+  deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   maxHealth: 100
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
@@ -1363,6 +1366,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-9002489189816814891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1509,6 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d375f6c26f8a4429d3563aa0003247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateOffset: {x: 0, y: 180, z: 0}
 --- !u!223 &956498280197691689
 Canvas:
   m_ObjectHideFlags: 0

@@ -1676,6 +1676,8 @@ MonoBehaviour:
   hitParticlesPrefab: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0,
     type: 3}
   enemyObjectTransform: {fileID: 5321312534169698059}
+  particleSpawnOffset: {x: 0, y: 1.5, z: 0}
+  deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
   maxHealth: 100
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75

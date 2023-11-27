@@ -76,10 +76,8 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
-            Debug.Log("Player is now dead");
             return true;
         }
-        Debug.Log("Player is now at " + currentHealth + " health.");
         PlayRandomClip(hit_sfx, ref lasthitClip, damage_audioSource);
         PlayRandomClip(hit_voice, ref lasthitvoiceClip, voice_audioSource);
 

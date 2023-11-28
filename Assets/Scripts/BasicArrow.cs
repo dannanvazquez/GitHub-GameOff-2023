@@ -56,6 +56,8 @@ public class BasicArrow : MonoBehaviour {
         AntiRangeShieldAttack antiRangeShieldAttack = null;
         if (other.transform.TryGetComponent(out EnemyHealth enemyHealth) && (!other.transform.TryGetComponent(out antiRangeShieldAttack) || !antiRangeShieldAttack.shieldActive)) {
             enemyHealth.TakeDamage(damage);
+        } else if (other.transform.TryGetComponent(out BreakableElement breakableElement)) {
+            breakableElement.TakeDamage(1);
         }
         if (antiRangeShieldAttack == null || !antiRangeShieldAttack.shieldActive) {
             OnHit(other);

@@ -1299,9 +1299,9 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 4111497094490397498}
-  chasingRange: 30
+  chasingRange: 250
   minimumChaseRange: 2.5
-  basicAttackRange: 25
+  basicAttackRange: 250
   basicAttackCooldown: 5
   basicAttackDamage: 10
   agent: {fileID: 0}
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3874392034477401544, guid: 4336b159c9d207941895fb6e1ee5d9eb,
     type: 3}
   loadedProjectile: {fileID: 6777377300363964023}
-  projectileForce: 25
+  projectileForce: 32
   AudioSource_missile: {fileID: 5034735668889112}
   missile_charge_sfx:
   - {fileID: 8300000, guid: f311a7e44c3bf544ba052ec55c3bbf6d, type: 3}
@@ -1427,7 +1427,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 20
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360

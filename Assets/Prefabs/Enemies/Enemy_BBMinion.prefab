@@ -1825,11 +1825,11 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 0}
-  chasingRange: 50
+  chasingRange: 150
   minimumChaseRange: 2.5
   basicAttackRange: 4
   basicAttackCooldown: 1
-  basicAttackDamage: 15
+  basicAttackDamage: 8
   agent: {fileID: 0}
   health: {fileID: 0}
   isAttacking: 0
@@ -1857,7 +1857,7 @@ MonoBehaviour:
   enemyObjectTransform: {fileID: 5321312534169698059}
   particleSpawnOffset: {x: 0, y: 1.5, z: 0}
   deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
-  maxHealth: 100
+  maxHealth: 40
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
   currentHealth: 0
@@ -1933,7 +1933,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 55
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -2810,7 +2810,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.8
-  m_Pitch: 1
+  m_Pitch: 1.21
   Loop: 0
   Mute: 0
   Spatialize: 0

@@ -1634,11 +1634,11 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 0}
-  chasingRange: 30
+  chasingRange: 100
   minimumChaseRange: 0
   basicAttackRange: 5
-  basicAttackCooldown: 5
-  basicAttackDamage: 0
+  basicAttackCooldown: 3
+  basicAttackDamage: 5
   agent: {fileID: 0}
   health: {fileID: 0}
   isAttacking: 0
@@ -1754,7 +1754,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 5
+  m_Speed: 40
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360

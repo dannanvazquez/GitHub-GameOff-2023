@@ -3161,7 +3161,7 @@ MonoBehaviour:
   animator: {fileID: 1132193146550105881}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 7713784545888992266}
-  chasingRange: 30
+  chasingRange: 140
   minimumChaseRange: 2.5
   basicAttackRange: 5
   basicAttackCooldown: 2.66
@@ -3242,7 +3242,7 @@ MonoBehaviour:
   enemyObjectTransform: {fileID: 428229113455153417}
   particleSpawnOffset: {x: 0, y: 1.5, z: 0}
   deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
-  maxHealth: 100
+  maxHealth: 60
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
   currentHealth: 0

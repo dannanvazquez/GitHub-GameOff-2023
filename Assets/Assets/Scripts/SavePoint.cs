@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
-    public GameObject VFXActive, VFXInactive, VFXActivationExplosion;
+    [SerializeField] private GameObject VFXActive, VFXInactive, VFXActivationExplosion;
+    [SerializeField] private AudioSource savepoint_audiosource;
+    [SerializeField] private AudioClip save_sfx;
 
     private void Start()
     {
@@ -21,7 +23,7 @@ public class SavePoint : MonoBehaviour
                 VFXActivationExplosion.SetActive(true);
                 VFXActive.SetActive(true);
                 VFXInactive.SetActive(false);
-
+                savepoint_audiosource.Play();
 
                 GameManager.Instance.SetRespawnPoint(transform.position);
                 Debug.Log("Respawn point set!");

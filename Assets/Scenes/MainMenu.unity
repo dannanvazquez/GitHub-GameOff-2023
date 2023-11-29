@@ -1988,8 +1988,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030517578, y: 0}
-  m_SizeDelta: {x: 258.81, y: 50}
+  m_AnchoredPosition: {x: 188, y: 0}
+  m_SizeDelta: {x: 626.9, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701465603
 MonoBehaviour:
@@ -2011,7 +2011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pip
+  m_text: Voice actors
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62b6861569b417349831ea5e3ae3f4fb, type: 2}
   m_sharedMaterial: {fileID: 439696648497861592, guid: 62b6861569b417349831ea5e3ae3f4fb,
@@ -3634,6 +3634,7 @@ GameObject:
   - component: {fileID: 1389055951}
   - component: {fileID: 1389055950}
   - component: {fileID: 1389055949}
+  - component: {fileID: 1389055953}
   m_Layer: 5
   m_Name: btn (2)
   m_TagString: Untagged
@@ -3650,14 +3651,14 @@ RectTransform:
   m_GameObject: {fileID: 1389055947}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.7939708, y: 1.3625001, z: 1}
+  m_LocalScale: {x: 3.2, y: 1.3625001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1554484812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 82, y: -52}
+  m_AnchoredPosition: {x: 123, y: -52}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389055949
@@ -3766,6 +3767,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389055947}
   m_CullTransparentMesh: 1
+--- !u!65 &1389055953
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389055947}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1450334417
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,7 +5317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://idk.github.io
+  m_text: https://dannan.itch.io/
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62b6861569b417349831ea5e3ae3f4fb, type: 2}
   m_sharedMaterial: {fileID: 439696648497861592, guid: 62b6861569b417349831ea5e3ae3f4fb,
@@ -5626,7 +5648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: https://anilpunjabi.itch.io/
+  m_text: Antoine, Pauline et Marie
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62b6861569b417349831ea5e3ae3f4fb, type: 2}
   m_sharedMaterial: {fileID: 439696648497861592, guid: 62b6861569b417349831ea5e3ae3f4fb,

@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
-  basicAttackParticles: {fileID: 0}
+  basicAttackParticles: {fileID: 8636689029997972749}
   chasingRange: 75
   minimumChaseRange: 2.5
   basicAttackRange: 5

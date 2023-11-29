@@ -100,7 +100,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         PlayerCombat playerCombat = GetComponent<PlayerCombat>();
-        playerCombat.animator.SetTrigger("Death");
+        playerCombat.animator.SetBool("IsDead", true);
         playerCombat.enabled = false;
         GetComponent<PlayerMovement>().enabled = false;
         playerCamera.enabled = false;
@@ -121,7 +121,11 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         isInvincible = false;
         GameManager.Instance.RespawnPlayer(gameObject);
-        //Reset animations
+        PlayerCombat playerCombat = GetComponent<PlayerCombat>();
+        playerCombat.animator.SetBool("IsDead", false);
+        playerCombat.enabled = true;
+        GetComponent<PlayerMovement>().enabled = true;
+        playerCamera.enabled = true;
     }
     void LateUpdate()
     {

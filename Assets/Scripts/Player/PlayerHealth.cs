@@ -87,6 +87,15 @@ public class PlayerHealth : MonoBehaviour
         return false;
     }
 
+    public void Heal(float healAmount) {
+        if (healAmount <= 0 || currentHealth >= maxHealth) return;
+
+        currentHealth += healAmount;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
+
+        StartCoroutine(HealVisuals());
+    }
+
     private void Die()
     {
         Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
@@ -150,6 +159,27 @@ public class PlayerHealth : MonoBehaviour
         {
             foreach (var m in r.materials)
             {
+                m.color = Color.white;
+            }
+        }
+    }
+
+    private IEnumerator HealVisuals() {
+        //transform.localScale = initialScale * ((1f - minimumScalePercentage) * (currentHealth / maxHealth) + minimumScalePercentage);
+
+        UpdateHealthBar();
+
+        Renderer[] renderers = GetComponentsInChildren<Renderer>();
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
+                m.color = Color.green;
+            }
+        }
+
+        yield return new WaitForSeconds(damageVisualsInterval);
+
+        foreach (var r in renderers) {
+            foreach (var m in r.materials) {
                 m.color = Color.white;
             }
         }

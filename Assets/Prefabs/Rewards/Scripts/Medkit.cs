@@ -1,58 +1,48 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Medkit : MonoBehaviour
-{
+public class Medkit : MonoBehaviour {
     public GameObject playerPrefab;
     public float healthToAdd = 50f;  // Amount of health to add on pickup
-    
+
     public AudioSource audiosource_pickup;
     public GameObject pickupParticlesPrefab;
-    public Canvas canvasPrefab; 
-    public GameObject uiLootingPrefab; 
+    public Canvas canvasPrefab;
+    public GameObject uiLootingPrefab;
 
     // List to keep track of active UI popups
     private List<GameObject> activeUIPopups = new List<GameObject>();
 
-    void Start()
-    {
-    }
+    private bool isPlayerInTrigger;
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (IsPlayerInTrigger())
-            {
-                PickUp();
-            }
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerInTrigger) {
+            PickUp();
         }
     }
 
-    private bool IsPlayerInTrigger()
-    {
-        return true;
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Player")) isPlayerInTrigger = true;
     }
 
-    private void PickUp()
-    {
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Player")) isPlayerInTrigger = false;
+    }
+
+    private void PickUp() {
+        if (!playerPrefab.TryGetComponent(out PlayerHealth playerHealth)) return;
+
+        if (playerHealth.currentHealth >= playerHealth.maxHealth) {
+            // TODO: Notify the player that their health is full and can't heal.
+            return;
+        }
+
         DestroyExistingUIPopups();
 
         Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
 
         // Modify player health
-        PlayerHealth playerHealth = playerPrefab.GetComponent<PlayerHealth>();
-        if (playerHealth != null)
-        {
-            playerHealth.currentHealth += healthToAdd;
-            Debug.Log("Medkit picked up. Health to add: " + healthToAdd);
-            if (playerHealth.currentHealth > playerHealth.maxHealth)
-            {
-                playerHealth.currentHealth = playerHealth.maxHealth;
-            }
-
-            playerHealth.UpdateHealthBar();
-        }
+        playerHealth.Heal(healthToAdd);
 
         Destroy(gameObject);
         audiosource_pickup.Play();
@@ -65,10 +55,8 @@ public class Medkit : MonoBehaviour
         activeUIPopups.Add(uiLootingInstance);
     }
 
-    private void DestroyExistingUIPopups()
-    {
-        foreach (GameObject popup in activeUIPopups)
-        {
+    private void DestroyExistingUIPopups() {
+        foreach (GameObject popup in activeUIPopups) {
             Destroy(popup);
         }
 

@@ -70,3 +70,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Packages/AC Little Enchant Mesh VFX/Materials/URPMaterials.unitypackage.meta
+Assets/Packages/AC Little Enchant Mesh VFX/Materials/HDRPMaterials.unitypackage.meta

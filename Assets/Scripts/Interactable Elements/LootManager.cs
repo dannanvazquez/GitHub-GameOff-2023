@@ -9,9 +9,6 @@ public class LootManager : MonoBehaviour
     public GameObject secondLootPrefab;
     public GameObject thirdLootPrefab;
     public GameObject fourthLootPrefab;
-    public GameObject fifthLootPrefab;
-    public GameObject sixthLootPrefab;
-    public GameObject seventhLootPrefab;
 
     private GameObject currentLoot;
     private Vector3 originalScale;
@@ -35,7 +32,7 @@ public class LootManager : MonoBehaviour
         // Check if there's an existing loot, and if not, instantiate a new one
         if (currentLoot == null)
         {
-            int randomIndex = Random.Range(0, 7); // 0-6: firstLoot, 1-6: secondLoot, 2-6: thirdLoot, 3-6: fourthLoot, 4-6: fifthLoot, 5-6: sixthLoot, 6: seventhLoot
+            int randomIndex = Random.Range(0, 3);
 
             GameObject lootPrefab = null;
             string lootName = "";
@@ -58,18 +55,18 @@ public class LootManager : MonoBehaviour
                     lootPrefab = fourthLootPrefab;
                     lootName = "Random Arrows";
                     break;
-                case 4:
-                    lootPrefab = fifthLootPrefab;
-                    lootName = "Medkit";
-                    break;
-                case 5:
-                    lootPrefab = sixthLootPrefab;
-                    lootName = "Speed";
-                    break;
-                case 6:
-                    lootPrefab = seventhLootPrefab;
-                    lootName = "Damage Booster";
-                    break;
+                //case 4:
+                //    lootPrefab = fifthLootPrefab;
+                //    lootName = "Medkit";
+                //    break;
+                //case 5:
+                //    lootPrefab = sixthLootPrefab;
+                //    lootName = "Speed";
+                //    break;
+                //case 6:
+                //    lootPrefab = seventhLootPrefab;
+                //    lootName = "Damage Booster";
+                //    break;
             }
 
             if (lootPrefab != null)

@@ -370,7 +370,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.96945906, b: 0.5613208, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1031,8 +1031,8 @@ GameObject:
   - component: {fileID: 7774400577338769612}
   - component: {fileID: 6512825701450791258}
   - component: {fileID: 6479895020197385505}
-  - component: {fileID: 1673697744292677743}
-  - component: {fileID: 437724278069030222}
+  - component: {fileID: 1412931876590486320}
+  - component: {fileID: 3881375414519194796}
   m_Layer: 0
   m_Name: chest-upgrades
   m_TagString: Untagged
@@ -1050,7 +1050,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.05, y: 1.05, z: 1.05}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6142270333592547904}
@@ -1105,7 +1105,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.619873, y: 5.000972, z: 4.171402}
   m_Center: {x: 0.023803711, y: 2.0004854, z: 1.585701}
---- !u!114 &1673697744292677743
+--- !u!114 &1412931876590486320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1114,47 +1114,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 8825434189270820673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c358d8d38628b428d1b8d6b08b9cab, type: 3}
+  m_Script: {fileID: 11500000, guid: c23f5c3e273b090448e75fe749014959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource_opening: {fileID: 910534652536470730}
-  AudioSource_closing: {fileID: 5009100705881482744}
+  Speed: {fileID: 664867320536469484, guid: 7597f15714c52c54f8c16642439c68bb, type: 3}
+  DamageBooster: {fileID: 4654152794131525966, guid: ebe82a5bce8424d418cdff1e688fb28f,
+    type: 3}
+  lootNameText: {fileID: 987706895424523823}
+  lootCanvas: {fileID: 6024132315172195013}
+--- !u!114 &3881375414519194796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825434189270820673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b375c06c963c142b2117b821dc082e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource_opening: {fileID: 0}
+  AudioSource_closing: {fileID: 0}
   chest_opening_sfx:
   - {fileID: 8300000, guid: 3ab0523357e935443a370fc3d9cfe483, type: 3}
   - {fileID: 8300000, guid: ebbbc364cacf4e640a6fe114619d5fce, type: 3}
   - {fileID: 8300000, guid: 00bf373de26d7c649a67bbb9bd01d623, type: 3}
   chest_closing_sfx:
   - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
---- !u!114 &437724278069030222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825434189270820673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f09b3e6aad7ec544a9de08a52becd0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firstLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
-    type: 3}
-  secondLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
-    type: 3}
-  thirdLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
-    type: 3}
-  fourthLootPrefab: {fileID: 7283099441800964015, guid: 03748bc7f968b174a91af9548096efd6,
-    type: 3}
-  fifthLootPrefab: {fileID: 664867320536469484, guid: 7597f15714c52c54f8c16642439c68bb,
-    type: 3}
-  sixthLootPrefab: {fileID: 664867320536469484, guid: 7597f15714c52c54f8c16642439c68bb,
-    type: 3}
-  seventhLootPrefab: {fileID: 664867320536469484, guid: 7597f15714c52c54f8c16642439c68bb,
-    type: 3}
-  lootNameText: {fileID: 987706895424523823}
-  lootCanvas: {fileID: 6024132315172195013}
 --- !u!1 &9122565191699917830
 GameObject:
   m_ObjectHideFlags: 0

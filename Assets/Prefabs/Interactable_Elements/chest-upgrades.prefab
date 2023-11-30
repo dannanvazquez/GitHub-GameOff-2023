@@ -1134,8 +1134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b375c06c963c142b2117b821dc082e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AudioSource_opening: {fileID: 0}
-  AudioSource_closing: {fileID: 0}
+  AudioSource_opening: {fileID: 910534652536470730}
+  AudioSource_closing: {fileID: 5009100705881482744}
   chest_opening_sfx:
   - {fileID: 8300000, guid: 3ab0523357e935443a370fc3d9cfe483, type: 3}
   - {fileID: 8300000, guid: ebbbc364cacf4e640a6fe114619d5fce, type: 3}

@@ -26,6 +26,28 @@ public class GameManager : MonoBehaviour
     public void RespawnPlayer(GameObject player)
     {
         player.transform.position = respawnPoint;
-        // You might want to reset other player attributes here
+        // Reset other player attributes here if needed
+
+        // Reset enemies
+        ResetEnemies();
     }
+    
+private void ResetEnemies()
+{
+    // Get all enemy GameObjects in the scene with the "BossEnemy" tag
+    GameObject[] enemies = GameObject.FindGameObjectsWithTag("BossEnemy");
+    foreach (GameObject enemy in enemies)
+    {
+        // Print the current position before the reset
+        Debug.Log("Boss Current Position: " + enemy.transform.position);
+
+        // Reset boss position
+        //enemy.transform.position = new Vector3(-3972f, 0.48f, 1433.9f);
+
+        // Print the position after the reset
+        Debug.Log("Boss New Position: " + enemy.transform.position);
+    }
+}
+
+
 }

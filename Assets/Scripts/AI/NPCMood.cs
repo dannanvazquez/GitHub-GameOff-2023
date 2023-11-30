@@ -34,7 +34,14 @@ public class NPCMood : MonoBehaviour
             NPCsInPrison();
         }
     }
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            // Deactivate the lock when the player exits the room
+            areaBlockerBossLOCKPAD.SetActive(false);
+        }
+    }
 
     public void NPCsInPrison()
     {

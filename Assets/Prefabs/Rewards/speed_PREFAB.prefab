@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 7542603670230967140}
   - component: {fileID: 2804639002683520925}
   - component: {fileID: 1991512025764881740}
+  - component: {fileID: 8447172493976178403}
   m_Layer: 0
   m_Name: speed
   m_TagString: Untagged
@@ -514,9 +515,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4403c0444ba601f478a4913ed999b5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 2148347331944979900, guid: 3675f9cd375fa8047a38944fa4308063,
-    type: 3}
-  playerMovement: {fileID: 0}
   audiosource_pickup: {fileID: 5088349550418574850}
   pickupParticlesPrefab: {fileID: 1449242181322416601, guid: 052d5f6cf7d3ebc44bba49fbe653f9a8,
     type: 3}
@@ -525,6 +523,27 @@ MonoBehaviour:
   uiLootingPrefab: {fileID: 5485593646836419072, guid: 3c7c699310376c34eb50418eba18bc6f,
     type: 3}
   speedBoostAmount: 2
+--- !u!135 &8447172493976178403
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4757832584024554355}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 4
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &5125373325903847868
 GameObject:
   m_ObjectHideFlags: 0

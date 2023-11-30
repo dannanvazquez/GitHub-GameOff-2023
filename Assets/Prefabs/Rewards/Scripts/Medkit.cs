@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Medkit : MonoBehaviour {
-    public GameObject playerPrefab;
     public float healthToAdd = 50f;  // Amount of health to add on pickup
 
     public AudioSource audiosource_pickup;
@@ -30,7 +29,7 @@ public class Medkit : MonoBehaviour {
     }
 
     private void PickUp() {
-        if (!playerPrefab.TryGetComponent(out PlayerHealth playerHealth)) return;
+        if (!PlayerInventoryManager.Instance.TryGetComponent(out PlayerHealth playerHealth)) return;
 
         if (playerHealth.currentHealth >= playerHealth.maxHealth) {
             // TODO: Notify the player that their health is full and can't heal.

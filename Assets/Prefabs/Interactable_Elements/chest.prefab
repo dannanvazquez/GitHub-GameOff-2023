@@ -1031,7 +1031,6 @@ GameObject:
   - component: {fileID: 7774400577338769612}
   - component: {fileID: 6512825701450791258}
   - component: {fileID: 6479895020197385505}
-  - component: {fileID: 1673697744292677743}
   - component: {fileID: 437724278069030222}
   m_Layer: 0
   m_Name: chest
@@ -1105,28 +1104,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.619873, y: 5.000972, z: 4.171402}
   m_Center: {x: 0.023803711, y: 2.0004854, z: 1.585701}
---- !u!114 &1673697744292677743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825434189270820673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c358d8d38628b428d1b8d6b08b9cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource_opening: {fileID: 910534652536470730}
-  AudioSource_closing: {fileID: 5009100705881482744}
-  chest_opening_sfx:
-  - {fileID: 8300000, guid: 3ab0523357e935443a370fc3d9cfe483, type: 3}
-  - {fileID: 8300000, guid: ebbbc364cacf4e640a6fe114619d5fce, type: 3}
-  - {fileID: 8300000, guid: 00bf373de26d7c649a67bbb9bd01d623, type: 3}
-  chest_closing_sfx:
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
 --- !u!114 &437724278069030222
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1031,8 +1031,8 @@ GameObject:
   - component: {fileID: 7774400577338769612}
   - component: {fileID: 6512825701450791258}
   - component: {fileID: 6479895020197385505}
-  - component: {fileID: 1673697744292677743}
   - component: {fileID: 437724278069030222}
+  - component: {fileID: 3045836967471942850}
   m_Layer: 0
   m_Name: chest-arrows
   m_TagString: Untagged
@@ -1105,28 +1105,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.619873, y: 5.000972, z: 4.171402}
   m_Center: {x: 0.023803711, y: 2.0004854, z: 1.585701}
---- !u!114 &1673697744292677743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8825434189270820673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c358d8d38628b428d1b8d6b08b9cab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AudioSource_opening: {fileID: 910534652536470730}
-  AudioSource_closing: {fileID: 5009100705881482744}
-  chest_opening_sfx:
-  - {fileID: 8300000, guid: 3ab0523357e935443a370fc3d9cfe483, type: 3}
-  - {fileID: 8300000, guid: ebbbc364cacf4e640a6fe114619d5fce, type: 3}
-  - {fileID: 8300000, guid: 00bf373de26d7c649a67bbb9bd01d623, type: 3}
-  chest_closing_sfx:
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
-  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
 --- !u!114 &437724278069030222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,14 +1125,28 @@ MonoBehaviour:
     type: 3}
   fourthLootPrefab: {fileID: 7833751985119687652, guid: 2f8701362b07e9e428ed01fc5cd3b02e,
     type: 3}
-  fifthLootPrefab: {fileID: 7833751985119687652, guid: 3f8697bd2fc2d044997d3b26c44bfe62,
-    type: 3}
-  sixthLootPrefab: {fileID: 7833751985119687652, guid: 87eb829c934b2cb4c83aba55d44f9412,
-    type: 3}
-  seventhLootPrefab: {fileID: 7833751985119687652, guid: 5e07d26086f0268449ee09081e8d7ec0,
-    type: 3}
   lootNameText: {fileID: 987706895424523823}
   lootCanvas: {fileID: 6024132315172195013}
+--- !u!114 &3045836967471942850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825434189270820673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4897a9a420ded2a48b02e29f5c68106e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSource_opening: {fileID: 910534652536470730}
+  AudioSource_closing: {fileID: 5009100705881482744}
+  chest_opening_sfx:
+  - {fileID: 8300000, guid: 3ab0523357e935443a370fc3d9cfe483, type: 3}
+  - {fileID: 8300000, guid: ebbbc364cacf4e640a6fe114619d5fce, type: 3}
+  - {fileID: 8300000, guid: 00bf373de26d7c649a67bbb9bd01d623, type: 3}
+  chest_closing_sfx:
+  - {fileID: 8300000, guid: 5adb8af8cf86e2c4eb8faafb9f89d187, type: 3}
 --- !u!1 &9122565191699917830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1313,6 +1305,21 @@ PrefabInstance:
       propertyPath: CollisionModule.minKillSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7938384439400024402, guid: b6e54acc881a03c4a9719b161a25a3e3,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1383,6 +1390,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shine_ellow
       objectReference: {fileID: 0}
+    - target: {fileID: 7938384439505921127, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439505921127, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439505921127, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439966319056, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291675544055480729, guid: b6e54acc881a03c4a9719b161a25a3e3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1411,6 +1443,21 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
       value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: d4285fb331e8dce43829783f1e31fce8,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: d4285fb331e8dce43829783f1e31fce8,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938384439400024400, guid: d4285fb331e8dce43829783f1e31fce8,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7938384439400024402, guid: d4285fb331e8dce43829783f1e31fce8,
         type: 3}

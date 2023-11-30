@@ -50,8 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8228bf6598b151945be970fa94a5872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTillSleep: 1
-  sleepTime: 2.5
+  timeTillSleep: 0.6
+  sleepTime: 1.5
   sleeping_sfx: {fileID: 8300000, guid: a0dec459238fdb54e8ec90683aaec731, type: 3}
   player_in_zone_sfx: {fileID: 8300000, guid: a281004aeaeaa814d819fb24da3c965a, type: 3}
   wake_up_sfx: {fileID: 8300000, guid: d9c182b1f2791d441bf3d5de683f5877, type: 3}

@@ -15,11 +15,16 @@ public class ShootNode : Node {
     }
 
     public override NodeState Evaluate() {
+        if (ai.loadedProjectile == null) {
+            _nodeState = NodeState.FAILURE;
+            return _nodeState;
+        }
+
         animator.SetTrigger("Shoot");
         if (agent.enabled) agent.isStopped = true;
         ai.isAttacking = true;
-        ai.StartCoroutine(ai.LoadProjectile());
         offCooldownNode.lastTimeUsed = Time.time;
+        ai.StartCoroutine(ai.LoadProjectile());
 
         _nodeState = NodeState.RUNNING;
         return _nodeState;

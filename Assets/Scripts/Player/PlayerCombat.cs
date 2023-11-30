@@ -109,6 +109,11 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     private void DealMeleeDamage(Collider collider) {
+        // TODO: Remove collider when a melee hit kills the enemy so that we don't need this check.
+        if (collider == null) {
+            enemiesHit.Remove(collider);
+            return;
+        }
         if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
             enemyHealth.TakeDamage(meleeDamage);
             if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {

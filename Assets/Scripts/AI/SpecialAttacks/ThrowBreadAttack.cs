@@ -76,10 +76,12 @@ public class ThrowBreadAttack : SpecialAttackBase {
     private IEnumerator ThrowBread(GameObject bread) {
         yield return new WaitForSeconds(throwBuffer);
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
-        AudioSource breadAudioSource = bread.GetComponent<AudioSource>();
-        PlayRandomClipNoLast(throwbread_sfx, breadAudioSource);
-        bread.transform.rotation = Quaternion.LookRotation((ai.playerTransform.position - bread.transform.position).normalized);
-        bread.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        bread.GetComponent<Rigidbody>().AddForce(bread.transform.forward * throwForce, ForceMode.Impulse);
+        if (bread) {
+            AudioSource breadAudioSource = bread.GetComponent<AudioSource>();
+            PlayRandomClipNoLast(throwbread_sfx, breadAudioSource);
+            bread.transform.rotation = Quaternion.LookRotation((ai.playerTransform.position - bread.transform.position).normalized);
+            bread.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            bread.GetComponent<Rigidbody>().AddForce(bread.transform.forward * throwForce, ForceMode.Impulse);
+        }
     }
 }

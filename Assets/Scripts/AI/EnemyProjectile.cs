@@ -13,7 +13,7 @@ public class EnemyProjectile : MonoBehaviour {
     }
 
     private void Start() {
-        Destroy(gameObject, 10);
+        Destroy(gameObject, 25);
     }
 
     private void Update() {

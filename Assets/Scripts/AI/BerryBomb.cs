@@ -25,7 +25,7 @@ public class BerryBomb : EnemyProjectile {
         Collider[] players = Physics.OverlapSphere(transform.position, explosionRadius, playerLayerMask);
 
         foreach (var player in players) {
-            if (player.transform.parent.TryGetComponent(out PlayerHealth health)) {
+            if (player.transform.parent && player.transform.parent.TryGetComponent(out PlayerHealth health)) {
                 health.TakeDamage(explosionDamage);
             }
         }

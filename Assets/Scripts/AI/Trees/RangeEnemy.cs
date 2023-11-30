@@ -6,7 +6,7 @@ public class RangeEnemy : EnemyAI {
     [Header("Range Enemy References")]
     [SerializeField] private Transform projectileSpawnTransform;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject loadedProjectile;
+    public GameObject loadedProjectile;
 
     private OffCooldownNode shootCooldownNode;
 
@@ -58,14 +58,19 @@ public class RangeEnemy : EnemyAI {
     }
 
     public IEnumerator LoadProjectile() {
-        //while (shootCooldownNode.lastTimeUsed)
-        yield return new WaitForSeconds(basicAttackCooldown);
+        while (Time.time < shootCooldownNode.lastTimeUsed + basicAttackCooldown) yield return null;
+        //yield return new WaitForSeconds(basicAttackCooldown);
+        InstantLoadProjectile();
+    }
+
+    private void InstantLoadProjectile() {
+        if (loadedProjectile != null) return;
         loadedProjectile = Instantiate(projectilePrefab, projectileSpawnTransform);
         if (AudioSource_missile) PlayRandomClip(missile_charge_sfx, AudioSource_missile);
     }
 
     public void RangeAttack() {
-        if (!loadedProjectile) return;
+        if (loadedProjectile == null) InstantLoadProjectile();
 
         loadedProjectile.transform.SetParent(null);
         // Get the AudioSource component from the instantiated bread and play the spawnbread_sfx on throw
@@ -73,7 +78,8 @@ public class RangeEnemy : EnemyAI {
         loadedProjectile.transform.rotation = Quaternion.LookRotation((playerTransform.position - loadedProjectile.transform.position).normalized);
         loadedProjectile.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         loadedProjectile.GetComponent<Rigidbody>().AddForce(loadedProjectile.transform.forward * projectileForce, ForceMode.Impulse);
-        loadedProjectile.GetComponent<EnemyProjectile>().damage = basicAttackDamage;
+        EnemyProjectile enemyProjectile = loadedProjectile.AddComponent<EnemyProjectile>();
+        enemyProjectile.damage = basicAttackDamage;
         loadedProjectile = null;
         PlayRandomClip(missile_travel_sfx, missileAudioSource);
 

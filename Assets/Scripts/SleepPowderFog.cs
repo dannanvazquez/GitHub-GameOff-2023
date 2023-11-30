@@ -35,7 +35,7 @@ public class SleepPowderFog : MonoBehaviour {
     private bool hasFallenAsleep;
 
     private void OnTriggerStay(Collider other) {
-        if (hasFallenAsleep || !other.CompareTag("Player")) return;
+        if (hasFallenAsleep || !other.CompareTag("Player") || !other.transform.parent) return;
         AudioSource_player_sleepy.PlayOneShot(player_in_zone_sfx,volume2);
         timeInside += Time.deltaTime;       
         if (timeInside >= timeTillSleep) {

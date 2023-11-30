@@ -58,6 +58,7 @@ MonoBehaviour:
   arrow_landing_sfx:
   - {fileID: 8300000, guid: 490b00519529b624cab89e6e1da2fc93, type: 3}
   AudioSource_arrow: {fileID: 3419318392622942869}
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!54 &2227990704930728498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -247,6 +248,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5225081584936131521}
     m_Modifications:
+    - target: {fileID: 3010144183277426014, guid: 79d586d60af334b468e3f972931dd8d8,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.19215687
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010144184541123666, guid: 79d586d60af334b468e3f972931dd8d8,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7081618673690629195, guid: 79d586d60af334b468e3f972931dd8d8,
         type: 3}
       propertyPath: m_LocalPosition.x

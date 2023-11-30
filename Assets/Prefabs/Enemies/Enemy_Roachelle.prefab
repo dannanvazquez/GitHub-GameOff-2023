@@ -3273,7 +3273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particles: {fileID: 3826601217059440828}
-  fireDamage: 1
+  fireDamage: 1.5
   fireInterval: 3
   fireTicksAmount: 10
   AudioSource_burning: {fileID: 2070857193306712486}

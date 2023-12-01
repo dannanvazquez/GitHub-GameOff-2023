@@ -118,8 +118,6 @@ public class PlayerHealth : MonoBehaviour
     }
     void Respawn()
     {
-    currentHealth = maxHealth;
-    isInvincible = false;
     StartCoroutine(RespawnWithDelay());
     }
 
@@ -127,8 +125,9 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator RespawnWithDelay()
 {
     // Add a delay before respawning (adjust the duration as needed)
-    yield return new WaitForSeconds(4.5f);
-
+    yield return new WaitForSeconds(3f);
+    currentHealth = maxHealth;
+    isInvincible = false;
     GameManager.Instance.RespawnPlayer(gameObject);
     PlayerCombat playerCombat = GetComponent<PlayerCombat>();
     playerCombat.animator.SetBool("IsDead", false);

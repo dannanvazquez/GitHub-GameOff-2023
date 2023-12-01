@@ -896,8 +896,8 @@ MonoBehaviour:
     m_Bits: 64
   animator: {fileID: 142003457065919825}
   sleepParticles: {fileID: 530051087790773683}
-  walkSpeed: 30
-  runSpeed: 46
+  walkSpeed: 28
+  runSpeed: 43
   groundDrag: 5
   jumpForce: 50
   jumpCooldown: 0.25

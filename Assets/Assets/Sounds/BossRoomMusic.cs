@@ -68,20 +68,23 @@ public class RoomMusicController : MonoBehaviour
         }
     }
 
-    void PlayRoomMusic()
+void PlayRoomMusic()
+{
+    // Check if the AudioSource component and AudioClip are set
+    if (audioSource != null && audioSource.clip != null)
     {
-        // Check if the AudioSource component and AudioClip are set
-        if (audioSource != null && audioSource.clip != null)
-        {
-            // Play the audio clip from the beginning
-            audioSource.Play();
-            isPlayerInside = true;
-        }
-        else
-        {
-            Debug.LogError("AudioSource component or AudioClip not set. Please set them in the Unity Editor.");
-        }
+        // Reset volume before playing
+        audioSource.volume = 0.15f;
+
+        // Play the audio clip from the beginning
+        audioSource.Play();
+        isPlayerInside = true;
     }
+    else
+    {
+        Debug.LogError("AudioSource component or AudioClip not set. Please set them in the Unity Editor.");
+    }
+}
 
     void FadeOutRoomMusic(float fadeDuration = 2f)
     {

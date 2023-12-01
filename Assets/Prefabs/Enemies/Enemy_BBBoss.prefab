@@ -1143,14 +1143,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9ec3606dea3c3694aba405b162d232c2, type: 3}
   - {fileID: 8300000, guid: c0cb8f38e00ee4848bbe4ccba94a1559, type: 3}
   bbboss_bigattack_sfx:
-  - {fileID: 8300000, guid: 78c1c4dd7e76e0944aa2ce64e5aca494, type: 3}
-  - {fileID: 8300000, guid: 78c1c4dd7e76e0944aa2ce64e5aca494, type: 3}
+  - {fileID: 8300000, guid: e09d2c13dfeb3f3499267b0e4bf70497, type: 3}
+  - {fileID: 8300000, guid: e09d2c13dfeb3f3499267b0e4bf70497, type: 3}
+  - {fileID: 8300000, guid: e09d2c13dfeb3f3499267b0e4bf70497, type: 3}
   bbboss_throw_voice:
   - {fileID: 8300000, guid: cd9f4caa51819474e822c9e6d6bf9e2d, type: 3}
   - {fileID: 8300000, guid: 08b593f0d4b00bd40b87a1643503deed, type: 3}
   - {fileID: 8300000, guid: 9e9f8fd2a1f735e4692e9be1be48d072, type: 3}
   bbboss_throw_sfx:
   - {fileID: 8300000, guid: d00f0bc2c99aa924aa5d396074ba7fc7, type: 3}
+  - {fileID: 8300000, guid: 4895614360dfbb3408f83b7859af2ad6, type: 3}
+  - {fileID: 8300000, guid: 8e42660d6e92d9341afd9f1948403f14, type: 3}
   grassWalkingLeftFS_sfx:
   - {fileID: 8300000, guid: 28518229f4f17c343b20408ee1041434, type: 3}
   - {fileID: 8300000, guid: e7abc22146c37ef45b401a8037c707c8, type: 3}

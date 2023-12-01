@@ -992,6 +992,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
   bbboss_bigattack_voice:
   - {fileID: 8300000, guid: 4a1db48edf157a249a56ee2629c9a1f2, type: 3}
+  bbboss_bigattack_sfx: []
   bbboss_throw_voice:
   - {fileID: 8300000, guid: 28f7e9c8ef4c9a647a0039ce114ab289, type: 3}
   bbboss_throw_sfx:
@@ -2528,7 +2529,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.1
-  m_Pitch: 1.2
+  m_Pitch: 1.4
   Loop: 0
   Mute: 0
   Spatialize: 0

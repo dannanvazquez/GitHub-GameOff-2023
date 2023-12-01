@@ -28,4 +28,6 @@ public class EnemyAnimationEvents : MonoBehaviour {
             bbMinionEnemy.ToggleSword(toggle);
         }
     }
+
+    public void DeathVisuals() => transform.parent.GetComponent<EnemyHealth>().DeathVisuals();
 }

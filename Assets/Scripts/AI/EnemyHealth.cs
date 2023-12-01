@@ -1,10 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
 using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour {
-    
+
     [Header("References")]
     [SerializeField] private Image healthFillImage;
     [SerializeField] private RectTransform healthRect;
@@ -12,6 +11,7 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private Transform enemyObjectTransform;
     [SerializeField] private Vector3 particleSpawnOffset;  // This spawns particles offset from enemyObjectTransform's position.
     [SerializeField] private GameObject deathParticlePrefab;
+    [SerializeField] private bool isBoss;
 
     private float healthRectWidth;
 
@@ -25,40 +25,37 @@ public class EnemyHealth : MonoBehaviour {
 
     [Header("Sounds")]
     [SerializeField] private AudioSource damage_audioSource;
-        [SerializeField] private AudioSource damage_voice_audioSource;
+    [SerializeField] private AudioSource damage_voice_audioSource;
     [Tooltip("Getting hit")]
     [SerializeField] private AudioClip[] hit_sfx;
     [SerializeField] private AudioClip[] hit_voice;
     [Tooltip("Getting killed")]
     [SerializeField] private AudioClip[] death_sfx;
-    private AudioClip lasthitClip;    
-        private AudioClip lastvoicehitClip;    
+    private AudioClip lasthitClip;
+    private AudioClip lastvoicehitClip;
     private AudioClip lastdeathClip;
 
     [Header("Events")]
     [SerializeField] private UnityEvent onDamage;
+    [SerializeField] private UnityEvent onDeath;
 
     //public string Broken { get; private set; }
-        private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource)
-    {
-            AudioClip clip;
-            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-            audioSource.clip = clip;
-            audioSource.pitch=UnityEngine.Random.Range(.95f, 1.05f);
-            audioSource.Play();
+    private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource) {
+        AudioClip clip;
+        clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        audioSource.clip = clip;
+        audioSource.pitch=UnityEngine.Random.Range(.95f, 1.05f);
+        audioSource.Play();
     }
     // SOUNDS //
-    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
-    {
-        if (clips == null || clips.Length == 0 || audioSource == null)
-        {
+    private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource) {
+        if (clips == null || clips.Length == 0 || audioSource == null) {
             Debug.LogError("AudioClip array or AudioSource is null or empty.");
             return;
         }
 
         AudioClip clip;
-        do
-        {
+        do {
             clip = clips[UnityEngine.Random.Range(0, clips.Length)];
         } while (clip == lastClip);
 
@@ -66,17 +63,14 @@ public class EnemyHealth : MonoBehaviour {
         audioSource.clip = clip;
         audioSource.Play();
     }
-    int RandomExcept(int except, int max)
-    {
-        if (max <= 0)
-        {
+    int RandomExcept(int except, int max) {
+        if (max <= 0) {
             return -1; // or some default value indicating an error
         }
 
         int result;
-        do
-        {
-        result = UnityEngine.Random.Range(0, max);
+        do {
+            result = UnityEngine.Random.Range(0, max);
         } while (result == except);
         return result;
     }
@@ -89,7 +83,7 @@ public class EnemyHealth : MonoBehaviour {
         if (healthFillImage) healthFillImage.fillAmount = currentHealth / maxHealth;
     }
 
-     public bool TakeDamage(float damage) {
+    public bool TakeDamage(float damage) {
         if (currentHealth <= 0) return true;
 
         currentHealth -= damage;
@@ -107,9 +101,21 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     public void Die() {
-        Instantiate(deathParticlePrefab, enemyObjectTransform.position + particleSpawnOffset, Quaternion.identity);
-        //GetComponent<EnemyAI>().animator.SetTrigger("Death");
         PlayRandomClip(death_sfx, ref lastdeathClip, damage_audioSource);
+
+        if (isBoss && TryGetComponent(out EnemyAI ai)) {
+            ai.animator.SetTrigger("Death");
+            ai.agent.enabled = false;
+            ai.enabled = false;
+        } else {
+            DeathVisuals();
+        }
+
+    }
+
+    public void DeathVisuals() {
+        onDeath?.Invoke();
+        Instantiate(deathParticlePrefab, enemyObjectTransform.position + particleSpawnOffset, Quaternion.identity);
         Destroy(this.gameObject);
     }
 

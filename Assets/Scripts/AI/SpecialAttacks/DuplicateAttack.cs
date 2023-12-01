@@ -14,7 +14,8 @@ public class DuplicateAttack : SpecialAttackBase {
     [SerializeField] private float duplicateAmount;
     [Tooltip("The percentage of HP the duplicated enemy spawns with.")]
     [SerializeField, Range(0, 1)] private float initialHealth;
-
+    // Particles
+    [SerializeField] private GameObject duplicateParticlesPrefab;
     private void Awake() {
         ai = GetComponent<EnemyAI>();
     }
@@ -36,6 +37,7 @@ public class DuplicateAttack : SpecialAttackBase {
         direction.z = transform.rotation.z;
         GameObject duplicatedEnemy = Instantiate(enemyPrefab, RandomPoint(), direction);
 
+        Instantiate(duplicateParticlesPrefab, duplicatedEnemy.transform.position, Quaternion.identity);
         if (duplicatedEnemy.TryGetComponent(out EnemyHealth health)) {
             health.TakeDamage(health.maxHealth * (1 - initialHealth));
         }

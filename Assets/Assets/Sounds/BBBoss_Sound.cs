@@ -15,6 +15,8 @@ public class bbboss_Sound : MonoBehaviour
     [SerializeField] private AudioClip[] bbboss_hit_voice;
     [SerializeField] private AudioClip[] bbboss_hit_sfx;
     [SerializeField] private AudioClip[] bbboss_bigattack_voice;
+    
+    [SerializeField] private AudioClip[] bbboss_bigattack_sfx;
     [SerializeField] private AudioClip[] bbboss_throw_voice;
     [SerializeField] private AudioClip[] bbboss_throw_sfx;
     [Header("Footsteps")] 
@@ -143,6 +145,7 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
     public void BigAttack()
     {
         PlayRandomClipNoLast(bbboss_bigattack_voice, AudioSource_Voice);
+        PlayRandomClipNoLast(bbboss_bigattack_sfx, AudioSource_SFX);
     }
 
 void Update(){

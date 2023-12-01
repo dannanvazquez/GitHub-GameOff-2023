@@ -2526,7 +2526,7 @@ GameObject:
   - component: {fileID: 133183765526979850}
   - component: {fileID: 650642285248273171}
   - component: {fileID: 6060364710774994314}
-  - component: {fileID: 1939327531422265756}
+  - component: {fileID: 4490601526168749235}
   m_Layer: 7
   m_Name: BreakableBox_Prefab
   m_TagString: Untagged
@@ -2626,8 +2626,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!136 &1939327531422265756
-CapsuleCollider:
+--- !u!65 &4490601526168749235
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2641,14 +2641,12 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.95043945
-  m_Height: 1.9008789
-  m_Direction: 1
-  m_Center: {x: -0.012207031, y: 0.7972326, z: 0}
+  serializedVersion: 3
+  m_Size: {x: 2.296777, y: 1.800472, z: 2.398798}
+  m_Center: {x: 1.0749738e-23, y: 0.7880318, z: -0.021896362}
 --- !u!1 &2227269620868454268
 GameObject:
   m_ObjectHideFlags: 0

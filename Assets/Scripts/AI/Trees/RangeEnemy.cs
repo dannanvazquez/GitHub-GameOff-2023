@@ -16,10 +16,11 @@ public class RangeEnemy : EnemyAI {
 
     [Header("Sounds")]
     [SerializeField] private AudioSource AudioSource_missile;
+    [SerializeField] private AudioSource AudioSource_voice;
     [SerializeField] private AudioClip[] missile_charge_sfx;
     //[SerializeField] private AudioClip[] missile_shoot_sfx;    
     [SerializeField] private AudioClip[] missile_travel_sfx;
-
+    [SerializeField] private AudioClip[] missile_travel_voice;
     // --AUDIO-- // 
     private void PlayRandomClip(AudioClip[] clips, AudioSource audioSource) {
         if (clips.Length > 0) {
@@ -82,6 +83,7 @@ public class RangeEnemy : EnemyAI {
         enemyProjectile.damage = basicAttackDamage;
         loadedProjectile = null;
         PlayRandomClip(missile_travel_sfx, missileAudioSource);
+        PlayRandomClip(missile_travel_voice, AudioSource_voice);
 
         while (projectileSpawnTransform.childCount > 0) {
             DestroyImmediate(transform.GetChild(0).gameObject);

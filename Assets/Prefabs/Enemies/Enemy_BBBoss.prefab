@@ -594,8 +594,8 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
-  m_Pitch: 0.4
+  m_Volume: 0.56
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -972,8 +972,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bbboss_attack_voice:
-  - {fileID: 8300000, guid: f3624d21da2e263428fbd79d37b6beb3, type: 3}
-  - {fileID: 8300000, guid: 28f7e9c8ef4c9a647a0039ce114ab289, type: 3}
+  - {fileID: 8300000, guid: 57fb5f3accadf574ba2f522f9dc0005d, type: 3}
+  - {fileID: 8300000, guid: 921b5f775dee5e045b461e98a54671b5, type: 3}
+  - {fileID: 8300000, guid: ed2d7c0d9e6a5624e97d795486dde986, type: 3}
   bbboss_attack_sfx:
   - {fileID: 8300000, guid: c4040bbd4c229b446bd912b1e426b721, type: 3}
   - {fileID: 8300000, guid: 6bc417c92fbe5784c8d1aa3f96546e8b, type: 3}
@@ -991,9 +992,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99a94238cb7345e4cab8c14f08eabd9d, type: 3}
   - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
   bbboss_bigattack_voice:
-  - {fileID: 8300000, guid: 4a1db48edf157a249a56ee2629c9a1f2, type: 3}
+  - {fileID: 8300000, guid: 6c729b698e58bf1479883a1da30484ac, type: 3}
+  - {fileID: 8300000, guid: 9ec3606dea3c3694aba405b162d232c2, type: 3}
+  - {fileID: 8300000, guid: c0cb8f38e00ee4848bbe4ccba94a1559, type: 3}
   bbboss_throw_voice:
-  - {fileID: 8300000, guid: 28f7e9c8ef4c9a647a0039ce114ab289, type: 3}
+  - {fileID: 8300000, guid: cd9f4caa51819474e822c9e6d6bf9e2d, type: 3}
+  - {fileID: 8300000, guid: 08b593f0d4b00bd40b87a1643503deed, type: 3}
+  - {fileID: 8300000, guid: 9e9f8fd2a1f735e4692e9be1be48d072, type: 3}
   bbboss_throw_sfx:
   - {fileID: 8300000, guid: d00f0bc2c99aa924aa5d396074ba7fc7, type: 3}
   grassWalkingLeftFS_sfx:
@@ -1954,11 +1959,17 @@ MonoBehaviour:
   minimumScalePercentage: 0.75
   currentHealth: 0
   damage_audioSource: {fileID: 4419944389807120804}
+  damage_voice_audioSource: {fileID: 0}
   hit_sfx:
   - {fileID: 8300000, guid: 387dd56349c471045896c0aef0ceca5b, type: 3}
   - {fileID: 8300000, guid: 9abe3cdd8dc83f74c9e7fb4d62632726, type: 3}
   - {fileID: 8300000, guid: 99a94238cb7345e4cab8c14f08eabd9d, type: 3}
   - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
+  hit_voice:
+  - {fileID: 8300000, guid: 080f6379ee1abb247bc9d03bfeb66f06, type: 3}
+  - {fileID: 8300000, guid: db8a5d3251a632945b12a8527431571a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   death_sfx:
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
@@ -1981,7 +1992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 8636689029997972749}
   fireDamage: 1
-  fireInterval: 3
+  fireInterval: 1
   fireTicksAmount: 10
   AudioSource_burning: {fileID: 1003306372328382665}
   intro_sfx: {fileID: 8300000, guid: 25a6866bb53b8f74399f00c885567afc, type: 3}

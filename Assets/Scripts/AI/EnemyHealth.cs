@@ -25,11 +25,14 @@ public class EnemyHealth : MonoBehaviour {
 
     [Header("Sounds")]
     [SerializeField] private AudioSource damage_audioSource;
+        [SerializeField] private AudioSource damage_voice_audioSource;
     [Tooltip("Getting hit")]
     [SerializeField] private AudioClip[] hit_sfx;
+    [SerializeField] private AudioClip[] hit_voice;
     [Tooltip("Getting killed")]
     [SerializeField] private AudioClip[] death_sfx;
     private AudioClip lasthitClip;    
+        private AudioClip lastvoicehitClip;    
     private AudioClip lastdeathClip;
 
     [Header("Events")]
@@ -40,18 +43,21 @@ public class EnemyHealth : MonoBehaviour {
     // SOUNDS //
     private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
     {
-        if (clips.Length > 0)
+        if (clips == null || clips.Length == 0 || audioSource == null)
         {
-            AudioClip clip;
-            do
-            {
-                clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-            } while (clip == lastClip);
-
-            lastClip = clip;
-            audioSource.clip = clip;
-            audioSource.Play();
+            Debug.LogError("AudioClip array or AudioSource is null or empty.");
+            return;
         }
+
+        AudioClip clip;
+        do
+        {
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        } while (clip == lastClip);
+
+        lastClip = clip;
+        audioSource.clip = clip;
+        audioSource.Play();
     }
     int RandomExcept(int except, int max)
     {
@@ -86,7 +92,8 @@ public class EnemyHealth : MonoBehaviour {
             Die();
             return true;
         }
-        PlayRandomClip(hit_sfx, ref lasthitClip, damage_audioSource);
+        PlayRandomClip(hit_sfx, ref lasthitClip, damage_voice_audioSource);
+        PlayRandomClip(hit_voice, ref lastvoicehitClip, damage_audioSource);
         damage_audioSource.volume = UnityEngine.Random.Range(.19f, .28f);
         damage_audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
         return false;

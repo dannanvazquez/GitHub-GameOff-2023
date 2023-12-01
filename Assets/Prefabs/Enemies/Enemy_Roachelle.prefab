@@ -3247,11 +3247,14 @@ MonoBehaviour:
   minimumScalePercentage: 0.75
   currentHealth: 0
   damage_audioSource: {fileID: 2966525557260405263}
+  damage_voice_audioSource: {fileID: 479459071155932732}
   hit_sfx:
   - {fileID: 8300000, guid: 387dd56349c471045896c0aef0ceca5b, type: 3}
   - {fileID: 8300000, guid: 9abe3cdd8dc83f74c9e7fb4d62632726, type: 3}
   - {fileID: 8300000, guid: 99a94238cb7345e4cab8c14f08eabd9d, type: 3}
   - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
+  hit_voice:
+  - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
   death_sfx:
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}

@@ -7,6 +7,7 @@ public class RoomMusicController : MonoBehaviour
 
     // Reference to the boss GameObject
     public GameObject bossObject;
+    public GameObject healthUI;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class RoomMusicController : MonoBehaviour
             {
                 // Play the room entrance music from the beginning
                 PlayRoomMusic();
+                healthUI.SetActive(true);
             }
         }
     }
@@ -46,6 +48,7 @@ public class RoomMusicController : MonoBehaviour
         {
             // Stop the music if the player exits the room
             FadeOutRoomMusic();
+            healthUI.SetActive(false);
         }
     }
 

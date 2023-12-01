@@ -22,6 +22,7 @@ public class LevelLoader : MonoBehaviour
 
     IEnumerator TransitionToScene(string sceneName)
     {
+        Time.timeScale = 1;
         if (transitionAnimator != null)
         {
             transitionAnimator.SetTrigger("Start");

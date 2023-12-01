@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
 
         // Pause or resume the game time based on the menu's visibility
         Time.timeScale = isMenuActive ? 0 : 1;
+        Cursor.lockState = isMenuActive ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isMenuActive ? true : false;
 
         // Pause or resume the game time based on the menu's visibility
         Time.timeScale = (pauseMenu.activeSelf) ? 0 : 1;

@@ -9,6 +9,9 @@ public class RoomMusicController : MonoBehaviour
     public GameObject bossObject;
     public GameObject healthUI;
 
+    public GameObject activateObject;
+    public GameObject deactivateObject1;
+    public GameObject deactivateObject2;
     void Start()
     {
         // Get the AudioSource component attached to the GameObject
@@ -59,6 +62,8 @@ public class RoomMusicController : MonoBehaviour
         {
             // Stop the music if the boss is destroyed
             FadeOutRoomMusic();
+            ActivateDeactivateObjects();
+            healthUI.SetActive(false);
         }
     }
 
@@ -85,6 +90,7 @@ public class RoomMusicController : MonoBehaviour
             // StartCoroutine is used to start a coroutine method
             StartCoroutine(FadeOutCoroutine(fadeDuration));
             isPlayerInside = false;
+
         }
     }
 
@@ -105,4 +111,41 @@ public class RoomMusicController : MonoBehaviour
         // Stop the music
         audioSource.Stop();
     }
+
+void ActivateDeactivateObjects()
+{
+    Debug.Log("ActivateDeactivateObjects method called.");
+
+    // Activate the specified game object
+    if (activateObject != null)
+    {
+        Debug.Log("Activating: " + activateObject.name);
+        activateObject.SetActive(true);
+    }
+    else
+    {
+        Debug.LogError("Activate GameObject not set. Please assign the Activate GameObject in the Unity Editor.");
+    }
+
+    // Deactivate the specified game objects
+    if (deactivateObject1 != null)
+    {
+        Debug.Log("Deactivating: " + deactivateObject1.name);
+        deactivateObject1.SetActive(false);
+    }
+    else
+    {
+        Debug.LogError("DeactivateObject1 not set. Please assign DeactivateObject1 in the Unity Editor.");
+    }
+
+    if (deactivateObject2 != null)
+    {
+        Debug.Log("Deactivating: " + deactivateObject2.name);
+        deactivateObject2.SetActive(false);
+    }
+    else
+    {
+        Debug.LogError("DeactivateObject2 not set. Please assign DeactivateObject2 in the Unity Editor.");
+    }
+}
 }

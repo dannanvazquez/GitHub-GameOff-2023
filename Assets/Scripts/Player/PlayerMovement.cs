@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform playerObject;
     [SerializeField] private float playerHeight;
     [SerializeField] private LayerMask groundMask;
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     [SerializeField] private ParticleSystem sleepParticles;
 
     // Other script references

@@ -30,7 +30,9 @@ public class Boostshroom : MonoBehaviour
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                 rb.AddForce(new Vector3(0, yForce * 1000, 0));
+                PlayerInventoryManager.Instance.GetComponent<PlayerMovement>().animator.SetTrigger("Jump");
 
                 // Play the "AnimMushroomActivate" animation
                 if (animator != null)

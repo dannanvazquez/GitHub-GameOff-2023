@@ -43,6 +43,7 @@ public class SleepPowderAttack : SpecialAttackBase {
         sleepPowder.transform.rotation = Quaternion.LookRotation((ai.playerTransform.position - sleepPowder.transform.position).normalized);
         sleepPowder.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         sleepPowder.GetComponent<Rigidbody>().AddForce(sleepPowder.transform.forward * throwForce, ForceMode.Impulse);
+        sleepPowder.GetComponent<BerryBomb>().enabled = true;
         sleepPowder = null;
         sleepattack_audioSource.PlayOneShot(throw_sleep_powder_sfx);
     }

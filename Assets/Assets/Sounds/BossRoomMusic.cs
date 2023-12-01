@@ -12,6 +12,7 @@ public class RoomMusicController : MonoBehaviour
     public GameObject activateObject;
     public GameObject deactivateObject1;
     public GameObject deactivateObject2;
+        public GameObject deactivateObject3;
     void Start()
     {
         // Get the AudioSource component attached to the GameObject
@@ -115,7 +116,7 @@ public class RoomMusicController : MonoBehaviour
 void ActivateDeactivateObjects()
 {
     Debug.Log("ActivateDeactivateObjects method called.");
-
+    deactivateObject3.SetActive(false);
     // Activate the specified game object
     if (activateObject != null)
     {

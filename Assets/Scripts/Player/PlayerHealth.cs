@@ -118,15 +118,24 @@ public class PlayerHealth : MonoBehaviour
     }
     void Respawn()
     {
-        currentHealth = maxHealth;
-        isInvincible = false;
-        GameManager.Instance.RespawnPlayer(gameObject);
-        PlayerCombat playerCombat = GetComponent<PlayerCombat>();
-        playerCombat.animator.SetBool("IsDead", false);
-        playerCombat.enabled = true;
-        GetComponent<PlayerMovement>().enabled = true;
-        playerCamera.enabled = true;
+    currentHealth = maxHealth;
+    isInvincible = false;
+    StartCoroutine(RespawnWithDelay());
     }
+
+
+    private IEnumerator RespawnWithDelay()
+{
+    // Add a delay before respawning (adjust the duration as needed)
+    yield return new WaitForSeconds(4.5f);
+
+    GameManager.Instance.RespawnPlayer(gameObject);
+    PlayerCombat playerCombat = GetComponent<PlayerCombat>();
+    playerCombat.animator.SetBool("IsDead", false);
+    playerCombat.enabled = true;
+    GetComponent<PlayerMovement>().enabled = true;
+    playerCamera.enabled = true;
+}
     void LateUpdate()
     {
         // Update health bar in LateUpdate to ensure proper synchronization

@@ -1805,7 +1805,7 @@ GameObject:
   - component: {fileID: 5499263649230587652}
   m_Layer: 7
   m_Name: Enemy_BBBoss
-  m_TagString: Enemy
+  m_TagString: BossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1846,10 +1846,10 @@ MonoBehaviour:
   animator: {fileID: 77018329103100189}
   playerTransform: {fileID: 0}
   basicAttackParticles: {fileID: 8636689029997972749}
-  chasingRange: 75
+  chasingRange: 200
   minimumChaseRange: 2.5
-  basicAttackRange: 5
-  basicAttackCooldown: 1.5
+  basicAttackRange: 4
+  basicAttackCooldown: 2
   basicAttackDamage: 10
   agent: {fileID: 0}
   health: {fileID: 0}
@@ -1861,7 +1861,7 @@ MonoBehaviour:
   mediumRangeAttack: {fileID: 8737519608260453036}
   farRangeAttack: {fileID: 2305481942898636104}
   antiRangeShieldAttack: {fileID: 2901495149282812029}
-  meleeDistance: 6
+  meleeDistance: 5
 --- !u!114 &8737519608260453036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,14 +1942,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d223c587f2303459342b4bfca524bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthFillImage: {fileID: 5158862127236245788}
-  healthRect: {fileID: 2681583271457379925}
+  healthFillImage: {fileID: 0}
+  healthRect: {fileID: 0}
   hitParticlesPrefab: {fileID: 1883610838541854, guid: aa72280b4bb67cb468b0ffc37bcfc9c0,
     type: 3}
   enemyObjectTransform: {fileID: 5321312534169698059}
   particleSpawnOffset: {x: 0, y: 1.5, z: 0}
   deathParticlePrefab: {fileID: 119968, guid: e73000b12fb76244cbffd6abbf8bb6e4, type: 3}
-  maxHealth: 1000
+  maxHealth: 780
   damageVisualsInterval: 0.2
   minimumScalePercentage: 0.75
   currentHealth: 0
@@ -2025,7 +2025,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 23
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 360
@@ -2574,7 +2574,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 90
+  MaxDistance: 100
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -2627,7 +2627,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.98
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9623b78aef060445962ff636e636ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   arrow_sfx:
   - {fileID: 8300000, guid: 05af51441e4ff814789975774408270e, type: 3}
   - {fileID: 8300000, guid: 0033588cb7cc45c4e97f2703ad0e361a, type: 3}

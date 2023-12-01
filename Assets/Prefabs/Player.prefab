@@ -615,7 +615,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 84
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -925,7 +925,7 @@ MonoBehaviour:
   playerCamera: {fileID: 0}
   slashParticles: {fileID: 2439039051049603047}
   arrowForce: 250
-  meleeDamage: 14
+  meleeDamage: 16
   shootCooldown: 1
   meleeCooldown: 0.85
   isAsleep: 0
@@ -2241,7 +2241,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 122
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -2839,7 +2839,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 102
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

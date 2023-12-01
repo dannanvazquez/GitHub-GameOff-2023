@@ -456,7 +456,7 @@ MonoBehaviour:
     type: 3}
   uiLootingPrefab: {fileID: 5485593646836419072, guid: 3c7c699310376c34eb50418eba18bc6f,
     type: 3}
-  speedBoostAmount: 2
+  speedBoostAmount: 1.3
 --- !u!95 &6579654453978721036
 Animator:
   serializedVersion: 5

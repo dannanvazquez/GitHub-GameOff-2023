@@ -32,4 +32,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = (pauseMenu.activeSelf) ? 0 : 1;
         myAudioMixer.SetFloat("MUFFLED_SOUND", isMenuActive ? muffled : not_muffled);
     }
+
+    public void Not_Muffled(){
+        myAudioMixer.SetFloat("MUFFLED_SOUND", not_muffled);
+    }
 }

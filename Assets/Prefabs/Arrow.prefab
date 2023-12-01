@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6299840620cce418a82a0b1065069c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 15
   arrow_sfx:
   - {fileID: 8300000, guid: 9aa721713aaf21a408b24f0cc3bcb8a5, type: 3}
   - {fileID: 8300000, guid: f68d72ceab7f21a4ba0a0ba6f3f82c0a, type: 3}
@@ -58,6 +58,7 @@ MonoBehaviour:
   arrow_landing_sfx:
   - {fileID: 8300000, guid: ae81b982d579af045a0b7638db4f9d5f, type: 3}
   AudioSource_arrow: {fileID: 1783575463014420578}
+  hitPos: {x: 0, y: 0, z: 0}
 --- !u!54 &8230769278181647267
 Rigidbody:
   m_ObjectHideFlags: 0

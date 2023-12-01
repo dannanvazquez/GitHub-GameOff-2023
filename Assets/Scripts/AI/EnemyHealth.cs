@@ -39,7 +39,14 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private UnityEvent onDamage;
 
     //public string Broken { get; private set; }
-
+        private void PlayRandomClipNoLast(AudioClip[] clips, AudioSource audioSource)
+    {
+            AudioClip clip;
+            clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            audioSource.clip = clip;
+            audioSource.pitch=UnityEngine.Random.Range(.95f, 1.05f);
+            audioSource.Play();
+    }
     // SOUNDS //
     private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSource audioSource)
     {
@@ -92,8 +99,8 @@ public class EnemyHealth : MonoBehaviour {
             Die();
             return true;
         }
-        PlayRandomClip(hit_sfx, ref lasthitClip, damage_voice_audioSource);
-        PlayRandomClip(hit_voice, ref lastvoicehitClip, damage_audioSource);
+        PlayRandomClipNoLast(hit_sfx, damage_voice_audioSource);
+        PlayRandomClipNoLast(hit_voice, damage_audioSource);
         damage_audioSource.volume = UnityEngine.Random.Range(.19f, .28f);
         damage_audioSource.pitch = UnityEngine.Random.Range(.95f, 1.05f);
         return false;

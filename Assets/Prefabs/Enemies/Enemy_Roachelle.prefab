@@ -596,7 +596,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 21
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 35
@@ -1007,7 +1007,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 84
   DopplerLevel: 0.5
   MinDistance: 10
   MaxDistance: 100
@@ -1851,7 +1851,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 120
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 90
@@ -2190,7 +2190,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 58
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 90
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialAttackRange: 25
   specialAttackCooldown: 15
-  specialAttackDamage: 20
+  specialAttackDamage: 10
   specialAttackChancePerc: 1
   breadSpawnPointTransforms:
   - {fileID: 8769684027155264557}
@@ -3255,6 +3255,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b1b0468304058ff4494d33ddf39e3cb1, type: 3}
   hit_voice:
   - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
+  - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
+  - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
+  - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
   death_sfx:
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
   - {fileID: 8300000, guid: 321c568df91ebe54c9bbba9e802e888f, type: 3}
@@ -3277,7 +3280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 3826601217059440828}
   fireDamage: 1.5
-  fireInterval: 3
+  fireInterval: 1
   fireTicksAmount: 10
   AudioSource_burning: {fileID: 2070857193306712486}
   intro_sfx: {fileID: 8300000, guid: 25a6866bb53b8f74399f00c885567afc, type: 3}
@@ -3398,8 +3401,7 @@ MonoBehaviour:
   roachelle_death_voice:
   - {fileID: 8300000, guid: 6f14e1091ba7d97419e4c07340a8232c, type: 3}
   roachelle_death_sfx: []
-  roachelle_hit_voice:
-  - {fileID: 8300000, guid: 6a1592c0ce8d15747a58e97538d57678, type: 3}
+  roachelle_hit_voice: []
   roachelle_hit_sfx: []
   roachelle_bigattack_voice:
   - {fileID: 8300000, guid: 4a1db48edf157a249a56ee2629c9a1f2, type: 3}

@@ -42,7 +42,7 @@ public class PickupObjectDMGBooster : MonoBehaviour
         Instantiate(pickupParticlesPrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
-        playerCombat.meleeDamage += 5; // Stats change
+        playerCombat.meleeDamage += 2; // Stats change
         Debug.Log("New MeleeDamage: " + playerCombat.meleeDamage);
 
         audiosource_pickup.Play();

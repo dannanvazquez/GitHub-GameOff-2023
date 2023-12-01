@@ -74,7 +74,6 @@ private void PlayRandomClip(AudioClip[] clips, ref AudioClip lastClip, AudioSour
         }
     }
 }
-
 private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
 {
     if (clips.Length == 1)
@@ -83,25 +82,24 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
         return clips[0];
     }
 
-    int attemptCount = 0;
-    int maxAttempts = clips.Length * 2; // Adjust the maximum attempts as needed
-
     List<AudioClip> availableClips = new List<AudioClip>(clips);
     availableClips.Remove(lastClip);
 
     if (availableClips.Count == 0)
     {
-        // If all clips have been played, reset the lastClip and use all clips again
-        lastClip = null;
-        availableClips = new List<AudioClip>(clips);
+        // If all clips have been played, return the lastClip itself
+        return lastClip;
     }
 
-    AudioClip clip;
-    do
+    int attemptCount = 0;
+    int maxAttempts = clips.Length * 2; // Adjust the maximum attempts as needed
+
+    AudioClip clip = null;
+    while ((clip == null || clip == lastClip) && attemptCount < maxAttempts)
     {
         clip = availableClips[UnityEngine.Random.Range(0, availableClips.Count)];
         attemptCount++;
-    } while (clip == lastClip && attemptCount < maxAttempts);
+    }
 
     // If the loop exceeds the maximum attempts, return null
     return (attemptCount >= maxAttempts) ? null : clip;
@@ -130,7 +128,7 @@ private AudioClip GetRandomClip(AudioClip[] clips, AudioClip lastClip)
 
     public void PlayHit()
     {
-        PlayRandomClip(roachelle_hit_voice, ref lastHitVoiceClip, AudioSource_Voice);
+        PlayRandomClipNoLast(roachelle_hit_voice,AudioSource_Voice);
         PlayRandomClip(roachelle_hit_sfx, ref lastHitSFXClip, AudioSource_SFX);
     }
 

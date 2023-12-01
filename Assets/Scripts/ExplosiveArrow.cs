@@ -29,7 +29,7 @@ public class ExplosiveArrow : BasicArrow {
 
             if (enemy.TryGetComponent(out EnemyAI ai)) {
                 Vector3 direction = (enemy.transform.position - transform.position).normalized;
-                direction.y = explosionKnockbackForce;
+                direction.y = explosionKnockbackForce < 0 ? 0 : explosionKnockbackForce;
                 ai.KnockbackEnemy(efficency * explosionKnockbackForce * direction);
             }
 

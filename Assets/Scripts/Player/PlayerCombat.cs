@@ -91,7 +91,8 @@ public class PlayerCombat : MonoBehaviour {
 
         animator.SetTrigger("Melee");
 
-        foreach (var enemy in enemiesHit) {
+        Collider[] currentEnemiesHit = enemiesHit.ToArray();
+        foreach (var enemy in currentEnemiesHit) {
             DealMeleeDamage(enemy);
         }
 
@@ -109,16 +110,14 @@ public class PlayerCombat : MonoBehaviour {
     }
 
     private void DealMeleeDamage(Collider collider) {
-        // TODO: Remove collider when a melee hit kills the enemy so that we don't need this check.
-        if (collider == null) {
-            enemiesHit.Remove(collider);
-            return;
-        }
-        if (collider.TryGetComponent(out EnemyHealth enemyHealth)) {
-            enemyHealth.TakeDamage(meleeDamage);
+        // TODO: Figure out why a null collider is being passed in the first place
+        if (collider != null && collider.TryGetComponent(out EnemyHealth enemyHealth)) {
+            bool isDead = enemyHealth.TakeDamage(meleeDamage);
             if (collider.TryGetComponent(out AntiRangeShieldAttack antiRangeShieldAttack) && antiRangeShieldAttack.shieldActive) {
                 antiRangeShieldAttack.DisableShield();
             }
+
+            if (isDead) enemiesHit.Remove(collider);
         }
     }
 
